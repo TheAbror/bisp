@@ -1,0 +1,14 @@
+{ "columns":9,
+ "image":"room_signs_new.png",
+ "imageheight":256,
+ "imagewidth":216,
+ "margin":0,
+ "name":"room_signs_new",
+ "spacing":0,
+ "tilecount":90,
+ "tiledversion":"1.9.1",
+ "tileheight":24,
+ "tilewidth":24,
+ "type":"tileset",
+ "version":"1.8"
+}

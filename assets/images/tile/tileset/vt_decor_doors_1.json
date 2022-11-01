@@ -1,0 +1,14 @@
+{ "columns":24,
+ "image":"vt_decor_doors_1.png",
+ "imageheight":768,
+ "imagewidth":576,
+ "margin":0,
+ "name":"vt_decor_doors_1",
+ "spacing":0,
+ "tilecount":768,
+ "tiledversion":"1.9.1",
+ "tileheight":24,
+ "tilewidth":24,
+ "type":"tileset",
+ "version":"1.8"
+}

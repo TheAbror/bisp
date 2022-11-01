@@ -1,0 +1,14 @@
+{ "columns":10,
+ "image":"custom_trees_1.png",
+ "imageheight":324,
+ "imagewidth":256,
+ "margin":0,
+ "name":"custom_trees_1",
+ "spacing":0,
+ "tilecount":130,
+ "tiledversion":"1.9.1",
+ "tileheight":24,
+ "tilewidth":24,
+ "type":"tileset",
+ "version":"1.8"
+}

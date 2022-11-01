@@ -1,0 +1,14 @@
+{ "columns":18,
+ "image":"custom_floor_tiles.png",
+ "imageheight":336,
+ "imagewidth":432,
+ "margin":0,
+ "name":"custom_floor_tiles",
+ "spacing":0,
+ "tilecount":252,
+ "tiledversion":"1.9.1",
+ "tileheight":24,
+ "tilewidth":24,
+ "type":"tileset",
+ "version":"1.8"
+}

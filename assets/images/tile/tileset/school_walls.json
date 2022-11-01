@@ -1,0 +1,14 @@
+{ "columns":32,
+ "image":"school_walls.png",
+ "imageheight":720,
+ "imagewidth":768,
+ "margin":0,
+ "name":"school_walls",
+ "spacing":0,
+ "tilecount":960,
+ "tiledversion":"1.9.1",
+ "tileheight":24,
+ "tilewidth":24,
+ "type":"tileset",
+ "version":"1.8"
+}

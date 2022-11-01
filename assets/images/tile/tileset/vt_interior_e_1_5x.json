@@ -1,0 +1,14 @@
+{ "columns":40,
+ "image":"vt_interior_e_1_5x.png",
+ "imageheight":960,
+ "imagewidth":960,
+ "margin":0,
+ "name":"vt_interior_e_1_5x",
+ "spacing":0,
+ "tilecount":1600,
+ "tiledversion":"1.9.1",
+ "tileheight":24,
+ "tilewidth":24,
+ "type":"tileset",
+ "version":"1.8"
+}
