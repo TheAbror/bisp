@@ -18,7 +18,7 @@ class InterfaceTopFunctions extends StatelessWidget {
         children: const [
           LeftMenuItems(),
           Spacer(),
-          rightMenuItems(),
+          RightMenuItems(),
         ],
       ),
     );

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../interface/interface_overlay.dart';
 import '../my_profile/my_profile.dart';
 
-bool chatOpenWatch = false;
+bool chatOpenWatch = true;
 
 class WatchPage extends StatefulWidget {
   const WatchPage({super.key});
@@ -36,10 +37,12 @@ class _WatchPageState extends State<WatchPage> {
                         right: chatOpenWatch ? 130.w : 0),
                     decoration: BoxDecoration(
                       color: Colors.cyan,
+                      border: Border.all(color: primaryColor, width: 5),
                       borderRadius: BorderRadius.circular(20),
                       image: const DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage('assets/images/Desktop - 4.jpg')),
+                          image: AssetImage(
+                              '/Users/elbarto/Desktop/eduninjav2/assets/images/cat-7544821.jpg')),
                     ),
                   ),
                 ),
@@ -51,6 +54,7 @@ class _WatchPageState extends State<WatchPage> {
                         EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     decoration: BoxDecoration(
                         color: Colors.amber,
+                        border: Border.all(color: primaryColor, width: 5),
                         borderRadius: BorderRadius.circular(20)),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,3 +1,4 @@
+import 'package:eduninjav2/completed/completed.dart';
 import 'package:eduninjav2/watch/watch_page.dart';
 
 import 'package:flutter/material.dart';
@@ -7,8 +8,8 @@ import '../constants/values/topRight_functions.dart';
 import '../pages/subjects/all_subjects.dart';
 
 // ignore: camel_case_types
-class rightMenuItems extends StatelessWidget {
-  const rightMenuItems({super.key});
+class RightMenuItems extends StatelessWidget {
+  const RightMenuItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,17 @@ class rightMenuItems extends StatelessWidget {
             }),
           ),
           SizedBox(width: 6.w),
-          TopRightFunctions(icon: Icons.group, onTap: () {}),
+          TopRightFunctions(
+              icon: Icons.group,
+              onTap: () {
+                showDialog(
+                  barrierColor: Colors.grey.shade200.withOpacity(0.8),
+                  context: context,
+                  builder: (BuildContext context) {
+                    return const CompletetdPage();
+                  },
+                );
+              }),
           SizedBox(width: 6.w),
           TopRightFunctions(
             icon: Icons.list,

@@ -42,6 +42,7 @@ dependencies:
   dropdown_button2: ^1.2.2
   flutter_screenutil: ^5.5.4
   percent_indicator: ^4.0.1
+  image_picker: ^0.8.6
 
 dev_dependencies:
   flutter_test:

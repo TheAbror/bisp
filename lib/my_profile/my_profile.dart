@@ -1,10 +1,11 @@
+import 'package:eduninjav2/my_profile/my_profile_edit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'my_class.dart';
 import 'my_profile_class.dart';
 import 'my_profile_main.dart';
 
-enum MyProfileItems { profile, classs }
+enum MyProfileItems { profile, classs, edit }
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -57,6 +58,15 @@ class _MyProfileState extends State<MyProfile> {
                             });
                           },
                         ),
+                        MyProfileClass(
+                          icon: Icons.groups,
+                          text: 'Edit',
+                          onTap: () {
+                            setState(() {
+                              item = MyProfileItems.edit;
+                            });
+                          },
+                        ),
                         const Spacer(flex: 2),
                         GestureDetector(
                           onTap: () {
@@ -98,7 +108,7 @@ class _MyProfileState extends State<MyProfile> {
                     child: SingleChildScrollView(
                       child: item == MyProfileItems.profile
                           ? const MyProfileSubjectMain()
-                          : const MyClass(),
+                          : const MyProfileEdit(),
                     ),
                   ),
                 ),
@@ -109,4 +119,17 @@ class _MyProfileState extends State<MyProfile> {
       ),
     );
   }
+
+  // Widget getSelectedContent() {
+  //   switch (item) {
+  //     case MyProfileItems.profile:
+  //       return MyProfileSubjectMain();
+  //     case MyProfileItems.profile:
+  //       return MyClass();
+  //     case MyProfileItems.edit:
+  //       return MyProfileEdit();
+  //     case MyProfileItems.classs:
+
+  //   }
+  // }
 }
