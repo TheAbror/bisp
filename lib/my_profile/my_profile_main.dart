@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:eduninjav2/my_profile/my_profile_class.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
@@ -82,9 +83,9 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
             ),
             //overall performance
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text('Total scores:'),
+                const Text('Coming Level 5'),
                 SizedBox(height: 5.h),
                 LinearPercentIndicator(
                   width: 84.w,
@@ -107,7 +108,6 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
                 ),
               ],
             ),
-            //overal percent ends
             const Spacer(),
             GestureDetector(
               onTap: () {

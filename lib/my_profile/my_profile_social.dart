@@ -11,45 +11,46 @@ class MyProfileSocial extends StatefulWidget {
 class _MyProfileSocialState extends State<MyProfileSocial> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              const MySoicalItem(
-                text: "Friends",
-                icon: Icons.people,
+    return Column(
+      children: [
+        Row(
+          children: [
+            const MySoicalItem(
+              text: "Friends",
+              icon: Icons.people,
+            ),
+            SizedBox(width: 5.w),
+            const MySoicalItem(
+              text: "Friend Request",
+              icon: Icons.people,
+            ),
+            SizedBox(width: 5.w),
+            const MySoicalItem(
+              text: "Search Players",
+              icon: Icons.people,
+            ),
+          ],
+        ),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 9,
+          itemBuilder: (context, i) {
+            return const Card(
+              child: ListTile(
+                leading: CircleAvatar(
+                    radius: 25,
+                    foregroundImage: NetworkImage(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqGH-vLqWoKxeUdO_-j3FfRt_ickuQEG-QCUroW7k&s')),
+                title: Text('Rustam'),
+                subtitle: Text('Here is a second line'),
+                trailing: Icon(Icons.more_vert),
               ),
-              SizedBox(width: 5.w),
-              const MySoicalItem(
-                text: "Friend Request",
-                icon: Icons.people,
-              ),
-              SizedBox(width: 5.w),
-              const MySoicalItem(
-                text: "Search Players",
-                icon: Icons.people,
-              ),
-            ],
-          ),
-          ListView.builder(
-            scrollDirection: Axis.vertical,
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 9,
-            itemBuilder: (context, i) {
-              return const Card(
-                child: ListTile(
-                  leading: FlutterLogo(size: 40.0),
-                  title: Text('Rustam'),
-                  subtitle: Text('Here is a second line'),
-                  trailing: Icon(Icons.more_vert),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
+            );
+          },
+        ),
+      ],
     );
   }
 }

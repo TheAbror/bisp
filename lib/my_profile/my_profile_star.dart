@@ -61,15 +61,6 @@ class _MyProfileState extends State<MyProfile> {
                         ),
                         MyProfileClass(
                           icon: Icons.groups,
-                          text: 'Edit',
-                          onTap: () {
-                            setState(() {
-                              item = MyProfileItems.edit;
-                            });
-                          },
-                        ),
-                        MyProfileClass(
-                          icon: Icons.groups,
                           text: 'Social',
                           onTap: () {
                             setState(() {
