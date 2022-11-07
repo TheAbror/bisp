@@ -32,7 +32,6 @@ class TopRightFunctions extends StatelessWidget {
 
 BoxDecoration decorationTopLeft() {
   return BoxDecoration(
-    // color: const Color.fromARGB(255, 188, 120, 68),
     color: Colors.red.shade800,
     border: Border.all(color: primaryColor, width: 5),
     borderRadius: BorderRadius.circular(10),

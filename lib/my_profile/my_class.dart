@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'my_profile_subject_percentage.dart';
+import 'my_profile_percentage.dart';
 
 class MyClass extends StatefulWidget {
   const MyClass({super.key});

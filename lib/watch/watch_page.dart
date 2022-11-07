@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../interface/interface_overlay.dart';
-import '../my_profile/my_profile.dart';
+import '../my_profile/my_profile_star.dart';
 
 bool chatOpenWatch = true;
 

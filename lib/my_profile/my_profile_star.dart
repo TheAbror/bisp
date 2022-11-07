@@ -1,11 +1,12 @@
+import 'package:eduninjav2/my_profile/my_class.dart';
 import 'package:eduninjav2/my_profile/my_profile_edit.dart';
+import 'package:eduninjav2/my_profile/my_profile_social.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'my_class.dart';
 import 'my_profile_class.dart';
 import 'my_profile_main.dart';
 
-enum MyProfileItems { profile, classs, edit }
+enum MyProfileItems { profile, classs, edit, social }
 
 class MyProfile extends StatefulWidget {
   const MyProfile({super.key});
@@ -67,13 +68,21 @@ class _MyProfileState extends State<MyProfile> {
                             });
                           },
                         ),
-                        const Spacer(flex: 2),
+                        MyProfileClass(
+                          icon: Icons.groups,
+                          text: 'Social',
+                          onTap: () {
+                            setState(() {
+                              item = MyProfileItems.social;
+                            });
+                          },
+                        ),
+                        const Spacer(flex: 1),
                         GestureDetector(
                           onTap: () {
                             Navigator.pop(context);
                           },
                           child: Container(
-                            // margin: EdgeInsets.only(right: 5.w),
                             padding: EdgeInsets.all(1.w),
                             decoration: BoxDecoration(
                               color: Colors.red,
@@ -106,9 +115,10 @@ class _MyProfileState extends State<MyProfile> {
                     padding:
                         EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
                     child: SingleChildScrollView(
-                      child: item == MyProfileItems.profile
-                          ? const MyProfileSubjectMain()
-                          : const MyProfileEdit(),
+                      child: getSelectedContent(),
+                      // child: item == MyProfileItems.profile
+                      //     ? const MyProfileSocial()
+                      //     : const MyProfileEdit(),
                     ),
                   ),
                 ),
@@ -120,16 +130,19 @@ class _MyProfileState extends State<MyProfile> {
     );
   }
 
-  // Widget getSelectedContent() {
-  //   switch (item) {
-  //     case MyProfileItems.profile:
-  //       return MyProfileSubjectMain();
-  //     case MyProfileItems.profile:
-  //       return MyClass();
-  //     case MyProfileItems.edit:
-  //       return MyProfileEdit();
-  //     case MyProfileItems.classs:
-
-  //   }
-  // }
+  getSelectedContent() {
+    switch (item) {
+      case MyProfileItems.profile:
+        return const MyProfileSubjectMain();
+      case MyProfileItems.social:
+        return const MyProfileSocial();
+      case MyProfileItems.edit:
+        return const MyProfileEdit();
+      case MyProfileItems.classs:
+        return const MyClass();
+      default:
+        MyProfileItems.profile;
+    }
+    return item;
+  }
 }

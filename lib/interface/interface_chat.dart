@@ -1,4 +1,4 @@
-import '../../my_profile/my_profile.dart';
+import '../my_profile/my_profile_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,6 +12,8 @@ class ChatWidget extends StatefulWidget {
 }
 
 class _ChatWidgetState extends State<ChatWidget> {
+  get primaryColor => null;
+
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -28,10 +30,10 @@ class _ChatWidgetState extends State<ChatWidget> {
               });
             },
             child: Container(
-              width: chatOpen ? 8.w : 12.w,
-              height: chatOpen ? 55.h : 45.h,
+              width: chatOpen ? 10.w : 15.w,
+              height: chatOpen ? 65.h : 55.h,
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: chatOpen ? Colors.green : Colors.red.shade800,
                 borderRadius: BorderRadius.only(
                   topLeft: chatOpen
                       ? const Radius.circular(13)
@@ -47,8 +49,8 @@ class _ChatWidgetState extends State<ChatWidget> {
                       : const Radius.circular(5),
                 ),
                 border: Border.all(
-                  color: Colors.green.shade900,
-                ),
+                    color: chatOpen ? Colors.green : Colors.red.shade900,
+                    width: 2.w),
               ),
               child: Icon(
                 chatOpen
