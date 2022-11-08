@@ -1,3 +1,4 @@
+import 'package:eduninjav2/watch/study_topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -82,19 +83,29 @@ class AllSubjectSpecificSubject extends StatelessWidget {
           ),
         ),
         SizedBox(height: 1.w),
-        Container(
-          height: 20.w,
-          width: 130.h,
-          decoration: BoxDecoration(
-            color: Colors.amber,
-            border: Border.all(color: primaryColor, width: 3.h),
-            borderRadius: BorderRadius.circular(17),
+        GestureDetector(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return const StudyTopics();
+              },
+            );
+          },
+          child: Container(
+            height: 20.w,
+            width: 130.h,
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              border: Border.all(color: primaryColor, width: 3.h),
+              borderRadius: BorderRadius.circular(17),
+            ),
+            child: const Center(
+                child: Text(
+              'Study Topic',
+              style: TextStyle(color: primaryColor),
+            )),
           ),
-          child: const Center(
-              child: Text(
-            'Study Topic',
-            style: TextStyle(color: primaryColor),
-          )),
         ),
       ],
     );
