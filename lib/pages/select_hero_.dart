@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_final_fields
+// ignore_for_file: prefer_final_fields, library_private_types_in_public_api
 
 import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/interface/interface_overlay.dart';
@@ -10,6 +10,8 @@ import '../game/player/sprite_sheet_hero.dart';
 String _lastNick = '';
 
 class SelectHero extends StatefulWidget {
+  const SelectHero({super.key});
+
   @override
   _SelectHeroState createState() => _SelectHeroState();
 }
@@ -35,28 +37,11 @@ class _SelectHeroState extends State<SelectHero> {
     sprites.add(SpriteSheetHero.hero5);
     sprites.add(SpriteSheetHero.hero6);
     sprites.add(SpriteSheetHero.hero7);
-
-    // _socketManager.listenConnection((_) {
-    //   setState(() {
-    //     statusServer = 'CONNECTED';
-    //   });
-    // });
-    // _socketManager.listenError((_) {
-    //   setState(() {
-    //     statusServer = 'ERROR: $_';
-    //   });
-    // });
-
-    // _socketManager.listen('message', _listen);
-
-    // _socketManager.connect();
-
     super.initState();
   }
 
   @override
   void dispose() {
-    // _socketManager.removeListen('message', _listen);
     super.dispose();
   }
 
@@ -267,6 +252,7 @@ class _SelectHeroState extends State<SelectHero> {
                         width: 50,
                         height: 50,
                         child: ElevatedButton(
+                          // ignore: sort_child_properties_last
                           child: const Center(
                               child: Icon(
                             Icons.chevron_right,

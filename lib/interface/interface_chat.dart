@@ -12,8 +12,6 @@ class ChatWidget extends StatefulWidget {
 }
 
 class _ChatWidgetState extends State<ChatWidget> {
-  get primaryColor => null;
-
   @override
   Widget build(BuildContext context) {
     return Positioned(

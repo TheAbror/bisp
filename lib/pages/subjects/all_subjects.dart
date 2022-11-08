@@ -38,6 +38,8 @@ class _AllSubjectsState extends State<AllSubjects> {
     'Grade 9',
     'Grade 10',
   ];
+
+  bool music = true;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -186,13 +188,11 @@ class _AllSubjectsState extends State<AllSubjects> {
                 child: Row(
                   children: [
                     TopRightFunctions(
-                      icon: Icons.music_note_sharp,
+                      icon: music ? Icons.mic : Icons.mic_off,
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => const LoadingPage()),
-                        // );
+                        setState(() {
+                          music = !music;
+                        });
                       },
                     ),
                     SizedBox(width: 20.h),
