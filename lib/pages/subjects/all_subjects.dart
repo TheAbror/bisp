@@ -2,7 +2,6 @@ import 'package:eduninjav2/constants/values/topRight_functions.dart';
 import 'package:eduninjav2/interface/interface_overlay.dart';
 import 'package:eduninjav2/pages/subjects/all_subjects_specific_subject.dart';
 import 'package:eduninjav2/pages/subjects/all_subjects_settings.dart';
-import 'package:eduninjav2/watch/study_topic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../constants/values/custom_dropdownbutton.dart';

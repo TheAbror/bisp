@@ -23,7 +23,7 @@ void main() async {
       builder: ((context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SelectHero(),
+          home: const SelectHero(),
           theme: ThemeData(
             fontFamily: 'Mali',
             primaryColor: AppColors.primaryColor,

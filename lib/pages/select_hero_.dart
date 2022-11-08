@@ -96,6 +96,7 @@ class _SelectHeroState extends State<SelectHero> {
                               height: 50,
                               width: 150,
                               child: ElevatedButton(
+                                // ignore: sort_child_properties_last
                                 child: const Text(
                                   'ENTER',
                                   style: TextStyle(
@@ -148,12 +149,12 @@ class _SelectHeroState extends State<SelectHero> {
                   child: Center(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        const CircularProgressIndicator(),
-                        const SizedBox(
+                      children: const <Widget>[
+                        CircularProgressIndicator(),
+                        SizedBox(
                           height: 10,
                         ),
-                        const Text("Loading")
+                        Text("Loading")
                       ],
                     ),
                   ),
@@ -211,6 +212,7 @@ class _SelectHeroState extends State<SelectHero> {
                               ),
                             ),
                           ),
+                          // ignore: sort_child_properties_last
                           child: const Center(
                               child: Icon(
                             Icons.chevron_left,
@@ -302,21 +304,21 @@ class _SelectHeroState extends State<SelectHero> {
     }
   }
 
-  void _goGame() {
-    print('Server não conectado.');
+  // void _goGame() {
+  //   print('Server não conectado.');
 
-    // if (_form.currentState?.validate() == true) {
-    //   if (_socketManager.connected) {
-    //     setState(() {
-    //       loading = true;
-    //     });
-    //     _joinGame();
-    //   } else {
-    //     //server ne podklyuchon
-    //     print('Server não conectado.');
-    //   }
-    // }
-  }
+  //   // if (_form.currentState?.validate() == true) {
+  //   //   if (_socketManager.connected) {
+  //   //     setState(() {
+  //   //       loading = true;
+  //   //     });
+  //   //     _joinGame();
+  //   //   } else {
+  //   //     //server ne podklyuchon
+  //   //     print('Server não conectado.');
+  //   //   }
+  //   // }
+  // }
 
   // void _joinGame() {
   //   _lastNick = _textEditingController.text;

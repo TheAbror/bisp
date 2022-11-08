@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../interface/interface_overlay.dart';
 
-class StudyTopics extends StatelessWidget {
+bool continueTo = false;
+
+class StudyTopics extends StatefulWidget {
   const StudyTopics({super.key});
 
+  @override
+  State<StudyTopics> createState() => _StudyTopicsState();
+}
+
+class _StudyTopicsState extends State<StudyTopics> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -52,19 +57,47 @@ class StudyTopics extends StatelessWidget {
                       style: TextStyle(fontSize: 22.sp),
                     ),
                     SizedBox(height: 20.h),
-                    Center(
-                      child: Image.network(
-                          'https://www.authentikusa.com/uploads/images/orig/guide-voyage/usa-map-only.jpg'),
-                    ),
+                    const CircularWhileLoading(
+                        link:
+                            'https://www.authentikusa.com/uploads/images/orig/guide-voyage/usa-map-only.jpg'),
                     SizedBox(height: 40.h),
-                    Center(
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red.shade900),
-                          onPressed: () {},
-                          child: Text('Continue')),
-                    ),
-                    SizedBox(height: 40.h),
+                    if (continueTo == false)
+                      Center(
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                minimumSize: Size(300, 50.h),
+                                // maximumSize: const Size(200, 50),
+                                backgroundColor: Colors.red.shade900),
+                            onPressed: () {
+                              setState(() {
+                                continueTo = !continueTo;
+                              });
+                            },
+                            child: const Text('Continue')),
+                      ),
+                    if (continueTo == true)
+                      Column(
+                        children: [
+                          const Divider(height: 1, color: Colors.black),
+                          SizedBox(height: 40.h),
+                          const CircularWhileLoading(
+                              link:
+                                  'https://www.youramericanflagstore.com/wp-content/uploads/2018/09/products-LIncoln_6.jpg'),
+                          SizedBox(height: 40.h),
+                          Center(
+                            child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    minimumSize: Size(300, 50.h),
+                                    // maximumSize: const Size(200, 50),
+                                    backgroundColor: Colors.red.shade900),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text('Finish')),
+                          ),
+                          SizedBox(height: 40.h),
+                        ],
+                      ),
                   ],
                 ),
               ),
@@ -88,6 +121,36 @@ class StudyTopics extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CircularWhileLoading extends StatelessWidget {
+  const CircularWhileLoading({
+    Key? key,
+    required this.link,
+  }) : super(key: key);
+
+  final String link;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Image.network(
+        link,
+        frameBuilder: ((context, child, frame, wasSynchronouslyLoaded) {
+          return child;
+        }),
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          } else {
+            return CircularPercentIndicator(
+              radius: 20,
+            );
+          }
+        },
       ),
     );
   }

@@ -37,15 +37,20 @@ class _MyProfileSocialState extends State<MyProfileSocial> {
           shrinkWrap: true,
           itemCount: 9,
           itemBuilder: (context, i) {
-            return const Card(
+            return Card(
               child: ListTile(
-                leading: CircleAvatar(
-                    radius: 25,
-                    foregroundImage: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqGH-vLqWoKxeUdO_-j3FfRt_ickuQEG-QCUroW7k&s')),
-                title: Text('Rustam'),
-                subtitle: Text('Here is a second line'),
-                trailing: Icon(Icons.more_vert),
+                leading: FutureBuilder(
+                  future: Future.delayed(const Duration(seconds: 1)),
+                  builder: (c, s) => s.connectionState == ConnectionState.done
+                      ? const CircleAvatar(
+                          radius: 25,
+                          foregroundImage: NetworkImage(
+                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqGH-vLqWoKxeUdO_-j3FfRt_ickuQEG-QCUroW7k&s'))
+                      : const CircularProgressIndicator(),
+                ),
+                title: const Text('Rustam'),
+                subtitle: const Text('Here is a second line'),
+                trailing: const Icon(Icons.more_vert),
               ),
             );
           },

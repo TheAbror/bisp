@@ -12,6 +12,7 @@ class CommandTasks extends StatefulWidget {
 
 class _CommandTasksState extends State<CommandTasks> {
   int taskCount = 1;
+  // ignore: prefer_final_fields
   PageController _pageController = PageController();
   final ScrollController _controller = ScrollController();
 
@@ -40,7 +41,7 @@ class _CommandTasksState extends State<CommandTasks> {
                       child: Column(
                         children: [
                           Text(
-                            GlobalConstants.introMessages[taskCount].toString(),
+                            GlobalConstants.introMessages[0]['text'].toString(),
                             style: TextStyle(fontSize: 22.sp),
                           ),
                           SizedBox(height: 5.h),
@@ -77,33 +78,15 @@ class _CommandTasksState extends State<CommandTasks> {
               Positioned(
                 left: 10.w,
                 top: 25.h,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.w),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: primaryColor, width: 1.w),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    'Mrs.Green',
-                    style: TextStyle(fontSize: 18.sp),
-                  ),
+                child: const TalkingPerson(
+                  text: 'Mrs.Greens',
                 ),
               ),
               Positioned(
                 right: 15.w,
                 top: 25.h,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.w),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    border: Border.all(color: primaryColor, width: 1.w),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Text(
-                    'You',
-                    style: TextStyle(fontSize: 18.sp),
-                  ),
+                child: const TalkingPerson(
+                  text: 'You',
                 ),
               ),
             ],
@@ -131,5 +114,29 @@ class _CommandTasksState extends State<CommandTasks> {
         curve: Curves.decelerate,
       );
     }
+  }
+}
+
+class TalkingPerson extends StatelessWidget {
+  const TalkingPerson({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: primaryColor, width: 1.w),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 18.sp),
+      ),
+    );
   }
 }

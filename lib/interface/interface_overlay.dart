@@ -1,5 +1,4 @@
 import 'package:bonfire/util/game_controller.dart';
-import 'package:eduninjav2/watch/command_tasks.dart';
 import 'package:eduninjav2/interface/interface_chat.dart';
 import 'package:flutter/material.dart';
 import 'interface_talk.dart';

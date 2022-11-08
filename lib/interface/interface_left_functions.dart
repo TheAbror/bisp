@@ -2,8 +2,6 @@ import 'package:eduninjav2/interface/interface_linear_bar.dart';
 import 'package:eduninjav2/interface/interface_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../watch/command_tasks.dart';
 import 'interface_tasks_class.dart';
 
 bool open = false;
