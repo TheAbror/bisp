@@ -125,9 +125,6 @@ class _SelectHeroState extends State<SelectHero> {
                                     MaterialPageRoute(
                                       builder: (context) => const LoadingPage(),
                                     ),
-                                    // MaterialPageRoute(
-                                    //   builder: (context) => const HomePage(),
-                                    // ),
                                   );
                                 }),
                               ),

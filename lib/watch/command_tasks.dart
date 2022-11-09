@@ -11,10 +11,10 @@ class CommandTasks extends StatefulWidget {
 }
 
 class _CommandTasksState extends State<CommandTasks> {
-  int taskCount = 1;
+  int taskCount = 0;
   // ignore: prefer_final_fields
   PageController _pageController = PageController();
-  final ScrollController _controller = ScrollController();
+  // final ScrollController _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +41,16 @@ class _CommandTasksState extends State<CommandTasks> {
                       child: Column(
                         children: [
                           Text(
-                            GlobalConstants.introMessages[0]['text'].toString(),
+                            GlobalConstants.introMessages[taskCount]['text']
+                                .toString(),
                             style: TextStyle(fontSize: 22.sp),
                           ),
-                          SizedBox(height: 5.h),
+                          SizedBox(height: 15.h),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               GestureDetector(
-                                onTap:
-                                    _controller.hasClients ? _previous : null,
+                                onTap: _previous,
                                 child: Row(
                                   children: const [
                                     Icon(Icons.navigate_before),
@@ -58,15 +58,20 @@ class _CommandTasksState extends State<CommandTasks> {
                                   ],
                                 ),
                               ),
-                              GestureDetector(
-                                onTap: _controller.hasClients ? _next : null,
-                                child: Row(
-                                  children: const [
-                                    Text('Next'),
-                                    Icon(Icons.navigate_next),
-                                  ],
-                                ),
-                              ),
+                              taskCount ==
+                                      GlobalConstants.introMessages.length - 1
+                                  ? GestureDetector(
+                                      onTap: (() => Navigator.pop(context)),
+                                      child: Text('Start'))
+                                  : GestureDetector(
+                                      onTap: _next,
+                                      child: Row(
+                                        children: const [
+                                          Text('Next'),
+                                          Icon(Icons.navigate_next),
+                                        ],
+                                      ),
+                                    ),
                             ],
                           ),
                         ],
@@ -97,23 +102,15 @@ class _CommandTasksState extends State<CommandTasks> {
   }
 
   void _next() {
-    if (taskCount < GlobalConstants.introMessages.length - 1) {
-      _pageController.animateToPage(
-        taskCount + 1,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.decelerate,
-      );
-    }
+    setState(() {
+      taskCount++;
+    });
   }
 
   void _previous() {
-    if (taskCount > 0) {
-      _pageController.animateToPage(
-        taskCount - 1,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.decelerate,
-      );
-    }
+    setState(() {
+      taskCount--;
+    });
   }
 }
 
