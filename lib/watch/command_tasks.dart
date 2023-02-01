@@ -1,5 +1,5 @@
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/constants/values/global_constants.dart';
-import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -30,7 +30,7 @@ class _CommandTasksState extends State<CommandTasks> {
                     width: 180.w,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      border: Border.all(color: AppStrings.primaryColor, width: 1.w),
+                      border: Border.all(color: AppColors.primaryColor, width: 1.w),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: IntrinsicHeight(
@@ -116,7 +116,7 @@ class TalkingPerson extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.w),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: AppStrings.primaryColor, width: 1.w),
+        border: Border.all(color: AppColors.primaryColor, width: 1.w),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Text(

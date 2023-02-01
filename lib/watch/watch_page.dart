@@ -1,4 +1,4 @@
-import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/my_profile/view/my_profile_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,14 +28,10 @@ class _WatchPageState extends State<WatchPage> {
                   flex: 4,
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-                    margin: EdgeInsets.only(
-                        top: 10.h,
-                        bottom: 10.h,
-                        // right: chatOpenWatch ? 110.w : 0,
-                        right: chatOpenWatch ? 130.w : 0),
+                    margin: EdgeInsets.only(top: 10.h, bottom: 10.h, right: chatOpenWatch ? 130.w : 0),
                     decoration: BoxDecoration(
                       color: Colors.cyan,
-                      border: Border.all(color: AppStrings.primaryColor, width: 5),
+                      border: Border.all(color: AppColors.primaryColor, width: 5),
                       borderRadius: BorderRadius.circular(20),
                       image:
                           const DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cat-7544821.jpg')),
@@ -48,7 +44,7 @@ class _WatchPageState extends State<WatchPage> {
                     padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     decoration: BoxDecoration(
                         color: Colors.amber,
-                        border: Border.all(color: AppStrings.primaryColor, width: 5),
+                        border: Border.all(color: AppColors.primaryColor, width: 5),
                         borderRadius: BorderRadius.circular(20)),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,

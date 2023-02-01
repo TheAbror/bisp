@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:bonfire/bonfire.dart';
-import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
 import 'package:eduninjav2/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +46,7 @@ class _SelectHeroState extends State<SelectHero> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppStrings.primaryColor,
+      backgroundColor: AppColors.primaryColor,
       body: SafeArea(
         child: Stack(
           children: <Widget>[

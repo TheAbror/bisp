@@ -1,5 +1,5 @@
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
-import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +23,7 @@ class _CompletetdPageState extends State<CompletetdPage> {
           width: 170.w,
           decoration: BoxDecoration(
             color: Colors.amber,
-            border: Border.all(color: AppStrings.primaryColor, width: 2.w),
+            border: Border.all(color: AppColors.primaryColor, width: 2.w),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Stack(
