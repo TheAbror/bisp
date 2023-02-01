@@ -13,8 +13,7 @@ class WatchPage extends StatefulWidget {
 }
 
 class _WatchPageState extends State<WatchPage> {
-  final videoURL =
-      'https://www.youtube.com/watch?v=kXYiU_JCYtU&list=RDkXYiU_JCYtU&index=1';
+  final videoURL = 'https://www.youtube.com/watch?v=kXYiU_JCYtU&list=RDkXYiU_JCYtU&index=1';
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +27,7 @@ class _WatchPageState extends State<WatchPage> {
                 Expanded(
                   flex: 4,
                   child: Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     margin: EdgeInsets.only(
                         top: 10.h,
                         bottom: 10.h,
@@ -39,19 +37,15 @@ class _WatchPageState extends State<WatchPage> {
                       color: Colors.cyan,
                       border: Border.all(color: primaryColor, width: 5),
                       borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage(
-                              '/Users/elbarto/Desktop/eduninjav2/assets/images/cat-7544821.jpg')),
+                      image:
+                          const DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cat-7544821.jpg')),
                     ),
                   ),
                 ),
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(
-                        right: chatOpenWatch ? 130.w : 0, bottom: 10.h),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                    margin: EdgeInsets.only(right: chatOpenWatch ? 130.w : 0, bottom: 10.h),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     decoration: BoxDecoration(
                         color: Colors.amber,
                         border: Border.all(color: primaryColor, width: 5),
@@ -100,27 +94,17 @@ class _WatchPageState extends State<WatchPage> {
                     decoration: BoxDecoration(
                       color: Colors.green,
                       borderRadius: BorderRadius.only(
-                        topLeft: chatOpenWatch
-                            ? const Radius.circular(13)
-                            : const Radius.circular(5),
-                        bottomLeft: chatOpenWatch
-                            ? const Radius.circular(13)
-                            : const Radius.circular(5),
-                        bottomRight: chatOpenWatch
-                            ? const Radius.circular(0)
-                            : const Radius.circular(5),
-                        topRight: chatOpenWatch
-                            ? const Radius.circular(0)
-                            : const Radius.circular(5),
+                        topLeft: chatOpenWatch ? const Radius.circular(13) : const Radius.circular(5),
+                        bottomLeft: chatOpenWatch ? const Radius.circular(13) : const Radius.circular(5),
+                        bottomRight: chatOpenWatch ? const Radius.circular(0) : const Radius.circular(5),
+                        topRight: chatOpenWatch ? const Radius.circular(0) : const Radius.circular(5),
                       ),
                       border: Border.all(
                         color: Colors.green.shade900,
                       ),
                     ),
                     child: Icon(
-                      chatOpenWatch
-                          ? Icons.keyboard_arrow_right
-                          : Icons.keyboard_arrow_left,
+                      chatOpenWatch ? Icons.keyboard_arrow_right : Icons.keyboard_arrow_left,
                       color: Colors.white,
                       size: 25.sp,
                     ),
@@ -141,8 +125,7 @@ class _WatchPageState extends State<WatchPage> {
                               GestureDetector(
                                 onTap: () {
                                   showDialog(
-                                    barrierColor:
-                                        Colors.grey.shade200.withOpacity(0.8),
+                                    barrierColor: Colors.grey.shade200.withOpacity(0.8),
                                     context: context,
                                     builder: (BuildContext context) {
                                       return const MyProfile();
@@ -153,8 +136,7 @@ class _WatchPageState extends State<WatchPage> {
                                   width: chatOpenWatch ? 70.w : 0,
                                   height: chatOpenWatch ? 25.h : 0,
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
-                                      border: Border.all(color: Colors.black)),
+                                      borderRadius: BorderRadius.circular(5), border: Border.all(color: Colors.black)),
                                   child: Center(
                                     child: GestureDetector(
                                       child: const Text(
@@ -175,9 +157,7 @@ class _WatchPageState extends State<WatchPage> {
                         flex: 20,
                         child: ListView.separated(
                             itemCount: 20,
-                            separatorBuilder:
-                                (BuildContext context, int index) =>
-                                    const Divider(height: 1),
+                            separatorBuilder: (BuildContext context, int index) => const Divider(height: 1),
                             itemBuilder: (BuildContext context, int index) {
                               return SizedBox(
                                 height: 66.h,
@@ -185,14 +165,11 @@ class _WatchPageState extends State<WatchPage> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     const Spacer(),
-                                    const Icon(Icons.account_circle,
-                                        color: Colors.white),
+                                    const Icon(Icons.account_circle, color: Colors.white),
                                     const Spacer(),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         Text('User $index '),
                                         SizedBox(
@@ -208,8 +185,7 @@ class _WatchPageState extends State<WatchPage> {
                                     ),
                                     const Spacer(flex: 1),
                                     Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(
                                           '5:1$index',
@@ -237,12 +213,9 @@ class _WatchPageState extends State<WatchPage> {
                                   textAlign: TextAlign.center,
                                   textAlignVertical: TextAlignVertical.bottom,
                                   decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0)),
+                                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
                                       filled: true,
-                                      hintStyle:
-                                          TextStyle(color: Colors.grey[800]),
+                                      hintStyle: TextStyle(color: Colors.grey[800]),
                                       hintText: "Type in your text",
                                       fillColor: Colors.white70),
                                 ),

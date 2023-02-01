@@ -9,17 +9,10 @@ bool loading = true;
 String statusServer = "CONNECTING";
 
 final List<Tasks> task = <Tasks>[
-  Tasks(task: 'Find History teacher MRs.Green and ash her about The home task', taskDone: true),
-  Tasks(task: 'Task2 xcv xcvbc xcvxcvcx xcvcxvxc xcvcxv', taskDone: true),
-  Tasks(task: 'Task3', taskDone: false),
-  Tasks(task: 'Task4 fgfkj df fgf dfgdf ', taskDone: true),
-  Tasks(task: 'Task5', taskDone: true),
-  Tasks(task: 'Task6', taskDone: false),
-  Tasks(task: 'Task7', taskDone: false),
-  Tasks(task: 'Task8', taskDone: true),
-  Tasks(task: 'Task9', taskDone: false),
-  Tasks(task: 'Task10', taskDone: true),
-  Tasks(task: 'Task11', taskDone: true),
+  Tasks(task: 'Find History teacher MRs.Green and ash her about The home task', taskDone: false),
+  Tasks(task: 'Complete History tests', taskDone: false),
+  Tasks(task: 'Study about Civil War', taskDone: false),
+  Tasks(task: 'Go to basketball field', taskDone: false),
 ];
 
 class LeftMenuItems extends StatefulWidget {
@@ -39,9 +32,7 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
         children: [
           Row(
             children: [
-              const LinearProgressBar(
-                percentage: 0.4,
-              ),
+              const LinearProgressBar(percentage: 0.0),
               SizedBox(width: 5.w),
               GestureDetector(
                 onTap: () {
@@ -85,7 +76,6 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
                         return Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            //icon
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 4.h),
                               child: Icon(
@@ -94,17 +84,17 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
                               ),
                             ),
                             SizedBox(
-                              height: 55.h,
                               width: 90.w,
                               child: Text(
                                 task[index].task,
                                 overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
+                                maxLines: 3,
                                 textAlign: TextAlign.start,
                                 softWrap: true,
                                 style: const TextStyle(color: primaryColor),
                               ),
                             ),
+                            SizedBox(height: 5.h)
                           ],
                         );
                       },
@@ -116,17 +106,17 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
             ),
           ),
           const Spacer(),
-          if (loading)
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  statusServer,
-                  style: const TextStyle(fontSize: 12, color: Colors.white),
-                ),
-              ),
-            ),
+          // if (loading)
+          //   Align(
+          //     alignment: Alignment.bottomLeft,
+          //     child: Padding(
+          //       padding: const EdgeInsets.all(8.0),
+          //       child: Text(
+          //         statusServer,
+          //         style: const TextStyle(fontSize: 12, color: Colors.white),
+          //       ),
+          //     ),
+          //   ),
         ],
       ),
     );
