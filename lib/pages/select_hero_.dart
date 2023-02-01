@@ -6,6 +6,7 @@ import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
 import 'package:eduninjav2/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 String _lastNick = '';
 
@@ -24,6 +25,8 @@ class _SelectHeroState extends State<SelectHero> {
   final PageController _pageController = PageController();
   final TextEditingController _textEditingController = TextEditingController();
   final GlobalKey<FormState> _form = GlobalKey();
+  late SharedPreferences prefs;
+  String temp = '';
 
   @override
   void initState() {
@@ -35,7 +38,27 @@ class _SelectHeroState extends State<SelectHero> {
     sprites.add(SpriteSheetHero.hero5);
     sprites.add(SpriteSheetHero.hero6);
     sprites.add(SpriteSheetHero.hero7);
+
     super.initState();
+    _loadCounter();
+  }
+
+  int _counter = 0;
+
+  void _loadCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _counter = (prefs.getInt('counter') ?? 0);
+    });
+  }
+
+  // Incrementing counter after click
+  void _incrementCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _counter = (prefs.getInt('counter') ?? 0) + 1;
+      prefs.setInt('counter', _counter);
+    });
   }
 
   @override
@@ -122,6 +145,10 @@ class _SelectHeroState extends State<SelectHero> {
                                   }
                                 }),
                               ),
+                            ),
+                            ElevatedButton(
+                              child: const Text('Display Value'),
+                              onPressed: () => _incrementCounter(),
                             ),
                           ],
                         ),
