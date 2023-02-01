@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'views/interface_talk.dart';
 import 'views/interface_top_functions.dart';
 
-const primaryColor = Color(0xFF8F563C);
-const taskDoneColor = Color(0xFF5EB595);
-
 class InterfaceOverlay extends StatefulWidget {
   final GameController gameController;
 
@@ -17,11 +14,6 @@ class InterfaceOverlay extends StatefulWidget {
 }
 
 class _InterfaceOverlayState extends State<InterfaceOverlay> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Material(

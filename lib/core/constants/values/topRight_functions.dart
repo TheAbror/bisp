@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:eduninjav2/interface/interface_overlay.dart';
+import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,7 +33,7 @@ class TopRightFunctions extends StatelessWidget {
 BoxDecoration decorationTopLeft() {
   return BoxDecoration(
     color: Colors.red.shade800,
-    border: Border.all(color: primaryColor, width: 5),
+    border: Border.all(color: AppStrings.primaryColor, width: 5),
     borderRadius: BorderRadius.circular(10),
   );
 }

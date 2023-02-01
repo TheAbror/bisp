@@ -1,8 +1,7 @@
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
+import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../interface/interface_overlay.dart';
 
 class CompletetdPage extends StatefulWidget {
   const CompletetdPage({super.key});
@@ -24,7 +23,7 @@ class _CompletetdPageState extends State<CompletetdPage> {
           width: 170.w,
           decoration: BoxDecoration(
             color: Colors.amber,
-            border: Border.all(color: primaryColor, width: 2.w),
+            border: Border.all(color: AppStrings.primaryColor, width: 2.w),
             borderRadius: BorderRadius.circular(10),
           ),
           child: Stack(
