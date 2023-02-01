@@ -62,7 +62,7 @@ class _WatchPageState extends State<WatchPage> {
                         ),
                         Flexible(
                           child: Text(
-                            'get the background knowledge about Civil War  cvbn vbmn  vbn cvb cvb ',
+                            'Get the background knowledge about Civil War  ',
                             style: TextStyle(
                               fontSize: 22,
                             ),
