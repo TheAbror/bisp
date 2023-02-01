@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_final_fields, library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/interface/interface_overlay.dart';
 import 'package:eduninjav2/pages/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../game/player/sprite_sheet_hero.dart';
 
@@ -21,9 +22,9 @@ class _SelectHeroState extends State<SelectHero> {
   List<SpriteSheet> sprites = [];
   bool loading = false;
   String statusServer = "CONNECTING";
-  PageController _pageController = PageController();
-  TextEditingController _textEditingController = TextEditingController();
-  GlobalKey<FormState> _form = GlobalKey();
+  final PageController _pageController = PageController();
+  final TextEditingController _textEditingController = TextEditingController();
+  final GlobalKey<FormState> _form = GlobalKey();
 
   @override
   void initState() {
@@ -46,7 +47,6 @@ class _SelectHeroState extends State<SelectHero> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.cyan[800],
       backgroundColor: primaryColor,
       body: SafeArea(
         child: Stack(
@@ -67,17 +67,18 @@ class _SelectHeroState extends State<SelectHero> {
                       Form(
                         key: _form,
                         child: SizedBox(
-                          width: 200,
+                          width: 100.w,
                           child: TextFormField(
                             controller: _textEditingController,
                             decoration: const InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
                               hintText: 'What your username?',
+                              errorStyle: TextStyle(color: Colors.white),
                             ),
                             validator: (text) {
                               if (text?.isNotEmpty != true) {
-                                return 'Nick required';
+                                return 'Nick is required';
                               }
                               return null;
                             },
@@ -113,12 +114,14 @@ class _SelectHeroState extends State<SelectHero> {
                                   ),
                                 ),
                                 onPressed: (() {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const LoadingPage(),
-                                    ),
-                                  );
+                                  if (_form.currentState!.validate()) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const LoadingPage(),
+                                      ),
+                                    );
+                                  }
                                 }),
                               ),
                             ),
@@ -244,26 +247,19 @@ class _SelectHeroState extends State<SelectHero> {
                         width: 50,
                         height: 50,
                         child: ElevatedButton(
-                          // ignore: sort_child_properties_last
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            padding: MaterialStateProperty.all(EdgeInsets.zero),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                            ),
+                          ),
+                          onPressed: _next,
                           child: const Center(
                               child: Icon(
                             Icons.chevron_right,
                             color: Colors.white,
                           )),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                              Colors.blue,
-                            ),
-                            padding: MaterialStateProperty.all(
-                              EdgeInsets.zero,
-                            ),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                            ),
-                          ),
-                          onPressed: _next,
                         ),
                       ),
                     ),
