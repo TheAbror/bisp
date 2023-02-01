@@ -1,9 +1,10 @@
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
-import 'package:eduninjav2/interface/interface_overlay.dart';
-import 'package:eduninjav2/pages/subjects/all_subjects_specific_subject.dart';
+import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
 import 'package:eduninjav2/pages/subjects/all_subjects_settings.dart';
+import 'package:eduninjav2/pages/subjects/all_subjects_specific_subject.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../core/constants/values/custom_dropdownbutton.dart';
 
 class AllSubjects extends StatefulWidget {
@@ -67,7 +68,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                   width: 180.h,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 225, 166, 71),
-                    border: Border.all(color: primaryColor, width: 5.h),
+                    border: Border.all(color: AppStrings.primaryColor, width: 5.h),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Row(
@@ -134,7 +135,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                   width: 155.h,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 225, 166, 71),
-                    border: Border.all(color: primaryColor, width: 5.h),
+                    border: Border.all(color: AppStrings.primaryColor, width: 5.h),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: CustomDropdownButton(
@@ -159,7 +160,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                   width: 140.h,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 225, 166, 71),
-                    border: Border.all(color: primaryColor, width: 5.h),
+                    border: Border.all(color: AppStrings.primaryColor, width: 5.h),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: CustomDropdownButton(

@@ -1,7 +1,7 @@
+import 'package:eduninjav2/core/string_constants.dart/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import '../interface/interface_overlay.dart';
 
 bool continueTo = false;
 
@@ -24,7 +24,7 @@ class _StudyTopicsState extends State<StudyTopics> {
             margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
             decoration: BoxDecoration(
               color: Colors.white,
-              border: Border.all(color: primaryColor, width: 2.w),
+              border: Border.all(color: AppStrings.primaryColor, width: 2.w),
               borderRadius: BorderRadius.circular(10),
             ),
             child: SingleChildScrollView(
@@ -38,8 +38,7 @@ class _StudyTopicsState extends State<StudyTopics> {
                     SizedBox(height: 20.h),
                     Text(
                       'Civil War (Part 1)',
-                      style: TextStyle(
-                          fontSize: 42.sp, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 42.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 20.h),
                     const Divider(height: 1, color: Colors.black),
@@ -47,8 +46,7 @@ class _StudyTopicsState extends State<StudyTopics> {
                     Center(
                       child: Text(
                         'Why it matters',
-                        style: TextStyle(
-                            fontSize: 32.sp, fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.bold),
                       ),
                     ),
                     SizedBox(height: 20.h),
@@ -58,8 +56,7 @@ class _StudyTopicsState extends State<StudyTopics> {
                     ),
                     SizedBox(height: 20.h),
                     const CircularWhileLoading(
-                        link:
-                            'https://www.authentikusa.com/uploads/images/orig/guide-voyage/usa-map-only.jpg'),
+                        link: 'https://www.authentikusa.com/uploads/images/orig/guide-voyage/usa-map-only.jpg'),
                     SizedBox(height: 40.h),
                     if (continueTo == false)
                       Center(
@@ -110,9 +107,7 @@ class _StudyTopicsState extends State<StudyTopics> {
               onTap: () => Navigator.pop(context),
               child: Container(
                 padding: const EdgeInsets.all(7),
-                decoration: BoxDecoration(
-                    color: Colors.red.shade900,
-                    borderRadius: BorderRadius.circular(50)),
+                decoration: BoxDecoration(color: Colors.red.shade900, borderRadius: BorderRadius.circular(50)),
                 child: const Icon(
                   Icons.close,
                   color: Colors.white,
