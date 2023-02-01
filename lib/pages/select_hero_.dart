@@ -24,11 +24,9 @@ class _SelectHeroState extends State<SelectHero> {
   PageController _pageController = PageController();
   TextEditingController _textEditingController = TextEditingController();
   GlobalKey<FormState> _form = GlobalKey();
-  // late SocketManager _socketManager;
 
   @override
   void initState() {
-    // _socketManager = BonfireInjector.instance.get();
     _textEditingController.text = _lastNick;
     sprites.add(SpriteSheetHero.hero1);
     sprites.add(SpriteSheetHero.hero2);
@@ -56,8 +54,7 @@ class _SelectHeroState extends State<SelectHero> {
             Column(
               children: <Widget>[
                 const SizedBox(height: 10),
-                const Text("Select your character",
-                    style: TextStyle(color: Colors.white, fontSize: 30)),
+                const Text("Select your character", style: TextStyle(color: Colors.white, fontSize: 30)),
                 Expanded(
                   flex: 2,
                   child: _buildPersons(),
@@ -106,12 +103,8 @@ class _SelectHeroState extends State<SelectHero> {
                                 ),
                                 style: ButtonStyle(
                                   backgroundColor:
-                                      MaterialStateProperty.resolveWith<Color?>(
-                                          (Set<MaterialState> states) {
-                                    return states
-                                            .contains(MaterialState.disabled)
-                                        ? null
-                                        : Colors.orange;
+                                      MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+                                    return states.contains(MaterialState.disabled) ? null : Colors.orange;
                                   }),
                                   shape: MaterialStateProperty.all(
                                     RoundedRectangleBorder(
@@ -300,54 +293,4 @@ class _SelectHeroState extends State<SelectHero> {
       );
     }
   }
-
-  // void _goGame() {
-  //   print('Server não conectado.');
-
-  //   // if (_form.currentState?.validate() == true) {
-  //   //   if (_socketManager.connected) {
-  //   //     setState(() {
-  //   //       loading = true;
-  //   //     });
-  //   //     _joinGame();
-  //   //   } else {
-  //   //     //server ne podklyuchon
-  //   //     print('Server não conectado.');
-  //   //   }
-  //   // }
-  // }
-
-  // void _joinGame() {
-  //   _lastNick = _textEditingController.text;
-  //   _socketManager.send('message', {
-  //     'action': 'CREATE',
-  //     'data': {'nick': _lastNick, 'skin': count}
-  //   });
-  // }
-
-  // void _listen(data) {
-  //   if (data is Map && data['action'] == 'PLAYER_JOIN') {
-  //     setState(() {
-  //       loading = false;
-  //     });
-  //     if (data['data']['nick'] == _textEditingController.text) {
-  //       _socketManager.cleanListeners();
-  //       Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: (context) => Game(
-  //             playersOn: data['data']['playersON'],
-  //             nick: _textEditingController.text,
-  //             playerId: data['data']['id'],
-  //             idCharacter: count,
-  //             position: Vector2(
-  //               double.parse(data['data']['position']['x'].toString()),
-  //               double.parse(data['data']['position']['y'].toString()),
-  //             ),
-  //           ),
-  //         ),
-  //       );
-  //     }
-  //   }
-  // }
 }
