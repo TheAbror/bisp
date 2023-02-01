@@ -18,6 +18,11 @@ class InterfaceOverlay extends StatefulWidget {
 
 class _InterfaceOverlayState extends State<InterfaceOverlay> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Material(
       type: MaterialType.transparency,

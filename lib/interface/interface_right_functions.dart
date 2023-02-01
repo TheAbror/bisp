@@ -5,8 +5,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/values/topRight_functions.dart';
 import '../pages/subjects/all_subjects.dart';
 
-class RightMenuItems extends StatelessWidget {
+class RightMenuItems extends StatefulWidget {
   const RightMenuItems({super.key});
+
+  @override
+  State<RightMenuItems> createState() => _RightMenuItemsState();
+}
+
+class _RightMenuItemsState extends State<RightMenuItems> {
+  @override
+  void initState() {
+    const CommandTasks();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
