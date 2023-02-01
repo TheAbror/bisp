@@ -1,5 +1,5 @@
 import 'package:bonfire/bonfire.dart';
-import 'package:eduninjav2/constants/values/app_colors.dart';
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
 import 'package:eduninjav2/pages/select_hero_.dart';
 import 'package:flutter/foundation.dart';

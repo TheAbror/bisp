@@ -1,4 +1,4 @@
-import 'package:eduninjav2/constants/values/global_constants.dart';
+import 'package:eduninjav2/core/constants/values/global_constants.dart';
 import 'package:eduninjav2/interface/interface_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,11 +26,9 @@ class _CommandTasksState extends State<CommandTasks> {
             children: [
               Positioned(
                 child: Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 5.w, vertical: 50.h),
+                  padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 50.h),
                   child: Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 18.h),
+                    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 18.h),
                     width: 180.w,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -41,8 +39,7 @@ class _CommandTasksState extends State<CommandTasks> {
                       child: Column(
                         children: [
                           Text(
-                            GlobalConstants.introMessages[taskCount]['text']
-                                .toString(),
+                            GlobalConstants.introMessages[taskCount]['text'].toString(),
                             style: TextStyle(fontSize: 22.sp),
                           ),
                           SizedBox(height: 15.h),
@@ -52,17 +49,11 @@ class _CommandTasksState extends State<CommandTasks> {
                               GestureDetector(
                                 onTap: _previous,
                                 child: Row(
-                                  children: const [
-                                    Icon(Icons.navigate_before),
-                                    Text('Previous')
-                                  ],
+                                  children: const [Icon(Icons.navigate_before), Text('Previous')],
                                 ),
                               ),
-                              taskCount ==
-                                      GlobalConstants.introMessages.length - 1
-                                  ? GestureDetector(
-                                      onTap: (() => Navigator.pop(context)),
-                                      child: Text('Start'))
+                              taskCount == GlobalConstants.introMessages.length - 1
+                                  ? GestureDetector(onTap: (() => Navigator.pop(context)), child: Text('Start'))
                                   : GestureDetector(
                                       onTap: _next,
                                       child: Row(

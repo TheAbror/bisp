@@ -1,4 +1,4 @@
-import '../my_profile/my_profile_star.dart';
+import '../my_profile/view/my_profile_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,27 +33,15 @@ class _ChatWidgetState extends State<ChatWidget> {
               decoration: BoxDecoration(
                 color: chatOpen ? Colors.green : Colors.red.shade800,
                 borderRadius: BorderRadius.only(
-                  topLeft: chatOpen
-                      ? const Radius.circular(13)
-                      : const Radius.circular(5),
-                  bottomLeft: chatOpen
-                      ? const Radius.circular(13)
-                      : const Radius.circular(5),
-                  bottomRight: chatOpen
-                      ? const Radius.circular(0)
-                      : const Radius.circular(5),
-                  topRight: chatOpen
-                      ? const Radius.circular(0)
-                      : const Radius.circular(5),
+                  topLeft: chatOpen ? const Radius.circular(13) : const Radius.circular(5),
+                  bottomLeft: chatOpen ? const Radius.circular(13) : const Radius.circular(5),
+                  bottomRight: chatOpen ? const Radius.circular(0) : const Radius.circular(5),
+                  topRight: chatOpen ? const Radius.circular(0) : const Radius.circular(5),
                 ),
-                border: Border.all(
-                    color: chatOpen ? Colors.green : Colors.red.shade900,
-                    width: 2.w),
+                border: Border.all(color: chatOpen ? Colors.green : Colors.red.shade900, width: 2.w),
               ),
               child: Icon(
-                chatOpen
-                    ? Icons.keyboard_arrow_right
-                    : Icons.keyboard_arrow_left,
+                chatOpen ? Icons.keyboard_arrow_right : Icons.keyboard_arrow_left,
                 color: Colors.white,
                 size: 25.sp,
               ),
@@ -74,8 +62,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                         GestureDetector(
                           onTap: () {
                             showDialog(
-                              barrierColor:
-                                  Colors.grey.shade200.withOpacity(0.8),
+                              barrierColor: Colors.grey.shade200.withOpacity(0.8),
                               context: context,
                               builder: (BuildContext context) {
                                 return const MyProfile();
@@ -86,8 +73,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                             width: chatOpen ? 70.w : 0,
                             height: chatOpen ? 25.h : 0,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(color: Colors.black)),
+                                borderRadius: BorderRadius.circular(5), border: Border.all(color: Colors.black)),
                             child: Center(
                               child: GestureDetector(
                                 child: const Text(
@@ -108,8 +94,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                   flex: 20,
                   child: ListView.separated(
                       itemCount: 20,
-                      separatorBuilder: (BuildContext context, int index) =>
-                          const Divider(height: 1),
+                      separatorBuilder: (BuildContext context, int index) => const Divider(height: 1),
                       itemBuilder: (BuildContext context, int index) {
                         return SizedBox(
                           height: 66.h,
@@ -117,13 +102,11 @@ class _ChatWidgetState extends State<ChatWidget> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               const Spacer(),
-                              const Icon(Icons.account_circle,
-                                  color: Colors.white),
+                              const Icon(Icons.account_circle, color: Colors.white),
                               const Spacer(),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   Text('User $index '),
                                   SizedBox(
@@ -167,8 +150,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                             textAlign: TextAlign.center,
                             textAlignVertical: TextAlignVertical.bottom,
                             decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0)),
+                                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
                                 filled: true,
                                 hintStyle: TextStyle(color: Colors.grey[800]),
                                 hintText: "Type in your text",

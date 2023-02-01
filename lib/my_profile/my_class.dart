@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'my_profile_percentage.dart';
+import 'view/my_profile_percentage.dart';
 
 class MyClass extends StatefulWidget {
   const MyClass({super.key});
@@ -16,8 +16,7 @@ class _MyClassState extends State<MyClass> {
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: 20,
-        separatorBuilder: (BuildContext context, int index) =>
-            const Divider(height: 1, color: Colors.black),
+        separatorBuilder: (BuildContext context, int index) => const Divider(height: 1, color: Colors.black),
         itemBuilder: (BuildContext context, int index) {
           int order = index + 1;
           double percentforRanking = order / 100 + 0.8;

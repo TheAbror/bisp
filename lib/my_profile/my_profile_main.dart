@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import '../constants/values/app_colors.dart';
-import 'my_profile_percentage.dart';
+import '../core/constants/values/app_colors.dart';
+import 'view/my_profile_percentage.dart';
 
 enum MyProfileItems { profile, classs, edit }
 
