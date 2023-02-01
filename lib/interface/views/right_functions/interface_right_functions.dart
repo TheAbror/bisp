@@ -2,8 +2,8 @@ import 'package:eduninjav2/watch/command_tasks.dart';
 import 'package:eduninjav2/watch/watch_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../constants/values/topRight_functions.dart';
-import '../pages/subjects/all_subjects.dart';
+import '../../../constants/values/topRight_functions.dart';
+import '../../../pages/subjects/all_subjects.dart';
 
 class RightMenuItems extends StatefulWidget {
   const RightMenuItems({super.key});

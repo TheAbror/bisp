@@ -1,17 +1,15 @@
-import 'package:eduninjav2/interface/interface_linear_bar.dart';
+import 'package:eduninjav2/interface/views/interface_linear_bar.dart';
 import 'package:eduninjav2/interface/interface_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'interface_tasks_class.dart';
+import '../interface_tasks_class.dart';
 
 bool open = false;
 bool loading = true;
 String statusServer = "CONNECTING";
 
 final List<Tasks> task = <Tasks>[
-  Tasks(
-      task: 'Find History teacher cvb cvb cvb cvb cvb vbnvbn vbnvbnv hihihi',
-      taskDone: true),
+  Tasks(task: 'Find History teacher MRs.Green and ash her about The home task', taskDone: true),
   Tasks(task: 'Task2 xcv xcvbc xcvxcvcx xcvcxvxc xcvcxv', taskDone: true),
   Tasks(task: 'Task3', taskDone: false),
   Tasks(task: 'Task4 fgfkj df fgf dfgdf ', taskDone: true),
@@ -77,8 +75,7 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
                 children: [
                   Padding(
                     padding: EdgeInsets.all(4.h),
-                    child: Text('Tasks',
-                        style: TextStyle(fontSize: 22.sp, color: primaryColor)),
+                    child: Text('Tasks', style: TextStyle(fontSize: 22.sp, color: primaryColor)),
                   ),
                   SizedBox(
                     height: 155.h,
@@ -92,9 +89,7 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 4.h),
                               child: Icon(
-                                task[index].taskDone == false
-                                    ? Icons.check_box_outline_blank
-                                    : Icons.check_box,
+                                task[index].taskDone == false ? Icons.check_box_outline_blank : Icons.check_box,
                                 color: taskDoneColor,
                               ),
                             ),

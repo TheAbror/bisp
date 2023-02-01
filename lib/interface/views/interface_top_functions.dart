@@ -1,8 +1,8 @@
-import 'package:eduninjav2/interface/interface_left_functions.dart';
+import 'package:eduninjav2/interface/views/left_functions/interface_left_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'interface_right_functions.dart';
+import 'right_functions/interface_right_functions.dart';
 
 class InterfaceTopFunctions extends StatelessWidget {
   const InterfaceTopFunctions({

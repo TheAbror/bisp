@@ -23,14 +23,11 @@ class _HomePageState extends State<HomePage> {
         return BonfireWidget(
           joystick: Joystick(directional: JoystickDirectional()),
           map: WorldMapByTiled('tile/school_campus_main.json',
-              forceTileSize: Vector2(tileSize, tileSize),
-              tileSizeToUpdate: tileSize),
-          player: LocalPlayer(
-              1, 'KMDev', Vector2(75 * tileSize, 25 * tileSize), _getSprite(1)),
+              forceTileSize: Vector2(tileSize, tileSize), tileSizeToUpdate: tileSize),
+          player: LocalPlayer(1, 'KMDev', Vector2(75 * tileSize, 25 * tileSize), _getSprite(6)),
           initialActiveOverlays: const ['barLife'],
           overlayBuilderMap: {
-            'barLife': (_, game) =>
-                InterfaceOverlay(gameController: _controller),
+            'barLife': (_, game) => InterfaceOverlay(gameController: _controller),
           },
         );
       },

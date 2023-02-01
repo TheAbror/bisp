@@ -1,12 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:bonfire/bonfire.dart';
+import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
 import 'package:eduninjav2/interface/interface_overlay.dart';
-import 'package:eduninjav2/pages/loading.dart';
+import 'package:eduninjav2/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../game/player/sprite_sheet_hero.dart';
 
 String _lastNick = '';
 
@@ -115,12 +114,11 @@ class _SelectHeroState extends State<SelectHero> {
                                 ),
                                 onPressed: (() {
                                   if (_form.currentState!.validate()) {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => const LoadingPage(),
-                                      ),
-                                    );
+                                    Navigator.of(context).pushAndRemoveUntil(
+                                        MaterialPageRoute(
+                                          builder: (context) => const HomePage(),
+                                        ),
+                                        (Route<dynamic> route) => false);
                                   }
                                 }),
                               ),
@@ -142,13 +140,7 @@ class _SelectHeroState extends State<SelectHero> {
                   child: Center(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
-                      children: const <Widget>[
-                        CircularProgressIndicator(),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text("Loading")
-                      ],
+                      children: const <Widget>[CircularProgressIndicator(), SizedBox(height: 10), Text("Loading")],
                     ),
                   ),
                 ),
@@ -256,10 +248,11 @@ class _SelectHeroState extends State<SelectHero> {
                           ),
                           onPressed: _next,
                           child: const Center(
-                              child: Icon(
-                            Icons.chevron_right,
-                            color: Colors.white,
-                          )),
+                            child: Icon(
+                              Icons.chevron_right,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ),

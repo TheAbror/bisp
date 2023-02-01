@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
-import '../constants/values/app_colors.dart';
+import '../../constants/values/app_colors.dart';
 
 class LinearProgressBar extends StatelessWidget {
   const LinearProgressBar({
