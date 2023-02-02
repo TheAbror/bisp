@@ -40,29 +40,11 @@ class _SelectHeroState extends State<SelectHero> {
     sprites.add(SpriteSheetHero.hero7);
 
     super.initState();
-    _loadCounter();
-  }
-
-  int _counter = 0;
-
-  void _loadCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _counter = (prefs.getInt('counter') ?? 0);
-    });
-  }
-
-  // Incrementing counter after click
-  void _incrementCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _counter = (prefs.getInt('counter') ?? 0) + 1;
-      prefs.setInt('counter', _counter);
-    });
   }
 
   @override
   void dispose() {
+    _textEditingController.dispose();
     super.dispose();
   }
 
@@ -145,10 +127,6 @@ class _SelectHeroState extends State<SelectHero> {
                                   }
                                 }),
                               ),
-                            ),
-                            ElevatedButton(
-                              child: const Text('Display Value'),
-                              onPressed: () => _incrementCounter(),
                             ),
                           ],
                         ),

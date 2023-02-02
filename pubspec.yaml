@@ -11,6 +11,7 @@ dependencies:
   bonfire: ^2.10.9
   cupertino_icons: ^1.0.2
   dropdown_button2: ^1.2.2
+  equatable: ^2.0.5
   flutter_bloc: ^8.1.1
   flutter_screenutil: ^5.5.4
   image_picker: ^0.8.6

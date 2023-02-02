@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           joystick: Joystick(directional: JoystickDirectional()),
           map: WorldMapByTiled('tile/school_campus_main.json',
               forceTileSize: Vector2(tileSize, tileSize), tileSizeToUpdate: tileSize),
-          player: LocalPlayer(1, 'KMDev', Vector2(75 * tileSize, 25 * tileSize), _getSprite(6)),
+          player: LocalPlayer(1, 'KMDev', Vector2(75 * tileSize, 25 * tileSize), _getSprite(0)),
           initialActiveOverlays: const ['barLife'],
           overlayBuilderMap: {
             'barLife': (_, game) => InterfaceOverlay(gameController: _controller),

@@ -34,16 +34,7 @@ class _RightMenuItemsState extends State<RightMenuItems> {
             }),
           ),
           SizedBox(width: 6.w),
-          TopRightFunctions(
-              icon: Icons.group,
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return const CommandTasks();
-                  },
-                );
-              }),
+          TopRightFunctions(icon: Icons.group, onTap: () {}),
           SizedBox(width: 6.w),
           TopRightFunctions(
             icon: Icons.list,

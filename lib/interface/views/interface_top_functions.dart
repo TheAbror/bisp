@@ -14,7 +14,7 @@ class InterfaceTopFunctions extends StatefulWidget {
 class _InterfaceTopFunctionsState extends State<InterfaceTopFunctions> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(milliseconds: 2200), () {
       showDialog(
         context: context,
         builder: (BuildContext context) {
