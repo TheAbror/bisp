@@ -12,9 +12,8 @@ class AuthPage extends StatefulWidget {
   State<AuthPage> createState() => _AuthPageState();
 }
 
-// Step 2
-
 class _AuthPageState extends State<AuthPage> {
+  @override
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([
@@ -23,17 +22,16 @@ class _AuthPageState extends State<AuthPage> {
     ]);
   }
 
-// Step 3
-  @override
-  dispose() {
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-    super.dispose();
-  }
+  // @override
+  // dispose() {
+  //   SystemChrome.setPreferredOrientations([
+  //     DeviceOrientation.landscapeRight,
+  //     DeviceOrientation.landscapeLeft,
+  //     DeviceOrientation.portraitUp,
+  //     DeviceOrientation.portraitDown,
+  //   ]);
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +83,8 @@ class _AuthPageState extends State<AuthPage> {
                       ),
                     ),
                     onPressed: () {
-                      SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight]);
+                      SystemChrome.setPreferredOrientations(
+                          [DeviceOrientation.landscapeRight, DeviceOrientation.landscapeLeft]);
 
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
