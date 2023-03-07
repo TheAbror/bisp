@@ -21,12 +21,14 @@ class _SelectHeroState extends State<SelectHero> {
   int count = 0;
   List<SpriteSheet> sprites = [];
   bool loading = false;
+  //
   String statusServer = "CONNECTING";
   final PageController _pageController = PageController();
-  final TextEditingController _textEditingController = TextEditingController();
   final GlobalKey<FormState> _form = GlobalKey();
+  //
   late SharedPreferences prefs;
-  String temp = '';
+  String username = '';
+  final TextEditingController _textEditingController = TextEditingController();
 
   @override
   void initState() {
@@ -77,7 +79,7 @@ class _SelectHeroState extends State<SelectHero> {
                             decoration: const InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
-                              hintText: 'What your username?',
+                              hintText: 'Create nickname?',
                               errorStyle: TextStyle(color: Colors.white),
                             ),
                             validator: (text) {

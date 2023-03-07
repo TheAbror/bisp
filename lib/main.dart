@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:eduninjav2/auth/auth_view.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
-import 'package:eduninjav2/pages/select_hero_.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SpriteSheetHero.load();
   if (!kIsWeb) {
-    await Flame.device.setLandscape();
+    // await Flame.device.setLandscape();
     await Flame.device.fullScreen();
   }
 
@@ -23,7 +23,7 @@ void main() async {
       builder: ((context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: const SelectHero(),
+          home: const AuthPage(),
           theme: ThemeData(
             fontFamily: 'Mali',
             primaryColor: AppColors.primaryColor,

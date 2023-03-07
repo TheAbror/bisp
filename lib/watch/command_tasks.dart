@@ -12,7 +12,6 @@ class CommandTasks extends StatefulWidget {
 
 class _CommandTasksState extends State<CommandTasks> {
   int taskCount = 0;
-  // PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
