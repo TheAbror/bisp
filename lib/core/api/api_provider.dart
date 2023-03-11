@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:chopper/chopper.dart';
+import 'package:eduninjav2/presention/cms/services/cms_service.dart';
 
 import 'package:http/io_client.dart' as http;
 
@@ -7,6 +8,7 @@ import 'custom_converter.dart';
 
 class ApiProvider {
   static late ChopperClient _client;
+  static late CmsService cms;
 
   ///Services
   static create({String? token}) {
@@ -15,13 +17,13 @@ class ApiProvider {
         HttpClient()..connectionTimeout = const Duration(seconds: 40),
       ),
       services: [
-        // AttendanceService.create(),
+        CmsService.create(),
       ],
       interceptors: getInterceptors(token),
       converter: CustomDataConverter(),
     );
 
-    // attendanceService = _client.getService<AttendanceService>();
+    cms = _client.getService<CmsService>();
   }
 
   static List getInterceptors(token) {

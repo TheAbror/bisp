@@ -3,30 +3,53 @@ import 'package:json_annotation/json_annotation.dart';
 part 'cms.g.dart';
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
-class TimetableResponse {
-  @JsonKey(name: 'general_info')
-  GeneralInfo? generalInfo;
+class GeneralResponse {
+  @JsonKey(defaultValue: [])
+  List<CmsResponse>? groups;
 
-  TimetableResponse({
-    required this.generalInfo,
+  GeneralResponse({
+    this.groups,
   });
 
-  factory TimetableResponse.fromJson(Map<String, dynamic> jsonData) => _$TimetableResponseFromJson(jsonData);
-  Map<String, dynamic> toJson() => _$TimetableResponseToJson(this);
+  factory GeneralResponse.fromJson(Map<String, dynamic> jsonData) => _$GeneralResponseFromJson(jsonData);
+  Map<String, dynamic> toJson() => _$GeneralResponseToJson(this);
 }
 
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
-class GeneralInfo {
-  @JsonKey(defaultValue: 0)
-  final int id;
+class CmsResponse {
   @JsonKey(defaultValue: '')
-  final String title;
+  final String module;
+  @JsonKey(defaultValue: [])
+  List<Lesson>? lessons;
 
-  GeneralInfo({
-    required this.id,
-    required this.title,
+  CmsResponse({
+    required this.module,
+    required this.lessons,
   });
 
-  factory GeneralInfo.fromJson(Map<String, dynamic> jsonData) => _$GeneralInfoFromJson(jsonData);
-  Map<String, dynamic> toJson() => _$GeneralInfoToJson(this);
+  factory CmsResponse.fromJson(Map<String, dynamic> jsonData) => _$CmsResponseFromJson(jsonData);
+  Map<String, dynamic> toJson() => _$CmsResponseToJson(this);
+}
+
+@JsonSerializable(includeIfNull: true, explicitToJson: true)
+class Lesson {
+  @JsonKey(defaultValue: '')
+  final String title;
+  @JsonKey(defaultValue: '')
+  final String subtitle;
+  @JsonKey(defaultValue: '')
+  final String body;
+  @JsonKey(defaultValue: '')
+  final String image;
+
+  Lesson({
+    required this.title,
+    required this.subtitle,
+    required this.body,
+    required this.image,
+  });
+
+  factory Lesson.fromJson(Map<String, dynamic> json) => _$LessonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$LessonToJson(this);
 }

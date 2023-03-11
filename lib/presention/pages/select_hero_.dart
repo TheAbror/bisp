@@ -2,9 +2,11 @@
 
 import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
+import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:eduninjav2/presention/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -40,6 +42,8 @@ class _SelectHeroState extends State<SelectHero> {
     sprites.add(SpriteSheetHero.hero5);
     sprites.add(SpriteSheetHero.hero6);
     sprites.add(SpriteSheetHero.hero7);
+
+    context.read<CmsBloc>().getCms();
 
     super.initState();
   }

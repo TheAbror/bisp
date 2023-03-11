@@ -6,25 +6,43 @@ part of 'cms.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TimetableResponse _$TimetableResponseFromJson(Map<String, dynamic> json) =>
-    TimetableResponse(
-      generalInfo: json['general_info'] == null
-          ? null
-          : GeneralInfo.fromJson(json['general_info'] as Map<String, dynamic>),
+GeneralResponse _$GeneralResponseFromJson(Map<String, dynamic> json) =>
+    GeneralResponse(
+      groups: (json['groups'] as List<dynamic>?)
+              ?.map((e) => CmsResponse.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
-Map<String, dynamic> _$TimetableResponseToJson(TimetableResponse instance) =>
+Map<String, dynamic> _$GeneralResponseToJson(GeneralResponse instance) =>
     <String, dynamic>{
-      'general_info': instance.generalInfo?.toJson(),
+      'groups': instance.groups?.map((e) => e.toJson()).toList(),
     };
 
-GeneralInfo _$GeneralInfoFromJson(Map<String, dynamic> json) => GeneralInfo(
-      id: json['id'] as int? ?? 0,
-      title: json['title'] as String? ?? '',
+CmsResponse _$CmsResponseFromJson(Map<String, dynamic> json) => CmsResponse(
+      module: json['module'] as String? ?? '',
+      lessons: (json['lessons'] as List<dynamic>?)
+              ?.map((e) => Lesson.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
 
-Map<String, dynamic> _$GeneralInfoToJson(GeneralInfo instance) =>
+Map<String, dynamic> _$CmsResponseToJson(CmsResponse instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'module': instance.module,
+      'lessons': instance.lessons?.map((e) => e.toJson()).toList(),
+    };
+
+Lesson _$LessonFromJson(Map<String, dynamic> json) => Lesson(
+      title: json['title'] as String? ?? '',
+      subtitle: json['subtitle'] as String? ?? '',
+      body: json['body'] as String? ?? '',
+      image: json['image'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$LessonToJson(Lesson instance) => <String, dynamic>{
       'title': instance.title,
+      'subtitle': instance.subtitle,
+      'body': instance.body,
+      'image': instance.image,
     };
