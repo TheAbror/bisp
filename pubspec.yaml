@@ -18,6 +18,7 @@ dependencies:
   flutter_screenutil: ^5.5.4
   flutter_svg: ^1.1.6
   image_picker: ^0.8.6
+  logging: ^1.1.1
   http: ^0.13.5
   intl: ^0.17.0
   json_annotation: 4.7.0
