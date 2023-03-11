@@ -17,13 +17,13 @@ class _$CmsService extends CmsService {
   final definitionType = CmsService;
 
   @override
-  Future<Response<CmsResponse>> getCms() {
+  Future<Response<List<CmsResponse>>> getCms() {
     final $url = 'http://127.0.0.1:8000/';
     final $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<CmsResponse, CmsResponse>($request);
+    return client.send<List<CmsResponse>, CmsResponse>($request);
   }
 }

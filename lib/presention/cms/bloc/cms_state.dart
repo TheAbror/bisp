@@ -1,7 +1,7 @@
 part of 'cms_bloc.dart';
 
 class CmsState extends Equatable {
-  final CmsResponse cms;
+  final List<CmsResponse> cms;
   final BlocProgress blocProgress;
   final String failureMessage;
 
@@ -12,18 +12,15 @@ class CmsState extends Equatable {
   });
 
   factory CmsState.initial() {
-    return CmsState(
-      cms: CmsResponse(
-        module: '',
-        lessons: [],
-      ),
+    return const CmsState(
+      cms: [],
       blocProgress: BlocProgress.IS_LOADING,
       failureMessage: '',
     );
   }
 
   CmsState copyWith({
-    CmsResponse? cms,
+    List<CmsResponse>? cms,
     BlocProgress? blocProgress,
     String? failureMessage,
   }) {

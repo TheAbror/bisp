@@ -8,6 +8,6 @@ part 'cms_service.chopper.dart';
 abstract class CmsService extends ChopperService {
   static CmsService create([ChopperClient? client]) => _$CmsService(client ?? ChopperClient());
 
-  @Get(path: AppStrings.signIn)
-  Future<Response<CmsResponse>> getCms();
+  @Get()
+  Future<Response<List<CmsResponse>>> getCms();
 }
