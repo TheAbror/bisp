@@ -1,11 +1,13 @@
+import 'package:eduninjav2/core/constants/bloc_progress.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
+import 'package:eduninjav2/core/constants/values/custom_dropdownbutton.dart';
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
+import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_specific_subject.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../core/constants/values/custom_dropdownbutton.dart';
 
 class AllSubjects extends StatefulWidget {
   const AllSubjects({super.key});
@@ -39,7 +41,7 @@ class _AllSubjectsState extends State<AllSubjects> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        decoration: LessonsDecoration(),
+        decoration: lessonsDecoration(),
         child: SafeArea(
           bottom: false,
           right: false,
@@ -77,11 +79,34 @@ class _AllSubjectsState extends State<AllSubjects> {
                 ),
               ),
 
-              ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return const AllSubjectSpecificSubject();
+              BlocBuilder<CmsBloc, CmsState>(
+                builder: (context, state) {
+                  if (state.blocProgress == BlocProgress.IS_LOADING) {
+                    return const Center(child: CircularProgressIndicator(color: Colors.white));
+                  }
+                  if (state.cms.isEmpty) {
+                    return const Text('Empty');
+                  }
+
+                  final modulesList = state.cms.where((element) => element.module.toLowerCase() == 'geometry');
+
+                  if (modulesList.isNotEmpty) {
+                    final module = modulesList.first;
+
+                    final lessons = module.lessons;
+
+                    return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: lessons.length,
+                      itemBuilder: (context, index) {
+                        return AllSubjectSpecificSubject(moduleName: module.module, lesson: lessons[index]);
+                      },
+                    );
+                  }
+
+                  return const Center(
+                    child: Text('There is no lessons available'),
+                  );
                 },
               ),
 
@@ -172,7 +197,7 @@ class _AllSubjectsState extends State<AllSubjects> {
     );
   }
 
-  BoxDecoration LessonsDecoration() {
+  BoxDecoration lessonsDecoration() {
     return BoxDecoration(
       gradient: LinearGradient(
         begin: Alignment.topLeft,

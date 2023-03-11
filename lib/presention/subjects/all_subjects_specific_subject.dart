@@ -1,13 +1,20 @@
 import 'package:eduninjav2/core/constants/bloc_progress.dart';
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
-import 'package:eduninjav2/presention/watch/study_topic.dart';
+import 'package:eduninjav2/presention/cms/model/cms.dart';
+import 'package:eduninjav2/presention/subjects/widgets/study_topic_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AllSubjectSpecificSubject extends StatelessWidget {
+  final String moduleName;
+  final Lesson lesson;
+
   const AllSubjectSpecificSubject({
     Key? key,
+    required this.moduleName,
+    required this.lesson,
   }) : super(key: key);
 
   static const primaryColor = Color(0xFF8F563C);
@@ -27,21 +34,14 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                 Container(
                   height: 90.w,
                   width: 180.h,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 225, 166, 71),
-                    border: Border.all(color: primaryColor, width: 5.h),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                  decoration: boxDesign(),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: primaryColor, width: 5.h),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                        decoration: boxDesign2(),
                         child: Image.network(
-                          'https://9b16f79ca967fd0708d1-2713572fef44aa49ec323e813b06d2d9.ssl.cf2.rackcdn.com/1140x_a10-7_cTC/933883116-1593465661.jpg',
+                          lesson.image,
                           height: 40.w,
                           width: 145.h,
                           fit: BoxFit.fill,
@@ -49,11 +49,11 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 22.w,
-                        child: const Text(
-                          'The First Americans The Civil War some more text',
+                        child: Text(
+                          lesson.subtitle,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.clip,
-                          style: TextStyle(color: primaryColor),
+                          style: const TextStyle(color: primaryColor),
                         ),
                       ),
                     ],
@@ -64,35 +64,23 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                   top: 9.w,
                   child: Align(
                     alignment: Alignment.topCenter,
-                    child: BlocBuilder<CmsBloc, CmsState>(
-                      builder: (context, state) {
-                        if (state.blocProgress == BlocProgress.IS_LOADING) {
-                          return const Center(child: CircularProgressIndicator(color: Colors.white));
-                        }
-                        if (state.cms.isEmpty) {
-                          return const Text('error');
-                        }
-
-                        return Container(
-                          height: 20.w,
-                          width: 130.h,
-                          decoration: BoxDecoration(
-                            color: Colors.amber,
-                            border: Border.all(color: primaryColor, width: 3.h),
-                            borderRadius: BorderRadius.circular(17),
-                          ),
-                          child: Center(
-                              child: Padding(
-                            padding: const EdgeInsets.all(2),
-                            child: Text(
-                              'US History  Language Art',
-                              // state.cms?.first.module ?? 'fsdfsdf',
-                              textAlign: TextAlign.center,
-                              overflow: TextOverflow.clip,
-                            ),
-                          )),
-                        );
-                      },
+                    child: Container(
+                      height: 20.w,
+                      width: 130.h,
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        border: Border.all(color: primaryColor, width: 2.h),
+                        borderRadius: BorderRadius.circular(17),
+                      ),
+                      child: Center(
+                          child: Padding(
+                        padding: const EdgeInsets.all(2),
+                        child: Text(
+                          lesson.title,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.clip,
+                        ),
+                      )),
                     ),
                   ),
                 ),
@@ -105,24 +93,109 @@ class AllSubjectSpecificSubject extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return const StudyTopics();
+                  return Material(
+                    color: Colors.transparent,
+                    child: Stack(
+                      fit: StackFit.expand,
+                      children: [
+                        BlocBuilder<CmsBloc, CmsState>(
+                          builder: (context, state) {
+                            if (state.blocProgress == BlocProgress.IS_LOADING) {
+                              return const Center(child: CircularProgressIndicator(color: Colors.white));
+                            }
+
+                            if (state.cms.isEmpty) {
+                              return const SizedBox();
+                            }
+
+                            return Container(
+                              margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(color: AppColors.primaryColor, width: 2.w),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: ListView.builder(
+                                  itemCount: state.cms.length,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          SizedBox(height: 20.h),
+                                          const Text('Lesson 1 of 5'),
+                                          SizedBox(height: 20.h),
+                                          Text(
+                                            lesson.title,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 42.sp, fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(height: 20.h),
+                                          const Divider(height: 1, color: Colors.black),
+                                          SizedBox(height: 20.h),
+                                          Text(
+                                            lesson.subtitle,
+                                            textAlign: TextAlign.center,
+                                            overflow: TextOverflow.clip,
+                                            style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                                          ),
+                                          SizedBox(height: 20.h),
+                                          Text(
+                                            lesson.body,
+                                            style: TextStyle(fontSize: 22.sp),
+                                          ),
+                                          SizedBox(height: 20.h),
+                                          Center(
+                                            child: Image.network(
+                                              lesson.image,
+                                              height: 80.w,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          SizedBox(height: 40.h),
+                                          Center(
+                                            child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                    minimumSize: Size(300, 50.h),
+                                                    // maximumSize: const Size(200, 50),
+                                                    backgroundColor: Colors.red.shade900),
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: const Text('Finish')),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }),
+                            );
+                          },
+                        ),
+                        Positioned(
+                          right: 7.w,
+                          top: 10.h,
+                          child: GestureDetector(
+                            onTap: () => Navigator.pop(context),
+                            child: Container(
+                              padding: const EdgeInsets.all(7),
+                              decoration:
+                                  BoxDecoration(color: Colors.red.shade900, borderRadius: BorderRadius.circular(50)),
+                              child: const Icon(
+                                Icons.close,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
                 },
               );
             },
-            child: Container(
-              height: 20.w,
-              width: 130.h,
-              decoration: BoxDecoration(
-                color: Colors.amber,
-                border: Border.all(color: primaryColor, width: 3.h),
-                borderRadius: BorderRadius.circular(17),
-              ),
-              child: const Center(
-                  child: Text(
-                'Study Topic',
-                style: TextStyle(color: primaryColor),
-              )),
-            ),
+            child: const StudyTopicButton(),
           ),
         ],
       ),

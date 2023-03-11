@@ -20,7 +20,7 @@ class CmsResponse {
   @JsonKey(defaultValue: '')
   final String module;
   @JsonKey(defaultValue: [])
-  List<Lesson>? lessons;
+  List<Lesson> lessons;
 
   CmsResponse({
     required this.module,

@@ -17,7 +17,7 @@ CmsResponse _$CmsResponseFromJson(Map<String, dynamic> json) => CmsResponse(
 Map<String, dynamic> _$CmsResponseToJson(CmsResponse instance) =>
     <String, dynamic>{
       'module': instance.module,
-      'lessons': instance.lessons?.map((e) => e.toJson()).toList(),
+      'lessons': instance.lessons.map((e) => e.toJson()).toList(),
     };
 
 Lesson _$LessonFromJson(Map<String, dynamic> json) => Lesson(

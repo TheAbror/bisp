@@ -23,7 +23,7 @@ class CmsBloc extends Cubit<CmsState> {
         final cms = response.body;
 
         if (cms != null) {
-          emit(state.copyWith(cms: [], blocProgress: BlocProgress.IS_SUCCESS));
+          emit(state.copyWith(cms: cms, blocProgress: BlocProgress.IS_SUCCESS));
         }
       } else {
         final error = ErrorResponse.fromJson(json.decode(response.error.toString()));
