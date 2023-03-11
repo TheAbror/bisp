@@ -1,11 +1,11 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
-import 'package:eduninjav2/pages/subjects/all_subjects_settings.dart';
-import 'package:eduninjav2/pages/subjects/all_subjects_specific_subject.dart';
+import 'package:eduninjav2/presention/pages/subjects/all_subjects_settings.dart';
+import 'package:eduninjav2/presention/pages/subjects/all_subjects_specific_subject.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/constants/values/custom_dropdownbutton.dart';
+import '../../../core/constants/values/custom_dropdownbutton.dart';
 
 class AllSubjects extends StatefulWidget {
   const AllSubjects({super.key});

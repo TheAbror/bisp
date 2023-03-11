@@ -3,7 +3,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/game/player/local/local_player.dart';
 import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
 import 'package:flutter/material.dart';
-import '../interface/interface_overlay.dart';
+import '../../interface/interface_overlay.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-import '../my_profile/view/my_profile_star.dart';
+import '../presention/my_profile/view/my_profile_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

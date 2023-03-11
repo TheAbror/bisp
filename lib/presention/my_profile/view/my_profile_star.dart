@@ -1,6 +1,6 @@
-import 'package:eduninjav2/my_profile/my_class.dart';
-import 'package:eduninjav2/my_profile/view/my_profile_edit.dart';
-import 'package:eduninjav2/my_profile/my_profile_social.dart';
+import 'package:eduninjav2/presention/my_profile/my_class.dart';
+import 'package:eduninjav2/presention/my_profile/view/my_profile_edit.dart';
+import 'package:eduninjav2/presention/my_profile/my_profile_social.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../my_profile_class.dart';
