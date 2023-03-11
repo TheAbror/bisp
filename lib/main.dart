@@ -2,7 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/core/auth/auth_view.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/utils/api_logging.dart';
-import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
+import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

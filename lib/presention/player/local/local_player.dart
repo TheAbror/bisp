@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print, avoid_renaming_method_parameters, unused_local_variable
 
 import 'package:bonfire/bonfire.dart';
-import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
+import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:eduninjav2/main.dart';
 import 'package:flutter/material.dart';
 

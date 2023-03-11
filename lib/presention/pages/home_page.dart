@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:bonfire/bonfire.dart';
-import 'package:eduninjav2/game/player/local/local_player.dart';
-import 'package:eduninjav2/game/player/sprite_sheet_hero.dart';
+import 'package:eduninjav2/presention/player/local/local_player.dart';
+import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:flutter/material.dart';
 import '../../interface/interface_overlay.dart';
 
