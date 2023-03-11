@@ -8,7 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  bot_toast: ^4.0.3
   bonfire: ^2.10.9
+  chopper: ^4.0.5
   cupertino_icons: ^1.0.2
   dropdown_button2: ^1.2.2
   equatable: ^2.0.5
@@ -16,16 +18,23 @@ dependencies:
   flutter_screenutil: ^5.5.4
   flutter_svg: ^1.1.6
   image_picker: ^0.8.6
+  http: ^0.13.5
+  intl: ^0.17.0
+  json_annotation: 4.7.0
   percent_indicator: ^4.0.1
   shared_preferences: ^2.0.15
   socket_io_client: ^2.0.0
 
 
 
-dev_dependencies:
+dev_dependencies: 
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.0.3
+  chopper_generator: ^4.0.5
+  json_serializable: ^6.5.4
+
 flutter:
   uses-material-design: true
   assets:

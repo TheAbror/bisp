@@ -11,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SpriteSheetHero.load();
   if (!kIsWeb) {
-    await Flame.device.setLandscape();
+    await Flame.device.setPortrait();
     await Flame.device.fullScreen();
   }
 

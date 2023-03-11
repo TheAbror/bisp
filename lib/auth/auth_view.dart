@@ -18,7 +18,7 @@ class _AuthPageState extends State<AuthPage> {
     super.initState();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
-      DeviceOrientation.landscapeLeft,
+      // DeviceOrientation.landscapeLeft,
     ]);
   }
 
