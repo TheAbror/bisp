@@ -17,13 +17,13 @@ class _$CmsService extends CmsService {
   final definitionType = CmsService;
 
   @override
-  Future<Response<GeneralResponse>> getCms() {
-    final $url = 'https://api.edulab.app/edulab_udea/api/v1/signin';
+  Future<Response<CmsResponse>> getCms() {
+    final $url = 'http://127.0.0.1:8000/';
     final $request = Request(
       'GET',
       $url,
       client.baseUrl,
     );
-    return client.send<GeneralResponse, GeneralResponse>($request);
+    return client.send<CmsResponse, CmsResponse>($request);
   }
 }

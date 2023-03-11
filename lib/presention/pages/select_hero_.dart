@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:bonfire/bonfire.dart';
+import 'package:eduninjav2/core/api/api_provider.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/pages/home_page.dart';
 import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
@@ -121,6 +122,8 @@ class _SelectHeroState extends State<SelectHero> {
                                 ),
                                 onPressed: (() {
                                   if (_form.currentState!.validate()) {
+                                    ApiProvider.create();
+
                                     Navigator.of(context).pushAndRemoveUntil(
                                         MaterialPageRoute(
                                           builder: (context) => const HomePage(),

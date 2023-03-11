@@ -1,4 +1,5 @@
 import 'package:chopper/chopper.dart';
+import 'package:eduninjav2/presention/cms/model/cms.dart';
 
 class CustomDataConverter extends JsonConverter {
   @override
@@ -35,8 +36,8 @@ class CustomDataConverter extends JsonConverter {
       case int:
         return int;
 
-      // case DashboardModuleResponse:
-      //   return DashboardModuleResponse.fromJson(json);
+      case CmsResponse:
+        return CmsResponse.fromJson(json);
 
       default:
         return null;

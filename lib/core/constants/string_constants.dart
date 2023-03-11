@@ -1,7 +1,6 @@
 class AppStrings {
-  static const base = 'https://api.edulab.app/edulab_udea/api/v1/';
-  static const testBase = 'http://192.168.100.107:9120/edulab_udea/api/v1/';
+  static const base = 'http://127.0.0.1:8000';
 
-  static const signIn = 'signin';
+  static const signIn = '/';
   static const internalErrorMessage = 'Internal error.';
 }
