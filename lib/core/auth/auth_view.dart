@@ -1,5 +1,5 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
-import 'package:eduninjav2/presention/pages/select_hero_.dart';
+import 'package:eduninjav2/presention/select_hero_.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

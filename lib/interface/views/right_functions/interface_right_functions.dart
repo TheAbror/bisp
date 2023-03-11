@@ -1,9 +1,10 @@
+import 'package:eduninjav2/core/api/api_provider.dart';
 import 'package:eduninjav2/presention/watch/command_tasks.dart';
 import 'package:eduninjav2/presention/watch/watch_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/constants/values/topRight_functions.dart';
-import '../../../presention/pages/subjects/all_subjects.dart';
+import '../../../presention/subjects/all_subjects.dart';
 
 class RightMenuItems extends StatefulWidget {
   const RightMenuItems({super.key});
@@ -38,12 +39,13 @@ class _RightMenuItemsState extends State<RightMenuItems> {
           SizedBox(width: 6.w),
           TopRightFunctions(
             icon: Icons.list,
-            onTap: (() {
+            onTap: () {
+              ApiProvider.create();
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const AllSubjects()),
               );
-            }),
+            },
           ),
         ],
       ),
