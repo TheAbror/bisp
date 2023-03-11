@@ -3,6 +3,8 @@ import 'package:eduninjav2/core/auth/auth_view.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/utils/api_logging.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
+import 'package:eduninjav2/presention/pages/home_page.dart';
+import 'package:eduninjav2/presention/pages/select_hero_.dart';
 import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ void main() async {
 
   await SpriteSheetHero.load();
   if (!kIsWeb) {
-    await Flame.device.setPortrait();
+    await Flame.device.setLandscape();
     await Flame.device.fullScreen();
   }
   runApp(
@@ -50,7 +52,8 @@ class MyApp extends StatelessWidget {
             backgroundColor: AppColors.taskbarBackground,
             dividerColor: Colors.white54,
           ),
-          home: const AuthPage(),
+          // home: const AuthPage(),
+          home: const SelectHero(),
         );
       }),
     );

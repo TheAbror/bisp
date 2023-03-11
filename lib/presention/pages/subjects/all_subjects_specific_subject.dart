@@ -1,5 +1,8 @@
+import 'package:eduninjav2/core/constants/bloc_progress.dart';
+import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/watch/study_topic.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AllSubjectSpecificSubject extends StatelessWidget {
@@ -59,23 +62,35 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                 top: 9.w,
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: Container(
-                    height: 20.w,
-                    width: 130.h,
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      border: Border.all(color: primaryColor, width: 3.h),
-                      borderRadius: BorderRadius.circular(17),
-                    ),
-                    child: const Center(
-                        child: Padding(
-                      padding: EdgeInsets.all(2),
-                      child: Text(
-                        'US History  Language Art',
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.clip,
-                      ),
-                    )),
+                  child: BlocBuilder<CmsBloc, CmsState>(
+                    builder: (context, state) {
+                      if (state.blocProgress == BlocProgress.IS_LOADING) {
+                        return const Center(child: CircularProgressIndicator(color: Colors.white));
+                      }
+                      if (state.cms.isEmpty) {
+                        return const Text('error');
+                      }
+
+                      return Container(
+                        height: 20.w,
+                        width: 130.h,
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          border: Border.all(color: primaryColor, width: 3.h),
+                          borderRadius: BorderRadius.circular(17),
+                        ),
+                        child: Center(
+                            child: Padding(
+                          padding: const EdgeInsets.all(2),
+                          child: Text(
+                            'US History  Language Art',
+                            // state.cms?.first.module ?? 'fsdfsdf',
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.clip,
+                          ),
+                        )),
+                      );
+                    },
                   ),
                 ),
               ),
