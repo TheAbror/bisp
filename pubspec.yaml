@@ -21,6 +21,7 @@ dependencies:
   logging: ^1.1.1
   http: ^0.13.5
   intl: ^0.17.0
+  rive: ^0.10.2
   json_annotation: 4.7.0
   percent_indicator: ^4.0.1
   shared_preferences: ^2.0.15
@@ -41,6 +42,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/gifs/
     - assets/images/tile/
     - assets/images/heroes/
     - assets/images/emotes/

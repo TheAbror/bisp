@@ -41,7 +41,21 @@ class _AllSubjectsState extends State<AllSubjects> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        decoration: lessonsDecoration(),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Colors.yellow.shade900,
+              Colors.yellow.shade800,
+              Colors.yellow.shade800,
+              Colors.yellow.shade600,
+              Colors.green.shade400,
+              Colors.green.shade500,
+              Colors.green.shade600,
+            ],
+          ),
+        ),
         child: SafeArea(
           bottom: false,
           right: false,
@@ -85,7 +99,16 @@ class _AllSubjectsState extends State<AllSubjects> {
                     return const Center(child: CircularProgressIndicator(color: Colors.white));
                   }
                   if (state.cms.isEmpty) {
-                    return const Center(child: Text('No Materials available'));
+                    return Center(
+                        child: Text(
+                      'No Materials Available\nHave Some Rest)\n:)',
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.sp,
+                      ),
+                      textAlign: TextAlign.center,
+                    ));
                   }
 
                   final modulesList = state.cms.where((element) => element.module.toLowerCase() == 'geometry');
@@ -193,24 +216,6 @@ class _AllSubjectsState extends State<AllSubjects> {
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  BoxDecoration lessonsDecoration() {
-    return BoxDecoration(
-      gradient: LinearGradient(
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
-        colors: [
-          Colors.yellow.shade900,
-          Colors.yellow.shade800,
-          Colors.yellow.shade800,
-          Colors.yellow.shade600,
-          Colors.green.shade400,
-          Colors.green.shade500,
-          Colors.green.shade600,
-        ],
       ),
     );
   }
