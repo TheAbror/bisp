@@ -17,8 +17,6 @@ class AllSubjectSpecificSubject extends StatelessWidget {
     required this.lesson,
   }) : super(key: key);
 
-  static const primaryColor = Color(0xFF8F563C);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,7 +51,7 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                           lesson.subtitle,
                           textAlign: TextAlign.center,
                           overflow: TextOverflow.clip,
-                          style: const TextStyle(color: primaryColor),
+                          style: const TextStyle(color: AppColors.primaryColor),
                         ),
                       ),
                     ],
@@ -69,7 +67,7 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                       width: 130.h,
                       decoration: BoxDecoration(
                         color: Colors.amber,
-                        border: Border.all(color: primaryColor, width: 2.h),
+                        border: Border.all(color: AppColors.primaryColor, width: 2.h),
                         borderRadius: BorderRadius.circular(17),
                       ),
                       child: Center(

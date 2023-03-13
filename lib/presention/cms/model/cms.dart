@@ -2,19 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'cms.g.dart';
 
-// @JsonSerializable(includeIfNull: true, explicitToJson: true)
-// class GeneralResponse {
-//   @JsonKey(defaultValue: [])
-//   List<CmsResponse>? groups;
-
-//   GeneralResponse({
-//     this.groups,
-//   });
-
-//   factory GeneralResponse.fromJson(Map<String, dynamic> jsonData) => _$GeneralResponseFromJson(jsonData);
-//   Map<String, dynamic> toJson() => _$GeneralResponseToJson(this);
-// }
-
 @JsonSerializable(includeIfNull: true, explicitToJson: true)
 class CmsResponse {
   @JsonKey(defaultValue: '')
