@@ -24,66 +24,77 @@ class AllSubjectSpecificSubject extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 110.w,
-            child: Stack(
-              alignment: AlignmentDirectional.bottomEnd,
-              children: [
-                Container(
-                  height: 90.w,
-                  width: 180.h,
-                  decoration: boxDesign(),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        decoration: boxDesign2(),
-                        child: Image.network(
-                          lesson.image,
-                          height: 40.w,
-                          width: 145.h,
-                          fit: BoxFit.fill,
-                        ),
+          BlocBuilder<CmsBloc, CmsState>(
+            builder: (context, state) {
+              if (state.blocProgress == BlocProgress.IS_LOADING) {
+                return const Center(child: CircularProgressIndicator(color: Colors.white));
+              }
+              return SizedBox(
+                height: 110.w,
+                child: Stack(
+                  alignment: AlignmentDirectional.bottomEnd,
+                  children: [
+                    Container(
+                      height: 90.w,
+                      width: 180.h,
+                      decoration: boxDesign(),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            decoration: boxDesign2(),
+                            child: Image.network(lesson.image, height: 40.w, width: 145.h, fit: BoxFit.fill,
+                                loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              } else {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            }),
+                          ),
+                          SizedBox(
+                            height: 22.w,
+                            child: Text(
+                              lesson.subtitle,
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.clip,
+                              style: const TextStyle(color: AppColors.primaryColor),
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 22.w,
-                        child: Text(
-                          lesson.subtitle,
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.clip,
-                          style: const TextStyle(color: AppColors.primaryColor),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                //top of the container
-                Positioned.fill(
-                  top: 9.w,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: Container(
-                      height: 20.w,
-                      width: 130.h,
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        border: Border.all(color: AppColors.primaryColor, width: 2.h),
-                        borderRadius: BorderRadius.circular(17),
-                      ),
-                      child: Center(
-                          child: Padding(
-                        padding: const EdgeInsets.all(2),
-                        child: Text(
-                          lesson.title,
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.clip,
-                        ),
-                      )),
                     ),
-                  ),
+                    //top of the container
+                    Positioned.fill(
+                      top: 9.w,
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Container(
+                          height: 20.w,
+                          width: 130.h,
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            border: Border.all(color: AppColors.primaryColor, width: 2.h),
+                            borderRadius: BorderRadius.circular(17),
+                          ),
+                          child: Center(
+                              child: Padding(
+                            padding: const EdgeInsets.all(2),
+                            child: Text(
+                              lesson.title,
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.clip,
+                            ),
+                          )),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
           SizedBox(height: 1.w),
           GestureDetector(
