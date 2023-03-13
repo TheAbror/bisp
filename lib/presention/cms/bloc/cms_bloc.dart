@@ -13,6 +13,17 @@ part 'cms_state.dart';
 class CmsBloc extends Cubit<CmsState> {
   CmsBloc() : super(CmsState.initial());
 
+  void selectedModule(String? moduleName) {
+    if (moduleName != null && moduleName.isNotEmpty) {
+      final lessonsList =
+          state.cms.where((element) => element.module.toLowerCase() == moduleName.toLowerCase()).toList();
+
+      if (lessonsList.isNotEmpty) {
+        emit(state.copyWith(selectModuleName: moduleName, lessonsList: lessonsList.first.lessons));
+      }
+    }
+  }
+
   void getCms() async {
     emit(state.copyWith(blocProgress: BlocProgress.IS_LOADING));
 
@@ -22,8 +33,22 @@ class CmsBloc extends Cubit<CmsState> {
       if (response.isSuccessful) {
         final cms = response.body;
 
-        if (cms != null) {
-          emit(state.copyWith(cms: cms, blocProgress: BlocProgress.IS_SUCCESS));
+        if (cms != null && cms.isNotEmpty) {
+          final moduleNamesList = cms.map((e) => e.module).toList();
+
+          emit(
+            state.copyWith(
+              cms: cms,
+              moduleNamesList: moduleNamesList,
+              selectModuleName: cms.first.module,
+              lessonsList: cms.first.lessons,
+              blocProgress: BlocProgress.IS_SUCCESS,
+            ),
+          );
+        } else {
+          emit(
+            state.copyWith(blocProgress: BlocProgress.FAILED, failureMessage: 'List is empty'),
+          );
         }
       } else {
         final error = ErrorResponse.fromJson(json.decode(response.error.toString()));
