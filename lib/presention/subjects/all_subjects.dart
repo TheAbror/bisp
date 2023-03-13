@@ -85,7 +85,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                     return const Center(child: CircularProgressIndicator(color: Colors.white));
                   }
                   if (state.cms.isEmpty) {
-                    return const Text('Empty');
+                    return const Center(child: Text('No Materials available'));
                   }
 
                   final modulesList = state.cms.where((element) => element.module.toLowerCase() == 'geometry');

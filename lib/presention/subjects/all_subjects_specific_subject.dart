@@ -116,7 +116,7 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: ListView.builder(
-                                  itemCount: state.cms.length,
+                                  itemCount: 1,
                                   itemBuilder: (context, index) {
                                     return Padding(
                                       padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
@@ -166,6 +166,7 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                                 },
                                                 child: const Text('Finish')),
                                           ),
+                                          SizedBox(height: 40.h),
                                         ],
                                       ),
                                     );
