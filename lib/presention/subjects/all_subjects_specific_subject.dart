@@ -43,16 +43,31 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                         children: [
                           Container(
                             decoration: boxDesign2(),
-                            child: Image.network(lesson.image, height: 40.w, width: 145.h, fit: BoxFit.fill,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12.r),
+                              child: Image.network(
+                                lesson.image,
+                                height: 40.w,
+                                width: 145.h,
+                                fit: BoxFit.fill,
                                 loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) {
-                                return child;
-                              } else {
-                                return const Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              }
-                            }),
+                                  if (loadingProgress == null) {
+                                    return child;
+                                  } else {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+                                },
+                                errorBuilder: (ctx, error, stackTrace) {
+                                  return Container(
+                                    height: 40.w,
+                                    width: 145.h,
+                                    color: Colors.grey.withOpacity(0.3),
+                                  );
+                                },
+                              ),
+                            ),
                           ),
                           SizedBox(
                             height: 22.w,
