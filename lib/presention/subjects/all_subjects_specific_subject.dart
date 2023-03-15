@@ -64,6 +64,12 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                     height: 40.w,
                                     width: 145.h,
                                     color: Colors.grey.withOpacity(0.3),
+                                    child: const Center(
+                                      child: Text(
+                                        'No Photo',
+                                        style: TextStyle(color: AppColors.primaryColor),
+                                      ),
+                                    ),
                                   );
                                 },
                               ),
@@ -148,8 +154,6 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           SizedBox(height: 20.h),
-                                          const Text('Lesson 1 of 5'),
-                                          SizedBox(height: 20.h),
                                           Text(
                                             lesson.title,
                                             textAlign: TextAlign.center,
@@ -172,10 +176,27 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                           ),
                                           SizedBox(height: 20.h),
                                           Center(
-                                            child: Image.network(
-                                              lesson.image,
-                                              height: 80.w,
-                                              fit: BoxFit.fill,
+                                            child: InteractiveViewer(
+                                              panEnabled: false,
+                                              minScale: 0.5,
+                                              maxScale: 2,
+                                              child: Image.network(
+                                                lesson.image,
+                                                height: 90.w,
+                                                fit: BoxFit.fill,
+                                                loadingBuilder: (context, child, loadingProgress) {
+                                                  if (loadingProgress == null) {
+                                                    return child;
+                                                  } else {
+                                                    return const Center(
+                                                      child: CircularProgressIndicator(),
+                                                    );
+                                                  }
+                                                },
+                                                errorBuilder: (ctx, error, stackTrace) {
+                                                  return const SizedBox();
+                                                },
+                                              ),
                                             ),
                                           ),
                                           SizedBox(height: 40.h),
