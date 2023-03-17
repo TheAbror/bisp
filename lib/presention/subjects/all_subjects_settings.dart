@@ -170,13 +170,6 @@ Edu Ninja v1.0.0 ''',
   }
 }
 
-// InkWell(
-//                           onTap: _launchUrl,
-//                           child: Text(
-//                               'https://api.edulab.app/edulab/api/v1/uploads/media/other/2022/01/18/student_appeals_procedure_f_875718_s_ntb.pdf',
-//                               style: Theme.of(context).textTheme.headline5),
-//                         ),
-
 class SettingsTerms extends StatelessWidget {
   final String text;
   final String buttonName;
