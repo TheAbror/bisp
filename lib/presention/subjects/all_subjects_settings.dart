@@ -58,7 +58,7 @@ class _SubjectSettingsState extends State<SubjectSettings> {
                 ),
               ),
               const Expanded(
-                flex: 6,
+                flex: 9,
                 child: SettingsBody(),
               ),
             ],

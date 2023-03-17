@@ -21,7 +21,7 @@ class SettingsBody extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 3.w, vertical: 8.h),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         children: [
@@ -40,6 +40,89 @@ class SettingsBody extends StatelessWidget {
                     Colors.blue.shade400,
                     Colors.blue.shade500,
                     Colors.blue.shade600,
+                  ],
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.h),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Edu Ninja ',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4.r),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(2.h),
+                        child: const Text(
+                          'ID',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const Spacer(),
+                    const Text(
+                      'Connect to Edu Ninja ID \nto safeguard your game',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () {
+                        showDialog(
+                          barrierColor: Colors.grey.shade900.withOpacity(1),
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const Center(
+                              child: Text(
+                                'text',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Colors.blue.shade400,
+                              Colors.blue.shade300,
+                              Colors.blue.shade200,
+                              Colors.blue.shade100,
+                            ],
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16.w,
+                            vertical: 10.h,
+                          ),
+                          child: const Text(
+                            'Connected',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
