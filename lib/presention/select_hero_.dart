@@ -252,10 +252,17 @@ class _SelectHeroState extends State<SelectHero> {
                           });
                         },
                         itemBuilder: (context, myindex) {
-                          return const Icon(
-                            Icons.lock,
-                            color: Colors.white,
-                          );
+                          if (myindex == 0)
+                            return Icon(
+                              Icons.lock_open_sharp,
+                              color: Colors.white,
+                            );
+                          else {
+                            return Icon(
+                              Icons.lock,
+                              color: Colors.white,
+                            );
+                          }
                         },
                       ),
                     ),
