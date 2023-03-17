@@ -252,13 +252,10 @@ class _SelectHeroState extends State<SelectHero> {
                           });
                         },
                         itemBuilder: (context, myindex) {
-                          if (myindex == 0)
-                            return Icon(
-                              Icons.lock_open_sharp,
-                              color: Colors.white,
-                            );
-                          else {
-                            return Icon(
+                          if (myindex == 0) {
+                            return const SizedBox();
+                          } else {
+                            return const Icon(
                               Icons.lock,
                               color: Colors.white,
                             );
