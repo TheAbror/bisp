@@ -2,6 +2,7 @@ import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/constants/values/global_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CommandTasks extends StatefulWidget {
   const CommandTasks({super.key});
@@ -10,8 +11,23 @@ class CommandTasks extends StatefulWidget {
   State<CommandTasks> createState() => _CommandTasksState();
 }
 
+String username = '';
+
 class _CommandTasksState extends State<CommandTasks> {
   int taskCount = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCounter();
+  }
+
+  _loadCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = (prefs.getString('username') ?? '');
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +51,12 @@ class _CommandTasksState extends State<CommandTasks> {
                     child: IntrinsicHeight(
                       child: Column(
                         children: [
-                          Text(
-                            GlobalConstants.introMessages[taskCount]['text'].toString(),
-                            style: TextStyle(fontSize: 22.sp),
+                          Padding(
+                            padding: EdgeInsets.only(top: 8.h),
+                            child: Text(
+                              GlobalConstants.introMessages[taskCount]['text'].toString(),
+                              style: TextStyle(fontSize: 22.sp),
+                            ),
                           ),
                           SizedBox(height: 15.h),
                           Row(
@@ -78,8 +97,8 @@ class _CommandTasksState extends State<CommandTasks> {
               Positioned(
                 right: 15.w,
                 top: 25.h,
-                child: const TalkingPerson(
-                  text: 'You',
+                child: TalkingPerson(
+                  text: username,
                 ),
               ),
             ],

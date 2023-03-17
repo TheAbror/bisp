@@ -3,10 +3,12 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/core/api/api_provider.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
+import 'package:eduninjav2/core/shared_preferences/preferences_services.dart';
 import 'package:eduninjav2/presention/home_page.dart';
 import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 String _lastNick = '';
 
@@ -26,14 +28,12 @@ class _SelectHeroState extends State<SelectHero> {
   final PageController _pageController = PageController();
   final PageController _pageController2 = PageController();
   final GlobalKey<FormState> _form = GlobalKey();
-  // //
-  // late SharedPreferences prefs;
-  // String username = '';
-  final TextEditingController _textEditingController = TextEditingController();
+  //
+  final _preferencesService = PreferencesServices();
+  final _usernameController = TextEditingController();
 
   @override
   void initState() {
-    _textEditingController.text = _lastNick;
     sprites.add(SpriteSheetHero.hero1);
     sprites.add(SpriteSheetHero.hero2);
     sprites.add(SpriteSheetHero.hero3);
@@ -41,14 +41,23 @@ class _SelectHeroState extends State<SelectHero> {
     sprites.add(SpriteSheetHero.hero5);
     sprites.add(SpriteSheetHero.hero6);
     sprites.add(SpriteSheetHero.hero7);
-
+    _populateFields();
     super.initState();
   }
 
-  @override
-  void dispose() {
-    _textEditingController.dispose();
-    super.dispose();
+  void _populateFields() async {
+    final userDetails = await _preferencesService.getUserData();
+    setState(() {
+      _usernameController.text = userDetails.username;
+    });
+  }
+
+  void _saveData() {
+    final userData = UserDetails(
+      username: _usernameController.text,
+    );
+
+    _preferencesService.saveUserData(userData);
   }
 
   @override
@@ -76,7 +85,7 @@ class _SelectHeroState extends State<SelectHero> {
                         child: SizedBox(
                           width: 100.w,
                           child: TextFormField(
-                            controller: _textEditingController,
+                            controller: _usernameController,
                             decoration: const InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
@@ -120,7 +129,9 @@ class _SelectHeroState extends State<SelectHero> {
                                     ),
                                   ),
                                 ),
-                                onPressed: (() {
+                                onPressed: (() async {
+                                  _saveData();
+                                  // final name = await PreferencesServices.saveUserData(username);
                                   if (_form.currentState!.validate()) {
                                     ApiProvider.create();
 

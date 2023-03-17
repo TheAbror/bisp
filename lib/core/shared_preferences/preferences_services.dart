@@ -1,17 +1,26 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Helper {
-  static String valueSharedPreferences = '';
+class PreferencesServices {
+  Future saveUserData(UserDetails userDetails) async {
+    final preferences = await SharedPreferences.getInstance();
 
-// Write DATA
-  static Future<bool> saveUserData(value) async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return await sharedPreferences.setInt(valueSharedPreferences, value);
+    await preferences.setString('username', userDetails.username);
+
+    print('Saved settings');
   }
 
-// Read Data
-  static Future getUserData() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    return sharedPreferences.getInt(valueSharedPreferences);
+  Future<UserDetails> getUserData() async {
+    final preferences = await SharedPreferences.getInstance();
+
+    final username = preferences.getString('username');
+
+    return UserDetails(username: username ?? 'User');
   }
+}
+
+//models
+class UserDetails {
+  final String username;
+
+  UserDetails({required this.username});
 }

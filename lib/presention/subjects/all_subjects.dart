@@ -10,6 +10,7 @@ import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/cms/model/cms.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_specific_subject.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AllSubjects extends StatefulWidget {
   const AllSubjects({super.key});
@@ -18,12 +19,28 @@ class AllSubjects extends StatefulWidget {
   State<AllSubjects> createState() => _AllSubjectsState();
 }
 
+String username = '';
+
 class _AllSubjectsState extends State<AllSubjects> {
   String? selectedGrade;
 
   List<String> grades = ['Grade 7'];
 
   bool music = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCounter();
+  }
+
+  _loadCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      username = (prefs.getString('username') ?? '');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -35,7 +52,8 @@ class _AllSubjectsState extends State<AllSubjects> {
           if (state.cms.isEmpty) {
             return Center(
               child: Text(
-                'No Materials Available\nHave Some Rest)\n:)',
+                // 'No Materials Available\nHave Some Rest)\n:)',
+                'No Internet Connection',
                 style: TextStyle(
                   color: AppColors.primaryColor,
                   fontWeight: FontWeight.bold,
@@ -71,9 +89,10 @@ class _AllSubjectsState extends State<AllSubjects> {
                             ),
                           ),
                           Column(
-                            children: const [
-                              Text('Christie'),
-                              Text('Level 1'),
+                            children: [
+                              //TODO
+                              Text(username),
+                              const Text('Level 1'),
                             ],
                           ),
                         ],
@@ -86,7 +105,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                     top: 5.w,
                     child: Container(
                       height: 20.w,
-                      width: 155.h,
+                      width: 169.h,
                       decoration: decorationDropdowns(),
                       child: CustomDropdownButton(
                         hint: 'All Subjects',

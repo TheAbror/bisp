@@ -1,3 +1,6 @@
+import 'package:eduninjav2/core/shared_preferences/preferences_services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 class GlobalConstants {
   static final List<Map<String, dynamic>> demoTasks = [
     {
@@ -19,7 +22,7 @@ class GlobalConstants {
 
   static final List<Map<String, dynamic>> introMessages = [
     {
-      'text': 'Hello, Christie! Welcome to your first EduNinja tutorial.',
+      'text': 'Welcome to your first EduNinja tutorial',
       'has_next': true,
     },
     {
@@ -102,8 +105,7 @@ class GlobalConstants {
       'messages': [
         {
           'id': 1,
-          'text':
-              'Hello, Ethan! Have you seen Nancy recently? Our History teacher Mrs. Green told me she was here.',
+          'text': 'Hello, Ethan! Have you seen Nancy recently? Our History teacher Mrs. Green told me she was here.',
           'has_next': true,
           'is_local_player_message': true,
         },
@@ -115,8 +117,7 @@ class GlobalConstants {
         },
         {
           'id': 3,
-          'text':
-              'Yes, she was here, but she left just before you came. I think she said she wanted to go to Library.',
+          'text': 'Yes, she was here, but she left just before you came. I think she said she wanted to go to Library.',
           'has_next': true,
           'is_local_player_message': false,
         },
@@ -152,8 +153,7 @@ class GlobalConstants {
         },
         {
           'id': 4,
-          'text':
-              'Mrs. Green told me you have a textbook for history about The Civil War. Can I borrow it, please?',
+          'text': 'Mrs. Green told me you have a textbook for history about The Civil War. Can I borrow it, please?',
           'has_next': true,
           'is_local_player_message': true,
         },

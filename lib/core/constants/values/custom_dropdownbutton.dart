@@ -70,7 +70,7 @@ class CustomDropdownButton extends StatelessWidget {
             hint,
             overflow: TextOverflow.ellipsis,
             maxLines: 1,
-            style: TextStyle(fontSize: 18.sp, letterSpacing: -1.3),
+            style: TextStyle(fontSize: 18.sp, letterSpacing: -1.5),
           ),
         ),
         value: selectedValue,
@@ -85,7 +85,7 @@ class CustomDropdownButton extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: TextStyle(
-                          fontSize: 18.sp,
+                          fontSize: 16.sp,
                         ),
                       ),
                     ),
