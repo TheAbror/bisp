@@ -7,7 +7,6 @@ import 'package:eduninjav2/presention/home_page.dart';
 import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 String _lastNick = '';
 
@@ -25,10 +24,11 @@ class _SelectHeroState extends State<SelectHero> {
   //
   String statusServer = "CONNECTING";
   final PageController _pageController = PageController();
+  final PageController _pageController2 = PageController();
   final GlobalKey<FormState> _form = GlobalKey();
-  //
-  late SharedPreferences prefs;
-  String username = '';
+  // //
+  // late SharedPreferences prefs;
+  // String username = '';
   final TextEditingController _textEditingController = TextEditingController();
 
   @override
@@ -195,12 +195,8 @@ class _SelectHeroState extends State<SelectHero> {
                         height: 50,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                              Colors.blue,
-                            ),
-                            padding: MaterialStateProperty.all(
-                              EdgeInsets.zero,
-                            ),
+                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            padding: MaterialStateProperty.all(EdgeInsets.zero),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(25),
@@ -209,36 +205,62 @@ class _SelectHeroState extends State<SelectHero> {
                           ),
                           // ignore: sort_child_properties_last
                           child: const Center(
-                              child: Icon(
-                            Icons.chevron_left,
-                            color: Colors.white,
-                          )),
+                            child: Icon(
+                              Icons.chevron_left,
+                              color: Colors.white,
+                            ),
+                          ),
                           onPressed: _previous,
                         ),
                       ),
                     ),
             ),
             Expanded(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height / 4,
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: sprites.length,
-                  onPageChanged: (index) {
-                    setState(() {
-                      count = index;
-                    });
-                  },
-                  itemBuilder: (context, index) {
-                    return SpriteAnimationWidget(
-                      animation: sprites[index].createAnimation(
-                        row: 5,
-                        stepTime: 0.1,
+              child: Stack(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 4,
+                    child: PageView.builder(
+                      controller: _pageController,
+                      itemCount: sprites.length,
+                      onPageChanged: (index) {
+                        setState(() {
+                          count = index;
+                        });
+                      },
+                      itemBuilder: (context, index) {
+                        return SpriteAnimationWidget(
+                          animation: sprites[index].createAnimation(
+                            row: 5,
+                            stepTime: 0.1,
+                          ),
+                          anchor: Anchor.center,
+                        );
+                      },
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height / 4,
+                      child: PageView.builder(
+                        controller: _pageController2,
+                        itemCount: sprites.length,
+                        onPageChanged: (myindex) {
+                          setState(() {
+                            count = myindex;
+                          });
+                        },
+                        itemBuilder: (context, myindex) {
+                          return const Icon(
+                            Icons.lock,
+                            color: Colors.white,
+                          );
+                        },
                       ),
-                      anchor: Anchor.center,
-                    );
-                  },
-                ),
+                    ),
+                  ),
+                ],
               ),
             ),
             Expanded(
@@ -280,12 +302,22 @@ class _SelectHeroState extends State<SelectHero> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.decelerate,
       );
+      _pageController2.animateToPage(
+        count + 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.decelerate,
+      );
     }
   }
 
   void _previous() {
     if (count > 0) {
       _pageController.animateToPage(
+        count - 1,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.decelerate,
+      );
+      _pageController2.animateToPage(
         count - 1,
         duration: const Duration(milliseconds: 300),
         curve: Curves.decelerate,
