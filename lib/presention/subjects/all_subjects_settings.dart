@@ -39,7 +39,6 @@ class _SubjectSettingsState extends State<SubjectSettings> {
                           Navigator.pop(context);
                         },
                         child: Container(
-                          // margin: EdgeInsets.only(right: 5.w),
                           padding: EdgeInsets.all(1.w),
                           decoration: BoxDecoration(
                             color: Colors.red,
