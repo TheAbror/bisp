@@ -23,6 +23,8 @@ class _SelectHeroState extends State<SelectHero> {
   int count = 0;
   List<SpriteSheet> sprites = [];
   bool loading = false;
+  bool isSelected = true;
+  int buttonIndex = 3;
   //
   String statusServer = "CONNECTING";
   final PageController _pageController = PageController();
@@ -176,13 +178,27 @@ class _SelectHeroState extends State<SelectHero> {
                 ),
               ),
             ),
-            const Align(
+            Align(
               alignment: Alignment.bottomRight,
               child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'Flutter 3.3.3',
-                  style: TextStyle(fontSize: 11, color: Colors.white),
+                padding: const EdgeInsets.all(8.0),
+                child: ToggleButtons(
+                  selectedColor: Colors.orange,
+                  textStyle: TextStyle(color: Colors.white),
+                  isSelected: [isSelected, !isSelected],
+                  onPressed: (int index) {
+                    setState(() {
+                      isSelected = !isSelected;
+                    });
+                  },
+                  children: const <Widget>[
+                    Text(
+                      'EN',
+                    ),
+                    Text(
+                      'RU',
+                    ),
+                  ],
                 ),
               ),
             )
