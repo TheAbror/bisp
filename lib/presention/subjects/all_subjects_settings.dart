@@ -1,7 +1,6 @@
 import 'package:eduninjav2/presention/subjects/settings_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SubjectSettings extends StatefulWidget {
   const SubjectSettings({super.key});
@@ -15,8 +14,8 @@ class _SubjectSettingsState extends State<SubjectSettings> {
   Widget build(BuildContext context) {
     return Center(
       child: Material(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.cyan[800],
+        borderRadius: BorderRadius.circular(10),
+        color: const Color.fromARGB(255, 1, 91, 100),
         child: Container(
           margin: EdgeInsets.only(top: 5.h),
           height: 455.h,

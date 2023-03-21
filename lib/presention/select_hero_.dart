@@ -72,7 +72,14 @@ class _SelectHeroState extends State<SelectHero> {
             Column(
               children: <Widget>[
                 const SizedBox(height: 10),
-                const Text("Select your character", style: TextStyle(color: Colors.white, fontSize: 30)),
+                Row(
+                  children: [
+                    const Spacer(flex: 2),
+                    const Text("Select your character", style: TextStyle(color: Colors.white, fontSize: 30)),
+                    const Spacer(),
+                    toggle(),
+                  ],
+                ),
                 Expanded(
                   flex: 2,
                   child: _buildPersons(),
@@ -170,41 +177,41 @@ class _SelectHeroState extends State<SelectHero> {
               ),
             Align(
               alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  statusServer,
-                  style: const TextStyle(fontSize: 11, color: Colors.white),
-                ),
+              child: Text(
+                statusServer,
+                style: const TextStyle(fontSize: 11, color: Colors.white),
               ),
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ToggleButtons(
-                  selectedColor: Colors.orange,
-                  textStyle: TextStyle(color: Colors.white),
-                  isSelected: [isSelected, !isSelected],
-                  onPressed: (int index) {
-                    setState(() {
-                      isSelected = !isSelected;
-                    });
-                  },
-                  children: const <Widget>[
-                    Text(
-                      'EN',
-                    ),
-                    Text(
-                      'RU',
-                    ),
-                  ],
-                ),
-              ),
-            )
+            const Align(
+                alignment: Alignment.bottomRight,
+                child: Text(
+                  'Flutter 3.3.3',
+                  style: TextStyle(color: Colors.white),
+                ))
           ],
         ),
       ),
+    );
+  }
+
+  ToggleButtons toggle() {
+    return ToggleButtons(
+      selectedColor: Colors.orange,
+      color: Colors.white,
+      isSelected: [isSelected, !isSelected],
+      onPressed: (int index) {
+        setState(() {
+          isSelected = !isSelected;
+        });
+      },
+      children: const <Widget>[
+        Text(
+          'EN',
+        ),
+        Text(
+          'RU',
+        ),
+      ],
     );
   }
 

@@ -21,7 +21,7 @@ class SettingsBody extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 3.w, vertical: 8.h),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.background,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(5),
       ),
       child: Column(
         children: [
@@ -29,6 +29,10 @@ class SettingsBody extends StatelessWidget {
             flex: 1,
             child: Container(
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                  topRight: Radius.circular(5),
+                ),
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
