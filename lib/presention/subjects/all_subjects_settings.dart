@@ -107,7 +107,13 @@ class SettingsTerms extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Text(buttonName),
+          child: Text(
+            buttonName,
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
       ),
     );

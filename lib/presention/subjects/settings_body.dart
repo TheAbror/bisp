@@ -28,25 +28,7 @@ class SettingsBody extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(5),
-                  topRight: Radius.circular(5),
-                ),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Colors.blue.shade900,
-                    Colors.blue.shade800,
-                    Colors.blue.shade800,
-                    Colors.blue.shade600,
-                    Colors.blue.shade400,
-                    Colors.blue.shade500,
-                    Colors.blue.shade600,
-                  ],
-                ),
-              ),
+              decoration: decoration(),
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.h),
                 child: Row(
@@ -87,7 +69,7 @@ class SettingsBody extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         showDialog(
-                          barrierColor: Colors.grey.shade900.withOpacity(1),
+                          barrierColor: Colors.grey.shade900.withOpacity(0.0),
                           context: context,
                           builder: (BuildContext context) {
                             return const Center(
@@ -100,19 +82,7 @@ class SettingsBody extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Colors.blue.shade400,
-                              Colors.blue.shade300,
-                              Colors.blue.shade200,
-                              Colors.blue.shade100,
-                            ],
-                          ),
-                        ),
+                        decoration: buttonConntected(),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: 16.w,
@@ -134,25 +104,36 @@ class SettingsBody extends StatelessWidget {
           ),
           Expanded(
             flex: 5,
-            child: Row(
+            child: Column(
               children: [
                 Expanded(
-                  child: Column(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
-                      SubjectsSettingsItems(),
-                      SubjectsSettingsItems(),
-                      SubjectsSettingsItems(),
+                      SubjectsSettingsItems(
+                        text: 'asd',
+                        actionName: 'dsa',
+                      ),
+                      SubjectsSettingsItems(
+                        text: 'asd',
+                        actionName: 'dsa',
+                      ),
+                      SubjectsSettingsItems(
+                        text: 'asd',
+                        actionName: 'dsa',
+                      ),
                     ],
                   ),
                 ),
                 Expanded(
-                  child: Column(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      SubjectsSettingsItems(),
-                      SubjectsSettingsItems(),
-                      SubjectsSettingsItems(),
+                    children: [
+                      SubjectsSettingsItems(
+                        actionName: 'Language',
+                        text: 'English',
+                        onTap: () {},
+                      ),
                     ],
                   ),
                 ),
@@ -160,6 +141,44 @@ class SettingsBody extends StatelessWidget {
             ),
           ),
           const Terms(),
+        ],
+      ),
+    );
+  }
+
+  BoxDecoration buttonConntected() {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Colors.blue.shade400,
+          Colors.blue.shade300,
+          Colors.blue.shade200,
+          Colors.blue.shade100,
+        ],
+      ),
+    );
+  }
+
+  BoxDecoration decoration() {
+    return BoxDecoration(
+      borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(5),
+        topRight: Radius.circular(5),
+      ),
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Colors.blue.shade900,
+          Colors.blue.shade800,
+          Colors.blue.shade800,
+          Colors.blue.shade600,
+          Colors.blue.shade400,
+          Colors.blue.shade500,
+          Colors.blue.shade600,
         ],
       ),
     );
@@ -207,7 +226,13 @@ class Terms extends StatelessWidget {
                       ),
                     ),
                     child: const Center(
-                      child: Text('Support'),
+                      child: Text(
+                        'Support',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 )
@@ -222,30 +247,39 @@ class Terms extends StatelessWidget {
 }
 
 class SubjectsSettingsItems extends StatelessWidget {
+  final String text;
+  final VoidCallback? onTap;
+  final String actionName;
   const SubjectsSettingsItems({
     Key? key,
+    required this.text,
+    this.onTap,
+    required this.actionName,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Text('Music'),
-        SizedBox(height: 3.h),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 6.h),
-          width: 40.w,
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(5),
-            border: Border.all(
-              color: Colors.black,
+        Text(actionName),
+        SizedBox(height: 8.h),
+        GestureDetector(
+          onTap: onTap,
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 6.h),
+            width: 40.w,
+            decoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(5),
+              border: Border.all(
+                color: Colors.black,
+              ),
             ),
-          ),
-          child: const Center(
-            child: Text(
-              'ON',
-              style: TextStyle(color: Colors.white),
+            child: Center(
+              child: Text(
+                text,
+                style: const TextStyle(color: Colors.white),
+              ),
             ),
           ),
         ),

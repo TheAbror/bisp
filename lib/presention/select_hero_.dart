@@ -199,6 +199,7 @@ class _SelectHeroState extends State<SelectHero> {
       selectedColor: Colors.orange,
       color: Colors.white,
       isSelected: [isSelected, !isSelected],
+      textStyle: const TextStyle(fontWeight: FontWeight.w600),
       onPressed: (int index) {
         setState(() {
           isSelected = !isSelected;
