@@ -1,6 +1,4 @@
-import 'package:eduninjav2/presention/subjects/settings_body.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SelectLanguage extends StatelessWidget {
@@ -89,10 +87,12 @@ class SelectLanguage extends StatelessWidget {
 class LanguageItem extends StatelessWidget {
   final String language;
   final VoidCallback? onTap;
+  final Icon? icon;
   const LanguageItem({
     Key? key,
     required this.language,
     this.onTap,
+    this.icon,
   }) : super(key: key);
 
   @override
@@ -113,8 +113,12 @@ class LanguageItem extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(5),
           ),
-          child: Text(
-            language,
+          child: Row(
+            children: [
+              Text(language),
+              const Spacer(),
+              if (language == 'English') const Icon(Icons.done),
+            ],
           ),
         ),
       ),
