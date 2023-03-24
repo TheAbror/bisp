@@ -19,11 +19,6 @@ class SettingsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 3.w, vertical: 8.h),
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.background,
-        borderRadius: BorderRadius.circular(5),
-      ),
       child: Column(
         children: [
           Expanded(

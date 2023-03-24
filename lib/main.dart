@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(393, 852),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: ((context, child) {
+      builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           // home: const AuthPage(),
           home: const SelectHero(),
         );
-      }),
+      },
     );
   }
 }
