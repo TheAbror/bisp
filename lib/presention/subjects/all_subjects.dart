@@ -24,7 +24,13 @@ String username = '';
 class _AllSubjectsState extends State<AllSubjects> {
   String? selectedGrade;
 
-  List<String> grades = ['Grade 7'];
+  List<String> grades = [
+    'Grade 3',
+    'Grade 4',
+    'Grade 5',
+    'Grade 6',
+    'Grade 7',
+  ];
 
   bool music = true;
 
@@ -90,7 +96,6 @@ class _AllSubjectsState extends State<AllSubjects> {
                           ),
                           Column(
                             children: [
-                              //TODO
                               Text(username),
                               const Text('Level 1'),
                             ],

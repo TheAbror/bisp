@@ -1,4 +1,5 @@
 import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
+import 'package:eduninjav2/presention/subjects/language_select.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -106,21 +107,18 @@ class SettingsBody extends StatelessWidget {
             flex: 5,
             child: Column(
               children: [
+                SizedBox(height: 50 / 2.h),
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: const [
                       SubjectsSettingsItems(
-                        text: 'asd',
-                        actionName: 'dsa',
+                        text: 'ON',
+                        actionName: 'Sound',
                       ),
                       SubjectsSettingsItems(
-                        text: 'asd',
-                        actionName: 'dsa',
-                      ),
-                      SubjectsSettingsItems(
-                        text: 'asd',
-                        actionName: 'dsa',
+                        text: 'OFF',
+                        actionName: 'Music',
                       ),
                     ],
                   ),
@@ -132,7 +130,15 @@ class SettingsBody extends StatelessWidget {
                       SubjectsSettingsItems(
                         actionName: 'Language',
                         text: 'English',
-                        onTap: () {},
+                        onTap: () {
+                          showDialog(
+                            barrierColor: Colors.grey.shade200.withOpacity(0.8),
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const SelectLanguage();
+                            },
+                          );
+                        },
                       ),
                     ],
                   ),
