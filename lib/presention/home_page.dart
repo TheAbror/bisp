@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
       case 6:
         return SpriteSheetHero.hero7;
       default:
-        return SpriteSheetHero.hero2;
+        return SpriteSheetHero.hero1;
     }
   }
 }
