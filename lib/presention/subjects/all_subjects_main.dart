@@ -8,7 +8,7 @@ import 'package:eduninjav2/core/constants/values/custom_dropdownbutton.dart';
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/cms/model/cms.dart';
-import 'package:eduninjav2/presention/subjects/all_subjects_specific_subject.dart';
+import 'package:eduninjav2/presention/subjects/subject_inner.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AllSubjects extends StatefulWidget {

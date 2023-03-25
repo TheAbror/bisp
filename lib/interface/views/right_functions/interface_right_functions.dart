@@ -5,7 +5,7 @@ import 'package:eduninjav2/presention/subjects/watch/watch_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/constants/values/topRight_functions.dart';
-import '../../../presention/subjects/all_subjects.dart';
+import '../../../presention/subjects/all_subjects_main.dart';
 
 class RightMenuItems extends StatefulWidget {
   const RightMenuItems({super.key});
