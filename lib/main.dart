@@ -3,7 +3,7 @@ import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/api/utils/api_logging.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/player_movement/sprite_sheet_hero.dart';
-import 'package:eduninjav2/select_hero_.dart';
+import 'package:eduninjav2/presention/player_movement/select_hero_.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

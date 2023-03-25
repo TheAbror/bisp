@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:bonfire/bonfire.dart';
-import 'package:eduninjav2/interface_overlay.dart';
+import 'package:eduninjav2/interface/interface_overlay.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/player_movement/local/local_player.dart';
 import 'package:eduninjav2/presention/player_movement/sprite_sheet_hero.dart';
