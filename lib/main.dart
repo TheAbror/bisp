@@ -13,7 +13,6 @@ const double tileSize = 24;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  /// For logging
   setUpLogging();
 
   await SpriteSheetHero.load();
@@ -50,7 +49,6 @@ class MyApp extends StatelessWidget {
             backgroundColor: AppColors.taskbarBackground,
             dividerColor: Colors.white54,
           ),
-          // home: const AuthPage(),
           home: const SelectHero(),
         );
       },
