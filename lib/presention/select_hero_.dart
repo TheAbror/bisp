@@ -21,7 +21,6 @@ class _SelectHeroState extends State<SelectHero> {
   List<SpriteSheet> sprites = [];
   bool loading = false;
   bool isSelected = true;
-  int buttonIndex = 3;
   //
   String statusServer = "CONNECTING";
   final PageController _pageController = PageController();
@@ -233,19 +232,16 @@ class _SelectHeroState extends State<SelectHero> {
                             backgroundColor: MaterialStateProperty.all(Colors.blue),
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                             shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25),
-                              ),
+                              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                             ),
                           ),
-                          // ignore: sort_child_properties_last
+                          onPressed: _previous,
                           child: const Center(
                             child: Icon(
                               Icons.chevron_left,
                               color: Colors.white,
                             ),
                           ),
-                          onPressed: _previous,
                         ),
                       ),
                     ),
