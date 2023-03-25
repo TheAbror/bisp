@@ -85,10 +85,11 @@ class _SkinsPageState extends State<SkinsPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      Text('Unlocks at Level ${count + 1}'),
                       _buildPersons(),
                       SizedBox(
-                        height: 50,
-                        width: 150,
+                        height: 40,
+                        width: MediaQuery.of(context).size.width / 2,
                         child: ElevatedButton(
                           // ignore: sort_child_properties_last
                           child: const Text(
