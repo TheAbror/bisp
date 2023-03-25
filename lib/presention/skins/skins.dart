@@ -82,7 +82,32 @@ class _SkinsPageState extends State<SkinsPage> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: _buildPersons(),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      _buildPersons(),
+                      SizedBox(
+                        height: 50,
+                        width: 150,
+                        child: ElevatedButton(
+                          // ignore: sort_child_properties_last
+                          child: const Text(
+                            'Select',
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          ),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+                              return states.contains(MaterialState.disabled) ? null : Colors.orange;
+                            }),
+                            shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            ),
+                          ),
+                          onPressed: (() async {}),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -127,7 +152,7 @@ class _SkinsPageState extends State<SkinsPage> {
               child: Stack(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height / 4,
+                    height: MediaQuery.of(context).size.height / 2.5,
                     child: PageView.builder(
                       controller: _pageController,
                       itemCount: sprites.length,
