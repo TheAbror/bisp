@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
-import 'package:eduninjav2/core/utils/api_logging.dart';
+import 'package:eduninjav2/core/api/utils/api_logging.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:eduninjav2/select_hero_.dart';
