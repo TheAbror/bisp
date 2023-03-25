@@ -1,7 +1,7 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
+import 'package:eduninjav2/presention/subjects/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/skins/skins.dart';
-import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
-import 'package:eduninjav2/presention/subjects/language_select.dart';
+import 'package:eduninjav2/presention/subjects/language/language_select.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';

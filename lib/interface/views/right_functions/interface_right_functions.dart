@@ -1,5 +1,5 @@
 import 'package:eduninjav2/core/api/api_provider.dart';
-import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
+import 'package:eduninjav2/presention/subjects/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/watch/command_tasks.dart';
 import 'package:eduninjav2/presention/subjects/watch/watch_page.dart';
 import 'package:flutter/material.dart';

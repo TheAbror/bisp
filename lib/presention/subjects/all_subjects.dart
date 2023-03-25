@@ -1,14 +1,13 @@
+import 'package:eduninjav2/presention/subjects/settings/settings_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:eduninjav2/core/constants/bloc_progress.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/constants/values/custom_dropdownbutton.dart';
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/cms/model/cms.dart';
-import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_specific_subject.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

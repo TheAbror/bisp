@@ -1,5 +1,5 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
-import 'package:eduninjav2/presention/subjects/settings_body.dart';
+import 'package:eduninjav2/presention/subjects/settings/settings_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
