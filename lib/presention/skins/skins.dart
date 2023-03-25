@@ -2,6 +2,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:eduninjav2/presention/player_movement/sprite_sheet_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class SkinsPage extends StatefulWidget {
   const SkinsPage({super.key});
@@ -104,7 +105,7 @@ class _SkinsPageState extends State<SkinsPage> {
                               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                             ),
                           ),
-                          onPressed: (() async {}),
+                          onPressed: showToast,
                         ),
                       ),
                     ],
@@ -227,4 +228,15 @@ class _SkinsPageState extends State<SkinsPage> {
       );
     }
   }
+}
+
+//TODO
+void showToast() {
+  Fluttertoast.showToast(
+      msg: 'This is toast notification',
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIos: 1,
+      backgroundColor: Colors.red,
+      textColor: Colors.yellow);
 }
