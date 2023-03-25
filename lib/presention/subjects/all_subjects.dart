@@ -159,16 +159,16 @@ class _AllSubjectsState extends State<AllSubjects> {
                         ),
                         SizedBox(width: 20.h),
                         TopRightFunctions(
-                            icon: Icons.settings,
-                            onTap: () {
-                              showDialog(
-                                barrierColor: Colors.grey.shade200.withOpacity(0.8),
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return const SubjectSettings();
-                                },
-                              );
-                            }),
+                          icon: Icons.settings,
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const SubjectSettings();
+                              },
+                            );
+                          },
+                        ),
                         SizedBox(width: 20.h),
                         TopRightFunctions(icon: Icons.priority_high, onTap: () {}),
                         SizedBox(width: 20.h),

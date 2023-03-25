@@ -1,4 +1,5 @@
 import 'package:eduninjav2/core/api/api_provider.dart';
+import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
 import 'package:eduninjav2/presention/watch/command_tasks.dart';
 import 'package:eduninjav2/presention/watch/watch_page.dart';
 import 'package:flutter/material.dart';
@@ -27,15 +28,13 @@ class _RightMenuItemsState extends State<RightMenuItems> {
         children: [
           TopRightFunctions(
             icon: Icons.play_arrow,
-            onTap: (() {
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const WatchPage()),
               );
-            }),
+            },
           ),
-          SizedBox(width: 6.w),
-          TopRightFunctions(icon: Icons.group, onTap: () {}),
           SizedBox(width: 6.w),
           TopRightFunctions(
             icon: Icons.list,
@@ -44,6 +43,18 @@ class _RightMenuItemsState extends State<RightMenuItems> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const AllSubjects()),
+              );
+            },
+          ),
+          SizedBox(width: 6.w),
+          TopRightFunctions(
+            icon: Icons.settings,
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return const SubjectSettings();
+                },
               );
             },
           ),
