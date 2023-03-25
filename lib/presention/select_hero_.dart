@@ -159,35 +159,35 @@ class _SelectHeroState extends State<SelectHero> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
               ],
             ),
-            if (loading)
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  color: Colors.white.withOpacity(0.9),
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: const <Widget>[CircularProgressIndicator(), SizedBox(height: 10), Text("Loading")],
-                    ),
-                  ),
-                ),
-              ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                statusServer,
-                style: const TextStyle(fontSize: 11, color: Colors.white),
-              ),
-            ),
-            const Align(
-                alignment: Alignment.bottomRight,
-                child: Text(
-                  'Flutter 3.3.3',
-                  style: TextStyle(color: Colors.white),
-                ))
+            // if (loading)
+            //   InkWell(
+            //     onTap: () {},
+            //     child: Container(
+            //       color: Colors.white.withOpacity(0.9),
+            //       child: Center(
+            //         child: Column(
+            //           mainAxisSize: MainAxisSize.min,
+            //           children: const <Widget>[CircularProgressIndicator(), SizedBox(height: 10), Text("Loading")],
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // Align(
+            //   alignment: Alignment.bottomLeft,
+            //   child: Text(
+            //     statusServer,
+            //     style: const TextStyle(fontSize: 11, color: Colors.white),
+            //   ),
+            // ),
+            // const Align(
+            //   alignment: Alignment.bottomRight,
+            //   child: Text(
+            //     'Flutter 3.3.3',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ),
           ],
         ),
       ),
