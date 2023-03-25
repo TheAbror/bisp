@@ -8,9 +8,6 @@ import 'package:eduninjav2/presention/home_page.dart';
 import 'package:eduninjav2/presention/player/sprite_sheet_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-String _lastNick = '';
 
 class SelectHero extends StatefulWidget {
   const SelectHero({super.key});
@@ -198,7 +195,10 @@ class _SelectHeroState extends State<SelectHero> {
     return ToggleButtons(
       selectedColor: Colors.orange,
       color: Colors.white,
-      isSelected: [isSelected, !isSelected],
+      isSelected: [
+        isSelected,
+        !isSelected,
+      ],
       textStyle: const TextStyle(fontWeight: FontWeight.w600),
       onPressed: (int index) {
         setState(() {
