@@ -1,3 +1,4 @@
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
 import 'package:eduninjav2/presention/subjects/language_select.dart';
 import 'package:flutter/material.dart';
@@ -120,6 +121,10 @@ class SettingsBody extends StatelessWidget {
                         text: 'OFF',
                         actionName: 'Music',
                       ),
+                      SubjectsSettingsItems(
+                        text: 'Level 1',
+                        actionName: 'Skins',
+                      ),
                     ],
                   ),
                 ),
@@ -225,17 +230,25 @@ class Terms extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 6.h),
                     width: 55.w,
                     decoration: BoxDecoration(
-                      color: Colors.amber,
+                      color: AppColors.settings,
                       borderRadius: BorderRadius.circular(5),
                       border: Border.all(
                         color: Colors.black,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 1,
+                          offset: const Offset(1, 2),
+                        ),
+                      ],
                     ),
                     child: const Center(
                       child: Text(
                         'Support',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -275,16 +288,27 @@ class SubjectsSettingsItems extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 6.h),
             width: 40.w,
             decoration: BoxDecoration(
-              color: Colors.amber,
+              color: AppColors.settings,
               borderRadius: BorderRadius.circular(5),
               border: Border.all(
                 color: Colors.black,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 1,
+                  blurRadius: 1,
+                  offset: const Offset(1, 2), // changes position of shadow
+                ),
+              ],
             ),
             child: Center(
               child: Text(
                 text,
-                style: const TextStyle(color: Colors.white),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           ),

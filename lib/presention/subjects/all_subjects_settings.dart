@@ -1,3 +1,4 @@
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/subjects/settings_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -99,23 +100,35 @@ class SettingsTerms extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 6.h),
         width: 55.w,
-        decoration: BoxDecoration(
-          color: Colors.amber,
-          borderRadius: BorderRadius.circular(5),
-          border: Border.all(
-            color: Colors.black,
-          ),
-        ),
+        decoration: newMethod(),
         child: Center(
           child: Text(
             buttonName,
             style: const TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
       ),
+    );
+  }
+
+  BoxDecoration newMethod() {
+    return BoxDecoration(
+      color: AppColors.settings,
+      borderRadius: BorderRadius.circular(5),
+      border: Border.all(
+        color: Colors.black,
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          spreadRadius: 1,
+          blurRadius: 1,
+          offset: const Offset(1, 2), // changes position of shadow
+        ),
+      ],
     );
   }
 }
