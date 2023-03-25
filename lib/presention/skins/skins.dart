@@ -13,6 +13,17 @@ class SkinsPage extends StatefulWidget {
 
 class _SkinsPageState extends State<SkinsPage> {
   int count = 0;
+  void showToast() {
+    Fluttertoast.showToast(
+      msg: "Required level is ${count + 1}",
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.CENTER,
+      timeInSecForIosWeb: 1,
+      backgroundColor: Colors.red,
+      textColor: Colors.white,
+      fontSize: 14.sp,
+    );
+  }
 
   List<SpriteSheet> sprites = [];
   final PageController _pageController = PageController();
@@ -86,27 +97,26 @@ class _SkinsPageState extends State<SkinsPage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('Unlocks at Level ${count + 1}'),
+                      count == 0 ? const Text('') : Text('Unlocks at Level ${count + 1}'),
                       _buildPersons(),
                       SizedBox(
                         height: 40,
                         width: MediaQuery.of(context).size.width / 2,
                         child: ElevatedButton(
-                          // ignore: sort_child_properties_last
-                          child: const Text(
-                            'Select',
-                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                          ),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
-                              return states.contains(MaterialState.disabled) ? null : Colors.orange;
-                            }),
-                            shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            // ignore: sort_child_properties_last
+                            child: Text(
+                              count == 0 ? "Selected" : 'Select',
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                             ),
-                          ),
-                          onPressed: showToast,
-                        ),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+                                return states.contains(MaterialState.disabled) ? null : Colors.orange;
+                              }),
+                              shape: MaterialStateProperty.all(
+                                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                              ),
+                            ),
+                            onPressed: count == 0 ? null : showToast),
                       ),
                     ],
                   ),
@@ -228,15 +238,4 @@ class _SkinsPageState extends State<SkinsPage> {
       );
     }
   }
-}
-
-//TODO
-void showToast() {
-  Fluttertoast.showToast(
-      msg: 'This is toast notification',
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIos: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.yellow);
 }
