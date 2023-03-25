@@ -164,10 +164,10 @@ class SettingsBody extends StatelessWidget {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
         colors: [
-          Colors.blue.shade400,
-          Colors.blue.shade300,
-          Colors.blue.shade200,
-          Colors.blue.shade100,
+          Colors.blue.shade900,
+          Colors.blue.shade900,
+          Colors.blue.shade800,
+          Colors.blue.shade700,
         ],
       ),
     );
@@ -184,12 +184,16 @@ class SettingsBody extends StatelessWidget {
         end: Alignment.bottomRight,
         colors: [
           Colors.blue.shade900,
+          Colors.blue.shade900,
+          Colors.blue.shade900,
+          Colors.blue.shade900,
           Colors.blue.shade800,
           Colors.blue.shade800,
+          Colors.blue.shade600,
           Colors.blue.shade600,
           Colors.blue.shade400,
-          Colors.blue.shade500,
-          Colors.blue.shade600,
+          Colors.blue.shade400,
+          Colors.blue.shade400,
         ],
       ),
     );

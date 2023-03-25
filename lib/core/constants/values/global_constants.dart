@@ -1,6 +1,3 @@
-import 'package:eduninjav2/core/shared_preferences/preferences_services.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 class GlobalConstants {
   static final List<Map<String, dynamic>> demoTasks = [
     {

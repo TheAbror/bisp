@@ -5,8 +5,6 @@ class PreferencesServices {
     final preferences = await SharedPreferences.getInstance();
 
     await preferences.setString('username', userDetails.username);
-
-    print('Saved settings');
   }
 
   Future<UserDetails> getUserData() async {

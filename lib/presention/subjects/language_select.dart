@@ -67,20 +67,18 @@ class _SelectLanguageState extends State<SelectLanguage> {
                     LanguageItem(
                       language: 'English',
                       onTap: () {
-                        setState() {
-                          selectedLanguage == Languages.english;
-                        }
-
                         Navigator.pop(context);
                       },
                     ),
                     LanguageItem(
                       language: 'Russian',
                       onTap: () {
-                        setState() {
-                          selectedLanguage == Languages.russian;
-                        }
-
+                        Navigator.pop(context);
+                      },
+                    ),
+                    LanguageItem(
+                      language: 'Uzbek',
+                      onTap: () {
                         Navigator.pop(context);
                       },
                     ),
