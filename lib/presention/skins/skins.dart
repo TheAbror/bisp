@@ -1,4 +1,5 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/player_movement/sprite_sheet_hero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -143,7 +144,7 @@ class _SkinsPageState extends State<SkinsPage> {
                         height: 50,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            backgroundColor: MaterialStateProperty.all(AppColors.settings),
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
@@ -196,7 +197,7 @@ class _SkinsPageState extends State<SkinsPage> {
                         height: 50,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            backgroundColor: MaterialStateProperty.all(AppColors.settings),
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),

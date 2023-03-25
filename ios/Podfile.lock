@@ -2,6 +2,7 @@ PODS:
   - Flutter (1.0.0)
   - fluttertoast (0.0.2):
     - Flutter
+    - Toast
   - image_picker_ios (0.0.1):
     - Flutter
   - rive_common (0.0.1):
@@ -9,6 +10,7 @@ PODS:
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - Toast (4.0.0)
   - url_launcher_ios (0.0.1):
     - Flutter
 
@@ -19,6 +21,10 @@ DEPENDENCIES:
   - rive_common (from `.symlinks/plugins/rive_common/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Toast
 
 EXTERNAL SOURCES:
   Flutter:
@@ -36,10 +42,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  fluttertoast: b644586ef3b16f67fae9a1f8754cef6b2d6b634b
+  fluttertoast: eb263d302cc92e04176c053d2385237e9f43fad0
   image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
   rive_common: e35144d3b86972f8760b6c9f8b120dfd5fadfa13
   shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
 
 PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
