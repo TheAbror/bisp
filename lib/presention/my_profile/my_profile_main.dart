@@ -174,16 +174,6 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
               subject: 'Chemistry',
               percentage: 0.88,
             ),
-            SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Chemistry',
-              percentage: 0.35,
-            ),
-            SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Chemistry',
-              percentage: 0.97,
-            ),
           ],
         ),
       ],

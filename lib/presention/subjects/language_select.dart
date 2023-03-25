@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SelectLanguage extends StatelessWidget {
+enum Languages { english, russian }
+
+Languages selectedLanguage = Languages.russian;
+
+class SelectLanguage extends StatefulWidget {
   const SelectLanguage({super.key});
 
+  @override
+  State<SelectLanguage> createState() => _SelectLanguageState();
+}
+
+class _SelectLanguageState extends State<SelectLanguage> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -56,20 +65,22 @@ class SelectLanguage extends StatelessWidget {
                   children: [
                     SizedBox(height: 10.h),
                     LanguageItem(
-                      language: 'Uzbek',
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    LanguageItem(
                       language: 'English',
                       onTap: () {
+                        setState() {
+                          selectedLanguage == Languages.english;
+                        }
+
                         Navigator.pop(context);
                       },
                     ),
                     LanguageItem(
                       language: 'Russian',
                       onTap: () {
+                        setState() {
+                          selectedLanguage == Languages.russian;
+                        }
+
                         Navigator.pop(context);
                       },
                     ),
