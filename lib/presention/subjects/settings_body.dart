@@ -28,7 +28,7 @@ class SettingsBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          EduNinjaId(context),
+          eduNinjaId(context),
           Expanded(
             flex: 5,
             child: Column(
@@ -92,7 +92,7 @@ class SettingsBody extends StatelessWidget {
     );
   }
 
-  Expanded EduNinjaId(BuildContext context) {
+  Expanded eduNinjaId(BuildContext context) {
     return Expanded(
       flex: 1,
       child: Container(
