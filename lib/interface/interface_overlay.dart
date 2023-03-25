@@ -1,6 +1,7 @@
 import 'package:bonfire/util/game_controller.dart';
 import 'package:eduninjav2/interface/interface_chat.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'views/interface_talk.dart';
 import 'views/interface_top_functions.dart';
 

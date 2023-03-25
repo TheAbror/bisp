@@ -15,7 +15,7 @@ class _ChatWidgetState extends State<ChatWidget> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: chatOpen ? 0 : 21.w,
+      right: chatOpen ? 0 : 30.w,
       top: 0,
       bottom: 0,
       child: Row(

@@ -37,17 +37,6 @@ class _RightMenuItemsState extends State<RightMenuItems> {
           ),
           SizedBox(width: 6.w),
           TopRightFunctions(
-            icon: Icons.list,
-            onTap: () {
-              ApiProvider.create();
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const AllSubjects()),
-              );
-            },
-          ),
-          SizedBox(width: 6.w),
-          TopRightFunctions(
             icon: Icons.settings,
             onTap: () {
               showDialog(
@@ -55,6 +44,17 @@ class _RightMenuItemsState extends State<RightMenuItems> {
                 builder: (BuildContext context) {
                   return const SubjectSettings();
                 },
+              );
+            },
+          ),
+          SizedBox(width: 6.w),
+          TopRightFunctions(
+            icon: Icons.list,
+            onTap: () {
+              ApiProvider.create();
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AllSubjects()),
               );
             },
           ),

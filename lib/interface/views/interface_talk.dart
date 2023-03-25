@@ -13,7 +13,7 @@ class _TalkWidgetState extends State<TalkWidget> {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 65.h,
-      right: 21.w,
+      right: 30.w,
       child: Container(
         height: 90,
         width: 90,

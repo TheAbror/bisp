@@ -1,4 +1,5 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
+import 'package:eduninjav2/presention/skins/skins.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
 import 'package:eduninjav2/presention/subjects/language_select.dart';
 import 'package:flutter/material.dart';
@@ -27,83 +28,7 @@ class SettingsBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              decoration: decoration(),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.h),
-                child: Row(
-                  children: [
-                    const Text(
-                      'Edu Ninja ',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4.r),
-                        color: Colors.white,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(2.h),
-                        child: const Text(
-                          'ID',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    const Text(
-                      'Connect to Edu Ninja ID \nto safeguard your game',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        showDialog(
-                          barrierColor: Colors.grey.shade900.withOpacity(0.0),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const Center(
-                              child: Text(
-                                'text',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            );
-                          },
-                        );
-                      },
-                      child: Container(
-                        decoration: buttonConntected(),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 16.w,
-                            vertical: 10.h,
-                          ),
-                          child: const Text(
-                            'Connected',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          EduNinjaId(context),
           Expanded(
             flex: 5,
             child: Column(
@@ -112,18 +37,28 @@ class SettingsBody extends StatelessWidget {
                 Expanded(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
+                    children: [
                       SubjectsSettingsItems(
                         text: 'ON',
                         actionName: 'Sound',
+                        onTap: (() {}),
                       ),
                       SubjectsSettingsItems(
                         text: 'OFF',
                         actionName: 'Music',
+                        onTap: (() {}),
                       ),
                       SubjectsSettingsItems(
                         text: 'Level 1',
                         actionName: 'Skins',
+                        onTap: (() {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const SkinsPage();
+                            },
+                          );
+                        }),
                       ),
                     ],
                   ),
@@ -153,6 +88,86 @@ class SettingsBody extends StatelessWidget {
           ),
           const Terms(),
         ],
+      ),
+    );
+  }
+
+  Expanded EduNinjaId(BuildContext context) {
+    return Expanded(
+      flex: 1,
+      child: Container(
+        decoration: decoration(),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.h),
+          child: Row(
+            children: [
+              const Text(
+                'Edu Ninja ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4.r),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(2.h),
+                  child: const Text(
+                    'ID',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const Spacer(),
+              const Text(
+                'Connect to Edu Ninja ID \nto safeguard your game',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const Spacer(),
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    barrierColor: Colors.grey.shade900.withOpacity(0.0),
+                    context: context,
+                    builder: (BuildContext context) {
+                      return const Center(
+                        child: Text(
+                          'text',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Container(
+                  decoration: buttonConntected(),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 10.h,
+                    ),
+                    child: const Text(
+                      'Connected',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
