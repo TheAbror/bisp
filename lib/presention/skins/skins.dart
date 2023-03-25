@@ -46,7 +46,7 @@ class _SkinsPageState extends State<SkinsPage> {
     return Center(
       child: Material(
         borderRadius: BorderRadius.circular(10),
-        color: const Color.fromARGB(255, 1, 91, 100),
+        color: AppColors.settingsTopColor,
         child: Container(
           margin: EdgeInsets.only(top: 5.h),
           height: 455.h,
@@ -144,7 +144,7 @@ class _SkinsPageState extends State<SkinsPage> {
                         height: 50,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(AppColors.settings),
+                            backgroundColor: MaterialStateProperty.all(AppColors.settingsTopColor),
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
@@ -197,7 +197,7 @@ class _SkinsPageState extends State<SkinsPage> {
                         height: 50,
                         child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(AppColors.settings),
+                            backgroundColor: MaterialStateProperty.all(AppColors.settingsTopColor),
                             padding: MaterialStateProperty.all(EdgeInsets.zero),
                             shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),

@@ -8,4 +8,5 @@ class AppColors {
   static const lightBlue = Color(0xFF7BAEC3);
   static const darkBlue = Color(0xFF405982);
   static const settings = Color(0xFF405982);
+  static const settingsTopColor = Color.fromARGB(255, 1, 91, 100);
 }

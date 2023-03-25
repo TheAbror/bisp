@@ -16,7 +16,7 @@ class _SubjectSettingsState extends State<SubjectSettings> {
     return Center(
       child: Material(
         borderRadius: BorderRadius.circular(10),
-        color: const Color.fromARGB(255, 1, 91, 100),
+        color: AppColors.settingsTopColor,
         child: Container(
           margin: EdgeInsets.only(top: 5.h),
           height: 455.h,
