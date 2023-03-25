@@ -136,7 +136,6 @@ class _SelectHeroState extends State<SelectHero> {
                                 ),
                                 onPressed: (() async {
                                   _saveData();
-                                  // final name = await PreferencesServices.saveUserData(username);
                                   if (_form.currentState!.validate()) {
                                     ApiProvider.create();
 
