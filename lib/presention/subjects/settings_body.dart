@@ -1,5 +1,5 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
-import 'package:eduninjav2/presention/skins/skins.dart';
+import 'package:eduninjav2/presention/subjects/skins/skins.dart';
 import 'package:eduninjav2/presention/subjects/all_subjects_settings.dart';
 import 'package:eduninjav2/presention/subjects/language_select.dart';
 import 'package:flutter/material.dart';
