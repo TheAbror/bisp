@@ -1,6 +1,6 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
-import 'package:eduninjav2/interface/views/interface_linear_bar.dart';
-import 'package:eduninjav2/interface/views/interface_tasks_class.dart';
+import 'package:eduninjav2/interface/widgets/interface_linear_bar.dart';
+import 'package:eduninjav2/interface/widgets/interface_tasks_class.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
