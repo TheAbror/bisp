@@ -4,14 +4,14 @@ import 'package:eduninjav2/presention/skins/skins.dart';
 import 'package:eduninjav2/presention/subjects/language/language_select.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 final Uri _url = Uri.parse('https://t.me/+dixVuR-vLUoyMmQy');
-Future<void> _launchUrl() async {
-  if (!await launchUrl(_url)) {
-    throw 'Could not launch $_url';
-  }
-}
+// Future<void> _launchUrl() async {
+//   if (!await launchUrl(_url)) {
+//     throw 'Could not launch $_url';
+//   }
+// }
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({
@@ -244,7 +244,7 @@ class Terms extends StatelessWidget {
                   buttonName: 'Privacy Policy',
                 ),
                 GestureDetector(
-                  onTap: _launchUrl,
+                  // onTap: _launchUrl,
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 6.h),
                     width: 55.w,
