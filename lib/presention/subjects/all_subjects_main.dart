@@ -1,4 +1,5 @@
 import 'package:eduninjav2/presention/settings/settings_main.dart';
+import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +20,7 @@ class AllSubjects extends StatefulWidget {
 }
 
 String username = '';
+int level = 1;
 
 class _AllSubjectsState extends State<AllSubjects> {
   String? selectedGrade;
@@ -36,10 +38,10 @@ class _AllSubjectsState extends State<AllSubjects> {
   @override
   void initState() {
     super.initState();
-    _loadCounter();
+    _loadData();
   }
 
-  _loadCounter() async {
+  _loadData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       username = (prefs.getString('username') ?? '');
@@ -54,19 +56,8 @@ class _AllSubjectsState extends State<AllSubjects> {
           if (state.blocProgress == BlocProgress.IS_LOADING) {
             return const Center(child: CircularProgressIndicator(color: Colors.white));
           }
-          if (state.cms.isEmpty) {
-            return Center(
-              child: Text(
-                // 'No Materials Available\nHave Some Rest)\n:)',
-                'No Internet Connection',
-                style: TextStyle(
-                  color: AppColors.primaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.sp,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            );
+          if (state.blocProgress == BlocProgress.FAILED) {
+            return NoInternet();
           }
 
           return Container(
@@ -88,15 +79,15 @@ class _AllSubjectsState extends State<AllSubjects> {
                         children: [
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
-                            child: const CircleAvatar(
+                            child: CircleAvatar(
                               backgroundColor: Colors.white,
-                              child: Text('CH'),
+                              child: Text(username[0]),
                             ),
                           ),
                           Column(
                             children: [
                               Text(username),
-                              const Text('Level 1'),
+                              Text('Level $level'),
                             ],
                           ),
                         ],
