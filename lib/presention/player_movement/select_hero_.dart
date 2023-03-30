@@ -69,10 +69,16 @@ class _SelectHeroState extends State<SelectHero> {
               children: <Widget>[
                 const SizedBox(height: 10),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Spacer(flex: 2),
-                    const Text("Select your character", style: TextStyle(color: Colors.white, fontSize: 30)),
+                    Text(isSelected == true ? "Select your character" : "Выберите аватар",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                        )),
                     const Spacer(),
+                    SizedBox(width: 15.w),
                     toggle(),
                   ],
                 ),
@@ -91,11 +97,11 @@ class _SelectHeroState extends State<SelectHero> {
                           width: 100.w,
                           child: TextFormField(
                             controller: _usernameController,
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               fillColor: Colors.white,
                               filled: true,
-                              hintText: 'Create nickname?',
-                              errorStyle: TextStyle(color: Colors.white),
+                              hintText: isSelected == true ? 'Create nickname' : 'Создайте никнэйм',
+                              errorStyle: const TextStyle(color: Colors.white),
                             ),
                             validator: (text) {
                               if (text?.isNotEmpty != true) {
@@ -116,9 +122,9 @@ class _SelectHeroState extends State<SelectHero> {
                               width: 150,
                               child: ElevatedButton(
                                 // ignore: sort_child_properties_last
-                                child: const Text(
-                                  'ENTER',
-                                  style: TextStyle(
+                                child: Text(
+                                  isSelected == true ? 'ENTER' : 'Войти',
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
