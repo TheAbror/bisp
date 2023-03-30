@@ -135,9 +135,7 @@ class _SelectHeroState extends State<SelectHero> {
                                     return states.contains(MaterialState.disabled) ? null : Colors.orange;
                                   }),
                                   shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
+                                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                                   ),
                                 ),
                                 onPressed: (() async {
