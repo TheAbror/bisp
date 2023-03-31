@@ -69,16 +69,15 @@ class _SelectHeroState extends State<SelectHero> {
               children: <Widget>[
                 const SizedBox(height: 10),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Spacer(flex: 2),
+                    const Spacer(flex: 1),
                     Text(isSelected == true ? "Select your character" : "Выберите аватар",
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 30,
                         )),
                     const Spacer(),
-                    SizedBox(width: 15.w),
+                    // SizedBox(width: 15.w),
                     toggle(),
                   ],
                 ),
