@@ -2,6 +2,7 @@ import 'package:eduninjav2/core/constants/bloc_progress.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/cms/model/cms.dart';
+import 'package:eduninjav2/presention/subjects/quzzes/solve_quizzes.dart';
 import 'package:eduninjav2/presention/subjects/widgets/study_topic_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +21,6 @@ class AllSubjectSpecificSubject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool finished = false;
     return Container(
       margin: EdgeInsets.only(right: 15.w),
       child: Column(
@@ -240,9 +240,13 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                                 style: ElevatedButton.styleFrom(
                                                     minimumSize: Size(300, 50.h), backgroundColor: Colors.red.shade900),
                                                 onPressed: () {
-                                                  // finished = != finished;
+                                                  showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return const SolveQuizzes();
+                                                      });
                                                 },
-                                                child: const Text('Finish')),
+                                                child: const Text('Go for Quizzes')),
                                           ),
                                           SizedBox(height: 40.h),
                                         ],

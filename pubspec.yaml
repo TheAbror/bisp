@@ -30,7 +30,6 @@ dependencies:
   percent_indicator: ^4.0.1
   shared_preferences: ^2.0.15
   socket_io_client: ^2.0.0
-  # youtube_player_flutter: ^8.1.2
   youtube_player_iframe: ^4.0.4
 
 
