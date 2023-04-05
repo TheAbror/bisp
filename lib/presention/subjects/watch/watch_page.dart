@@ -14,10 +14,9 @@ class WatchPage extends StatefulWidget {
 }
 
 class _WatchPageState extends State<WatchPage> {
-// If the requirement is just to play a single video.
   final _controller2 = YoutubePlayerController.fromVideoId(
     videoId: 'QHYL-uiLJ14',
-    autoPlay: true,
+    autoPlay: false,
     params: const YoutubePlayerParams(showFullscreenButton: false),
   );
 
@@ -33,12 +32,12 @@ class _WatchPageState extends State<WatchPage> {
                 Expanded(
                   flex: 4,
                   child: Container(
-                    // padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                    // padding: EdgeInsets.symmetric(horizontal: 1.w, vertical: 1.h),
                     margin: EdgeInsets.only(top: 10.h, bottom: 10.h, right: chatOpenWatch ? 130.w : 0),
                     decoration: BoxDecoration(
                       color: Colors.cyan,
                       border: Border.all(color: AppColors.primaryColor, width: 5),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                       // image: const DecorationImage(
                       //     fit: BoxFit.fill,
                       //     image: AssetImage(
@@ -58,7 +57,7 @@ class _WatchPageState extends State<WatchPage> {
                     decoration: BoxDecoration(
                         color: Colors.amber,
                         border: Border.all(color: AppColors.primaryColor, width: 5),
-                        borderRadius: BorderRadius.circular(20)),
+                        borderRadius: BorderRadius.circular(10)),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
