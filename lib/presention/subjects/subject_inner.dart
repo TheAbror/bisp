@@ -6,6 +6,7 @@ import 'package:eduninjav2/presention/subjects/widgets/study_topic_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class AllSubjectSpecificSubject extends StatelessWidget {
   final String moduleName;
@@ -45,34 +46,45 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                             decoration: boxDesign2(),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12.r),
-                              child: Image.network(
-                                lesson.image,
-                                height: 40.w,
-                                width: 145.h,
-                                fit: BoxFit.fill,
-                                loadingBuilder: (context, child, loadingProgress) {
-                                  if (loadingProgress == null) {
-                                    return child;
-                                  } else {
-                                    return const Center(
-                                      child: CircularProgressIndicator(),
-                                    );
-                                  }
-                                },
-                                errorBuilder: (ctx, error, stackTrace) {
-                                  return Container(
-                                    height: 40.w,
-                                    width: 145.h,
-                                    color: Colors.grey.withOpacity(0.3),
-                                    child: const Center(
-                                      child: Text(
-                                        'No Photo',
-                                        style: TextStyle(color: AppColors.primaryColor),
-                                      ),
+                              child: (lesson.image.contains('youtube'))
+                                  ? SizedBox(
+                                      height: 40.w,
+                                      width: 145.h,
+                                      child: YoutubePlayer(
+                                          controller: YoutubePlayerController.fromVideoId(
+                                        videoId: getYoutubeIdFromUrl(lesson.image),
+                                        autoPlay: false,
+                                        params: const YoutubePlayerParams(showFullscreenButton: false),
+                                      )),
+                                    )
+                                  : Image.network(
+                                      lesson.image,
+                                      height: 40.w,
+                                      width: 145.h,
+                                      fit: BoxFit.fill,
+                                      loadingBuilder: (context, child, loadingProgress) {
+                                        if (loadingProgress == null) {
+                                          return child;
+                                        } else {
+                                          return const Center(
+                                            child: CircularProgressIndicator(),
+                                          );
+                                        }
+                                      },
+                                      errorBuilder: (ctx, error, stackTrace) {
+                                        return Container(
+                                          height: 40.w,
+                                          width: 145.h,
+                                          color: Colors.grey.withOpacity(0.3),
+                                          child: const Center(
+                                            child: Text(
+                                              'No Photo',
+                                              style: TextStyle(color: AppColors.primaryColor),
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     ),
-                                  );
-                                },
-                              ),
                             ),
                           ),
                           SizedBox(
@@ -180,23 +192,45 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                               panEnabled: false,
                                               minScale: 0.5,
                                               maxScale: 2,
-                                              child: Image.network(
-                                                lesson.image,
-                                                height: 90.w,
-                                                fit: BoxFit.fill,
-                                                loadingBuilder: (context, child, loadingProgress) {
-                                                  if (loadingProgress == null) {
-                                                    return child;
-                                                  } else {
-                                                    return const Center(
-                                                      child: CircularProgressIndicator(),
-                                                    );
-                                                  }
-                                                },
-                                                errorBuilder: (ctx, error, stackTrace) {
-                                                  return const SizedBox();
-                                                },
-                                              ),
+                                              child: (lesson.image.contains('youtube'))
+                                                  ? Container(
+                                                      margin: EdgeInsets.symmetric(horizontal: 5.w),
+                                                      width: double.infinity,
+                                                      child: YoutubePlayer(
+                                                          controller: YoutubePlayerController.fromVideoId(
+                                                        videoId: getYoutubeIdFromUrl(lesson.image),
+                                                        autoPlay: false,
+                                                        params: const YoutubePlayerParams(showFullscreenButton: true),
+                                                      )),
+                                                    )
+                                                  : Image.network(
+                                                      lesson.image,
+                                                      height: 40.w,
+                                                      width: 145.h,
+                                                      fit: BoxFit.fill,
+                                                      loadingBuilder: (context, child, loadingProgress) {
+                                                        if (loadingProgress == null) {
+                                                          return child;
+                                                        } else {
+                                                          return const Center(
+                                                            child: CircularProgressIndicator(),
+                                                          );
+                                                        }
+                                                      },
+                                                      errorBuilder: (ctx, error, stackTrace) {
+                                                        return Container(
+                                                          height: 40.w,
+                                                          width: 145.h,
+                                                          color: Colors.grey.withOpacity(0.3),
+                                                          child: const Center(
+                                                            child: Text(
+                                                              'No Photo',
+                                                              style: TextStyle(color: AppColors.primaryColor),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
                                             ),
                                           ),
                                           SizedBox(height: 40.h),
@@ -246,5 +280,20 @@ class AllSubjectSpecificSubject extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String getYoutubeIdFromUrl(String url) {
+    final pos = url.indexOf('?v=');
+    if (pos == -1) {
+      return '';
+    }
+    final res = url.substring(pos + 3, url.length);
+    if (res.contains('&')) {
+      final pos2 = res.indexOf('&');
+      if (pos2 > 0) {
+        return res.substring(0, pos2);
+      }
+    }
+    return res;
   }
 }

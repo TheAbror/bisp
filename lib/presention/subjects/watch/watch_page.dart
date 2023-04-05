@@ -14,10 +14,12 @@ class WatchPage extends StatefulWidget {
 }
 
 class _WatchPageState extends State<WatchPage> {
-  final _controller2 = YoutubePlayerController.fromVideoId(
-    videoId: 'QHYL-uiLJ14',
+  final _controller = YoutubePlayerController.fromVideoId(
+    videoId: 'oUjaljMMy2M',
     autoPlay: false,
-    params: const YoutubePlayerParams(showFullscreenButton: false),
+    params: const YoutubePlayerParams(
+      showFullscreenButton: true,
+    ),
   );
 
   @override
@@ -45,41 +47,42 @@ class _WatchPageState extends State<WatchPage> {
                       //     )),
                     ),
                     child: YoutubePlayer(
-                      controller: _controller2,
+                      controller: _controller,
                       aspectRatio: 16 / 9,
                     ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(right: chatOpenWatch ? 130.w : 0, bottom: 10.h),
-                    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-                    decoration: BoxDecoration(
-                        color: Colors.amber,
-                        border: Border.all(color: AppColors.primaryColor, width: 5),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Objectives: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 22,
-                          ),
-                        ),
-                        Flexible(
-                          child: Text(
-                            'Get the background knowledge about Civil War  ',
+                if (chatOpenWatch == true)
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.only(right: chatOpenWatch ? 130.w : 0, bottom: 10.h),
+                      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                      decoration: BoxDecoration(
+                          color: Colors.amber,
+                          border: Border.all(color: AppColors.primaryColor, width: 5),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Objectives: ',
                             style: TextStyle(
+                              fontWeight: FontWeight.bold,
                               fontSize: 22,
                             ),
                           ),
-                        ),
-                      ],
+                          Flexible(
+                            child: Text(
+                              'Get the background knowledge about Civil War  ',
+                              style: TextStyle(
+                                fontSize: 22,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
               ],
             ),
           ),

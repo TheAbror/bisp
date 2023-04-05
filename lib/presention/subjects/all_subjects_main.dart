@@ -26,10 +26,6 @@ class _AllSubjectsState extends State<AllSubjects> {
   String? selectedGrade;
 
   List<String> grades = [
-    'Grade 3',
-    'Grade 4',
-    'Grade 5',
-    'Grade 6',
     'Grade 7',
   ];
 
@@ -57,7 +53,7 @@ class _AllSubjectsState extends State<AllSubjects> {
             return const Center(child: CircularProgressIndicator(color: Colors.white));
           }
           if (state.blocProgress == BlocProgress.FAILED) {
-            return NoInternet();
+            return const NoInternet();
           }
 
           return Container(
@@ -229,6 +225,7 @@ class _LessonsList extends StatelessWidget {
       return ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: lessonsList.length,
+        // physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return AllSubjectSpecificSubject(moduleName: moduleName, lesson: lessonsList[index]);
         },
