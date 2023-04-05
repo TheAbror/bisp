@@ -1,3 +1,4 @@
+import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/my_profile/my_class.dart';
 import 'package:eduninjav2/presention/my_profile/view/my_profile_edit.dart';
 import 'package:eduninjav2/presention/my_profile/my_profile_social.dart';
@@ -21,7 +22,7 @@ class _MyProfileState extends State<MyProfile> {
   Widget build(BuildContext context) {
     return Center(
       child: Material(
-        color: Colors.cyan[800],
+        color: AppColors.settingsTopColor,
         borderRadius: BorderRadius.circular(20),
         child: Container(
           margin: EdgeInsets.only(top: 5.h),
@@ -105,9 +106,6 @@ class _MyProfileState extends State<MyProfile> {
                     padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
                     child: SingleChildScrollView(
                       child: getSelectedContent(),
-                      // child: item == MyProfileItems.profile
-                      //     ? const MyProfileSocial()
-                      //     : const MyProfileEdit(),
                     ),
                   ),
                 ),

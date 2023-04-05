@@ -2,6 +2,7 @@ import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/my_profile/view/my_profile_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 // import 'package:video_player/video_player.dart';
 
 bool chatOpenWatch = true;
@@ -14,20 +15,15 @@ class WatchPage extends StatefulWidget {
 }
 
 class _WatchPageState extends State<WatchPage> {
-  // late VideoPlayerController _controller;
-
-  @override
-  // void initState() {
-  //   super.initState();
-  //   _controller = VideoPlayerController.network('https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
-  //     ..initialize().then((_) {
-  //       // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-  //       setState(() {});
-  //     });
-  // }
+// If the requirement is just to play a single video.
+  final _controller2 = YoutubePlayerController.fromVideoId(
+    videoId: 'tcodrIK2P_I',
+    autoPlay: true,
+    params: const YoutubePlayerParams(showFullscreenButton: false),
+  );
 
   final videoURL = 'https://www.youtube.com/watch?v=kXYiU_JCYtU&list=RDkXYiU_JCYtU&index=1';
-  @override
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,15 +42,26 @@ class _WatchPageState extends State<WatchPage> {
                       color: Colors.cyan,
                       border: Border.all(color: AppColors.primaryColor, width: 5),
                       borderRadius: BorderRadius.circular(20),
-                      image:
-                          const DecorationImage(fit: BoxFit.fill, image: AssetImage('assets/images/cat-7544821.jpg')),
+                      // image: const DecorationImage(
+                      //     fit: BoxFit.fill,
+                      //     image: AssetImage(
+                      //       'assets/images/cat-7544821.jpg',
+                      //     )),
                     ),
-//                     child: YoutubePlayerControllerProvider( // Provides controller to all the widget below it.
-//   controller: _controller,
-//   child: YoutubePlayerIFrame(
-//     aspectRatio: 16 / 9,
-//   ),
-// );,
+                    child: YoutubePlayer(
+                      controller: _controller2,
+                      aspectRatio: 16 / 9,
+                    ),
+                    // child: YoutubePlayerControllerProvider(
+                    //   controller: _controller,
+                    //   child: Builder(
+                    //     builder: (context) {
+                    //       // `YoutubePlayerControllerProvider.of(context)`
+                    //       return _controller2.ytController;
+                    //       // return YoutubePlayerController.fromVideoId(videoId: '');
+                    //     },
+                    //   ),
+                    // ),
                   ),
                 ),
                 Expanded(

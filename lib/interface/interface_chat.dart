@@ -62,7 +62,7 @@ class _ChatWidgetState extends State<ChatWidget> {
                         GestureDetector(
                           onTap: () {
                             showDialog(
-                              barrierColor: Colors.grey.shade200.withOpacity(0.8),
+                              // barrierColor: Colors.grey.shade200.withOpacity(0.9),
                               context: context,
                               builder: (BuildContext context) {
                                 return const MyProfile();
