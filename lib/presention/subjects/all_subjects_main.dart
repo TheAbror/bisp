@@ -225,7 +225,6 @@ class _LessonsList extends StatelessWidget {
       return ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: lessonsList.length,
-        // physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context, index) {
           return AllSubjectSpecificSubject(moduleName: moduleName, lesson: lessonsList[index]);
         },

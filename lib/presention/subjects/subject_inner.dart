@@ -20,6 +20,7 @@ class AllSubjectSpecificSubject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool finished = false;
     return Container(
       margin: EdgeInsets.only(right: 15.w),
       child: Column(
@@ -237,11 +238,9 @@ class AllSubjectSpecificSubject extends StatelessWidget {
                                           Center(
                                             child: ElevatedButton(
                                                 style: ElevatedButton.styleFrom(
-                                                    minimumSize: Size(300, 50.h),
-                                                    // maximumSize: const Size(200, 50),
-                                                    backgroundColor: Colors.red.shade900),
+                                                    minimumSize: Size(300, 50.h), backgroundColor: Colors.red.shade900),
                                                 onPressed: () {
-                                                  Navigator.pop(context);
+                                                  // finished = != finished;
                                                 },
                                                 child: const Text('Finish')),
                                           ),
