@@ -3,7 +3,6 @@ import 'package:eduninjav2/presention/my_profile/view/my_profile_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-// import 'package:video_player/video_player.dart';
 
 bool chatOpenWatch = true;
 
@@ -17,12 +16,10 @@ class WatchPage extends StatefulWidget {
 class _WatchPageState extends State<WatchPage> {
 // If the requirement is just to play a single video.
   final _controller2 = YoutubePlayerController.fromVideoId(
-    videoId: 'tcodrIK2P_I',
+    videoId: 'QHYL-uiLJ14',
     autoPlay: true,
     params: const YoutubePlayerParams(showFullscreenButton: false),
   );
-
-  final videoURL = 'https://www.youtube.com/watch?v=kXYiU_JCYtU&list=RDkXYiU_JCYtU&index=1';
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +33,7 @@ class _WatchPageState extends State<WatchPage> {
                 Expanded(
                   flex: 4,
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                    // padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     margin: EdgeInsets.only(top: 10.h, bottom: 10.h, right: chatOpenWatch ? 130.w : 0),
                     decoration: BoxDecoration(
                       color: Colors.cyan,
@@ -52,16 +49,6 @@ class _WatchPageState extends State<WatchPage> {
                       controller: _controller2,
                       aspectRatio: 16 / 9,
                     ),
-                    // child: YoutubePlayerControllerProvider(
-                    //   controller: _controller,
-                    //   child: Builder(
-                    //     builder: (context) {
-                    //       // `YoutubePlayerControllerProvider.of(context)`
-                    //       return _controller2.ytController;
-                    //       // return YoutubePlayerController.fromVideoId(videoId: '');
-                    //     },
-                    //   ),
-                    // ),
                   ),
                 ),
                 Expanded(
