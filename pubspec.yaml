@@ -8,7 +8,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  audioplayers: ^3.0.1
+  # audioplayers: ^3.0.1
   bot_toast: ^4.0.3
   bonfire: ^2.10.9
   chopper: ^4.0.5
@@ -54,7 +54,7 @@ flutter:
     - assets/images/heroes/
     - assets/images/emotes/
     - assets/images/tile/tileset/
-    - assets/audios/
+    - assets/audios/mona.mp3
   fonts:
     - family: Mali
       fonts:

@@ -30,11 +30,13 @@ class _AllSubjectsState extends State<AllSubjects> {
   ];
 
   bool music = true;
-
+  // final player = AudioPlayer();
   @override
   void initState() {
     super.initState();
     _loadData();
+    //  player.play(AssetSource('assets/audios/Mozart_Sonata_No_16_C_major_Sonata.mp3'));
+    // await player.setSource(AssetSource('assets/audios/Mozart_Sonata_No_16_C_major_Sonata.mp3'));
   }
 
   _loadData() async {
@@ -77,13 +79,13 @@ class _AllSubjectsState extends State<AllSubjects> {
                             padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
                             child: CircleAvatar(
                               backgroundColor: Colors.white,
-                              child: Text(username[0]),
+                              child: Text(username[0].toUpperCase()),
                             ),
                           ),
                           Column(
                             children: [
                               Text(username),
-                              Text('Level $level'),
+                              Text(' Level $level'),
                             ],
                           ),
                         ],
@@ -140,6 +142,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                           onTap: () {
                             setState(() {
                               music = !music;
+                              // player.play(AssetSource('assets/audios/Mozart_Sonata_No_16_C_major_Sonata.mp3'));
                             });
                           },
                         ),

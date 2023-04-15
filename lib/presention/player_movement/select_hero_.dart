@@ -71,6 +71,7 @@ class _SelectHeroState extends State<SelectHero> {
                 Row(
                   children: [
                     const Spacer(flex: 1),
+                    SizedBox(width: 20.w),
                     Text(isSelected == true ? "Select your character" : "Выберите аватар",
                         style: const TextStyle(
                           color: Colors.white,

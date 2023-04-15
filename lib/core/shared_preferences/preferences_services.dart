@@ -12,7 +12,7 @@ class PreferencesServices {
 
     final username = preferences.getString('username');
 
-    return UserDetails(username: username ?? 'User');
+    return UserDetails(username: username ?? '');
   }
 }
 
