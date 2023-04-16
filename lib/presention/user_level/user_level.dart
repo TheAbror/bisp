@@ -3,7 +3,7 @@ import 'package:eduninjav2/presention/user_level/bloc/user_level_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:rive/rive.dart';
 
 class UserLevel extends StatelessWidget {
   const UserLevel({super.key});
@@ -17,22 +17,20 @@ class UserLevel extends StatelessWidget {
         child: BlocBuilder<UserLevelBloc, UserLevelState>(
           builder: (context, state) {
             return Container(
-              margin: EdgeInsets.only(top: 5.h),
-              height: 200.h,
+              height: 350.h,
               width: 100.w,
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.primaryColor, width: 5.h),
+                borderRadius: BorderRadius.circular(10),
+              ),
               child: Column(
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      padding: EdgeInsets.symmetric(horizontal: 1.w),
                       child: Row(
                         children: [
-                          const Spacer(),
-                          const Text(
-                            'Current Level',
-                            style: TextStyle(fontSize: 24, color: Colors.black),
-                          ),
-                          const Spacer(),
+                          const Spacer(flex: 2),
                           GestureDetector(
                             onTap: () {
                               Navigator.pop(context);
@@ -42,9 +40,7 @@ class UserLevel extends StatelessWidget {
                               decoration: BoxDecoration(
                                 color: Colors.red,
                                 borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                  color: Colors.white,
-                                ),
+                                border: Border.all(color: Colors.white),
                               ),
                               child: const Icon(
                                 Icons.close,
@@ -60,34 +56,21 @@ class UserLevel extends StatelessWidget {
                     flex: 4,
                     child: Column(
                       children: [
-                        // LinearPercentIndicator(
-                        //   width: 84.w,
-                        //   lineHeight: 30.h,
-                        //   percent: 0.9,
-                        //   backgroundColor: AppColors.taskbarBackground,
-                        //   progressColor: AppColors.taskDoneColor,
-                        //   barRadius: const Radius.circular(32),
-                        //   padding: const EdgeInsets.symmetric(
-                        //     horizontal: 5,
-                        //     vertical: 1,
-                        //   ),
-                        //   center: Text(
-                        //     "${(0.7 * 100).round()}%",
-                        //     style: const TextStyle(
-                        //       fontSize: 12.0,
-                        //       fontWeight: FontWeight.w600,
-                        //     ),
-                        //   ),
-                        // ),
-                        Text(state.level.toString()),
+                        Text(
+                          'Your Level: ${state.level.toStringAsFixed(2)}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30.sp,
+                          ),
+                        ),
                         GestureDetector(
                           onTap: () {
                             context.read<UserLevelBloc>().updateUserLevel();
                           },
-                          child: Container(
-                            color: Colors.red,
-                            height: 50,
-                            width: 50,
+                          child: SizedBox(
+                            height: 220.h,
+                            width: 150.w,
+                            child: const RiveAnimation.asset('assets/gifs/flutter_bird.riv'),
                           ),
                         ),
                       ],

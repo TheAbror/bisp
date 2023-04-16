@@ -7,7 +7,7 @@ class UserLevelBloc extends Cubit<UserLevelState> {
   UserLevelBloc() : super(UserLevelState.initial());
 
   void updateUserLevel() {
-    double newValue = state.level + 0.1;
-    emit(state.copyWith(level: state.level + newValue));
+    double newValue = state.level + 0.01;
+    emit(state.copyWith(level: newValue));
   }
 }
