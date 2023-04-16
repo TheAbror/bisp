@@ -81,8 +81,6 @@ class UserLevel extends StatelessWidget {
                         // ),
                         Text(state.level.toString()),
                         GestureDetector(
-                          //TODO
-                          // onTap: context.read<UserLevelBloc>().updateUserLevel(updateLevel),
                           onTap: () {
                             context.read<UserLevelBloc>().updateUserLevel();
                           },
