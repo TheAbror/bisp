@@ -68,8 +68,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                   Positioned(
                     top: 5.w,
                     left: 42,
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.translucent,
+                    child: InkWell(
                       onTap: () {
                         showDialog(
                           context: context,

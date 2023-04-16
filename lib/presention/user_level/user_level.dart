@@ -17,7 +17,7 @@ class UserLevel extends StatelessWidget {
         child: BlocBuilder<UserLevelBloc, UserLevelState>(
           builder: (context, state) {
             return Container(
-              height: 350.h,
+              height: 330.h,
               width: 100.w,
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.primaryColor, width: 5.h),
@@ -53,7 +53,7 @@ class UserLevel extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: 4,
+                    flex: 5,
                     child: Column(
                       children: [
                         Text(
@@ -61,6 +61,7 @@ class UserLevel extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30.sp,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                         GestureDetector(
