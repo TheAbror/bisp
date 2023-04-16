@@ -1,7 +1,7 @@
 import 'package:eduninjav2/core/api/api_provider.dart';
 import 'package:eduninjav2/presention/settings/settings_main.dart';
-import 'package:eduninjav2/presention/subjects/watch/command_tasks.dart';
-import 'package:eduninjav2/presention/subjects/watch/watch_page.dart';
+import 'package:eduninjav2/presention/watch/command_tasks.dart';
+import 'package:eduninjav2/presention/watch/watch_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/constants/values/topRight_functions.dart';

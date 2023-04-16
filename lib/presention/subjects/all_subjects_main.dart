@@ -1,5 +1,6 @@
 import 'package:eduninjav2/presention/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
+import 'package:eduninjav2/presention/user_level/user_level.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,13 +31,10 @@ class _AllSubjectsState extends State<AllSubjects> {
   ];
 
   bool music = true;
-  // final player = AudioPlayer();
   @override
   void initState() {
     super.initState();
     _loadData();
-    //  player.play(AssetSource('assets/audios/Mozart_Sonata_No_16_C_major_Sonata.mp3'));
-    // await player.setSource(AssetSource('assets/audios/Mozart_Sonata_No_16_C_major_Sonata.mp3'));
   }
 
   _loadData() async {
@@ -70,25 +68,36 @@ class _AllSubjectsState extends State<AllSubjects> {
                   Positioned(
                     top: 5.w,
                     left: 42,
-                    child: Container(
-                      width: 180.h,
-                      decoration: decorationDropdowns(),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              child: Text(username[0].toUpperCase()),
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const UserLevel();
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: 180.h,
+                        decoration: decorationDropdowns(),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Text(username[0].toUpperCase()),
+                              ),
                             ),
-                          ),
-                          Column(
-                            children: [
-                              Text(username),
-                              Text(' Level $level'),
-                            ],
-                          ),
-                        ],
+                            Column(
+                              children: [
+                                Text(username),
+                                Text(' Level $level'),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -142,7 +151,6 @@ class _AllSubjectsState extends State<AllSubjects> {
                           onTap: () {
                             setState(() {
                               music = !music;
-                              // player.play(AssetSource('assets/audios/Mozart_Sonata_No_16_C_major_Sonata.mp3'));
                             });
                           },
                         ),
@@ -159,7 +167,17 @@ class _AllSubjectsState extends State<AllSubjects> {
                           },
                         ),
                         SizedBox(width: 20.h),
-                        TopRightFunctions(icon: Icons.priority_high, onTap: () {}),
+                        TopRightFunctions(
+                          icon: Icons.priority_high,
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const UserLevel();
+                              },
+                            );
+                          },
+                        ),
                         SizedBox(width: 20.h),
                       ],
                     ),

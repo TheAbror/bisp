@@ -34,19 +34,15 @@ class _WatchPageState extends State<WatchPage> {
                 Expanded(
                   flex: 4,
                   child: Container(
-                    // padding: EdgeInsets.symmetric(horizontal: 1.w, vertical: 1.h),
                     margin: EdgeInsets.only(top: 10.h, bottom: 10.h, right: chatOpenWatch ? 130.w : 0),
                     decoration: BoxDecoration(
                       color: Colors.cyan,
                       border: Border.all(color: AppColors.primaryColor, width: 5),
                       borderRadius: BorderRadius.circular(10),
-                      // image: const DecorationImage(
-                      //     fit: BoxFit.fill,
-                      //     image: AssetImage(
-                      //       'assets/images/cat-7544821.jpg',
-                      //     )),
                     ),
-                    child: YoutubePlayer(
+                    child:
+                        // TODO
+                        YoutubePlayer(
                       controller: _controller,
                       aspectRatio: 16 / 9,
                     ),
