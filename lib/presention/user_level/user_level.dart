@@ -60,26 +60,38 @@ class UserLevel extends StatelessWidget {
                     flex: 4,
                     child: Column(
                       children: [
-                        LinearPercentIndicator(
-                          width: 84.w,
-                          lineHeight: 30.h,
-                          percent: 0.9,
-                          backgroundColor: AppColors.taskbarBackground,
-                          progressColor: AppColors.taskDoneColor,
-                          barRadius: const Radius.circular(32),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 5,
-                            vertical: 1,
-                          ),
-                          center: Text(
-                            "${(0.7 * 100).round()}%",
-                            style: const TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w600,
-                            ),
+                        // LinearPercentIndicator(
+                        //   width: 84.w,
+                        //   lineHeight: 30.h,
+                        //   percent: 0.9,
+                        //   backgroundColor: AppColors.taskbarBackground,
+                        //   progressColor: AppColors.taskDoneColor,
+                        //   barRadius: const Radius.circular(32),
+                        //   padding: const EdgeInsets.symmetric(
+                        //     horizontal: 5,
+                        //     vertical: 1,
+                        //   ),
+                        //   center: Text(
+                        //     "${(0.7 * 100).round()}%",
+                        //     style: const TextStyle(
+                        //       fontSize: 12.0,
+                        //       fontWeight: FontWeight.w600,
+                        //     ),
+                        //   ),
+                        // ),
+                        Text(state.level.toString()),
+                        GestureDetector(
+                          //TODO
+                          // onTap: context.read<UserLevelBloc>().updateUserLevel(updateLevel),
+                          onTap: () {
+                            context.read<UserLevelBloc>().updateUserLevel();
+                          },
+                          child: Container(
+                            color: Colors.red,
+                            height: 50,
+                            width: 50,
                           ),
                         ),
-                        const Text('data')
                       ],
                     ),
                   ),
