@@ -25,12 +25,9 @@ int level = 1;
 
 class _AllSubjectsState extends State<AllSubjects> {
   String? selectedGrade;
-
-  List<String> grades = [
-    'Grade 7',
-  ];
-
+  List<String> grades = ['Grade 7'];
   bool music = true;
+
   @override
   void initState() {
     super.initState();
@@ -64,42 +61,6 @@ class _AllSubjectsState extends State<AllSubjects> {
               left: false,
               child: Stack(
                 children: [
-                  //name and level
-                  Positioned(
-                    top: 5.w,
-                    left: 42,
-                    child: InkWell(
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const UserLevel();
-                          },
-                        );
-                      },
-                      child: Container(
-                        width: 180.h,
-                        decoration: decorationDropdowns(),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Text(username[0].toUpperCase()),
-                              ),
-                            ),
-                            Column(
-                              children: [
-                                Text(username),
-                                Text(' Level $level'),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                   _LessonsList(moduleName: state.selectModuleName, lessonsList: state.lessonsList),
                   Positioned(
                     left: 280.h,
@@ -169,16 +130,48 @@ class _AllSubjectsState extends State<AllSubjects> {
                         TopRightFunctions(
                           icon: Icons.priority_high,
                           onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return const UserLevel();
-                              },
-                            );
+                            print('assign function');
                           },
                         ),
                         SizedBox(width: 20.h),
                       ],
+                    ),
+                  ),
+                  //name and level
+                  Positioned(
+                    top: 5.w,
+                    left: 42,
+                    child: InkWell(
+                      onTap: () {
+                        print('object');
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const UserLevel();
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: 180.h,
+                        decoration: decorationDropdowns(),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
+                              child: CircleAvatar(
+                                backgroundColor: Colors.white,
+                                child: Text(username[0].toUpperCase()),
+                              ),
+                            ),
+                            Column(
+                              children: [
+                                Text(username),
+                                Text(' Level $level'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ],
