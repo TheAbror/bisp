@@ -40,9 +40,7 @@ class _WatchPageState extends State<WatchPage> {
                       border: Border.all(color: AppColors.primaryColor, width: 5),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child:
-                        // TODO
-                        YoutubePlayer(
+                    child: YoutubePlayer(
                       controller: _controller,
                       aspectRatio: 16 / 9,
                     ),

@@ -17,14 +17,7 @@ class _TalkWidgetState extends State<TalkWidget> {
       bottom: 65.h,
       right: 30.w,
       child: GestureDetector(
-        onTap: () async {
-          // setState(() {
-          // await player.setSource(AssetSource('assets/audios/why mona - Wannabe 1 19 3.mp3'));
-          // player.play(source);
-          // await player.play('mona.mp3');
-          //TODO
-          // });
-        },
+        onTap: () async {},
         child: Container(
           height: 90,
           width: 90,
