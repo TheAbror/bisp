@@ -1,3 +1,4 @@
+import 'package:eduninjav2/presention/my_profile/view/my_profile_star.dart';
 import 'package:eduninjav2/presention/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
 import 'package:eduninjav2/presention/user_level/user_level.dart';
@@ -109,6 +110,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                         TopRightFunctions(
                           icon: music ? Icons.mic : Icons.mic_off,
                           onTap: () {
+                            //TODO add music player
                             setState(() {
                               music = !music;
                             });
@@ -128,9 +130,14 @@ class _AllSubjectsState extends State<AllSubjects> {
                         ),
                         SizedBox(width: 20.h),
                         TopRightFunctions(
-                          icon: Icons.priority_high,
+                          icon: Icons.person_add_alt_rounded,
                           onTap: () {
-                            print('assign function');
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const MyProfile();
+                              },
+                            );
                           },
                         ),
                         SizedBox(width: 20.h),

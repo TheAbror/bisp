@@ -20,6 +20,7 @@ class _ChatWidgetState extends State<ChatWidget> {
       bottom: 0,
       child: Row(
         children: [
+          //TODO connect firebase
           //open-closing arrows
           GestureDetector(
             onTap: () {
@@ -121,14 +122,14 @@ class _ChatWidgetState extends State<ChatWidget> {
                                 ],
                               ),
                               const Spacer(flex: 1),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '5:1$index',
-                                  ),
-                                ],
-                              ),
+                              // Column(
+                              //   mainAxisAlignment: MainAxisAlignment.center,
+                              //   children: [
+                              //     Text(
+                              //       '5:1$index',
+                              //     ),
+                              //   ],
+                              // ),
                               const Spacer(flex: 5),
                             ],
                           ),
