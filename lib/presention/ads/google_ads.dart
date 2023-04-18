@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
-
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 
@@ -50,7 +49,11 @@ class _GoogleAdsState extends State<GoogleAds> {
                       children: [
                         Text(
                           'Great Job!',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.sp, color: Colors.red.shade900),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30.sp,
+                            color: AppColors.primaryColor,
+                          ),
                         ),
                         Image.asset(
                           'assets/images/google_ads_logo_icon_171064.png',
@@ -69,5 +72,3 @@ class _GoogleAdsState extends State<GoogleAds> {
     );
   }
 }
-
-class AppColors {}
