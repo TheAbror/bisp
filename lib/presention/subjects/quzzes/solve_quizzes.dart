@@ -94,7 +94,7 @@ class _SolveQuizzesState extends State<SolveQuizzes> {
                                         'Correct!',
                                         style: TextStyle(fontWeight: FontWeight.bold),
                                       ),
-                                      content: const Text('You have earned 5 points)'),
+                                      content: const Text('You have earned 1 extra point)'),
                                       actions: <Widget>[
                                         ElevatedButton(
                                           style: ElevatedButton.styleFrom(

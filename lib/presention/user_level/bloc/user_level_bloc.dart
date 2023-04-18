@@ -1,9 +1,18 @@
+import 'package:eduninjav2/core/shared_preferences/preferences_services.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'user_level_state.dart';
 
+double level = 1.0;
+
 class UserLevelBloc extends Cubit<UserLevelState> {
+  void asd() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    level = (prefs.getDouble('level') ?? 0);
+  }
+
   UserLevelBloc() : super(UserLevelState.initial());
 
   void updateUserLevel() {
