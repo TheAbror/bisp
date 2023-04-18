@@ -1,4 +1,5 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
+import 'package:eduninjav2/presention/ads/google_ads.dart';
 import 'package:eduninjav2/presention/user_level/bloc/user_level_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,7 +39,10 @@ class _SolveQuizzesState extends State<SolveQuizzes> {
                   margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    border: Border.all(color: AppColors.primaryColor, width: 2.w),
+                    border: Border.all(
+                      // color: AppColors.primaryColor,
+                      width: 2.w,
+                    ),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Padding(
@@ -51,7 +55,7 @@ class _SolveQuizzesState extends State<SolveQuizzes> {
                           style: TextStyle(
                             fontSize: 28.sp,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.primaryColor,
+                            // color: AppColors.primaryColor,
                             decoration: TextDecoration.underline,
                           ),
                         ),
@@ -103,6 +107,14 @@ class _SolveQuizzesState extends State<SolveQuizzes> {
                                           child: const Text('OK'),
                                           onPressed: () {
                                             Navigator.of(context).pop();
+                                            Navigator.of(context).pop();
+                                            Navigator.of(context).pop();
+                                            showDialog(
+                                              context: context,
+                                              builder: (BuildContext context) {
+                                                return const GoogleAds();
+                                              },
+                                            );
                                           },
                                         ),
                                       ],
