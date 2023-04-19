@@ -88,7 +88,7 @@ class MyProfileSubjectPercentage extends StatelessWidget {
           lineHeight: 30.h,
           percent: percentage,
           backgroundColor: AppColors.taskbarBackground,
-          progressColor: AppColors.taskDoneColor,
+          progressColor: AppColors.settingsTopColor,
           barRadius: const Radius.circular(32),
           padding: const EdgeInsets.symmetric(
             horizontal: 5,
@@ -98,7 +98,8 @@ class MyProfileSubjectPercentage extends StatelessWidget {
             "${(percentage * 100).round()}%",
             style: const TextStyle(
               fontSize: 12.0,
-              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),

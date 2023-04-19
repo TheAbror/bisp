@@ -50,7 +50,13 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
             Column(
               children: [
                 file == null
-                    ? const CircleAvatar(radius: 50, child: Icon(Icons.image))
+                    ? const CircleAvatar(
+                        radius: 50,
+                        backgroundColor: AppColors.settingsTopColor,
+                        child: Icon(
+                          Icons.image,
+                          color: Colors.white,
+                        ))
                     : Container(
                         height: 110.h,
                         width: 110.h,
@@ -138,6 +144,21 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
             const MyProfileSubjectPercentage(
               subject: 'Biology',
               percentage: 0.15,
+            ),
+            SizedBox(height: 10.h),
+            const MyProfileSubjectPercentage(
+              subject: 'Geometry',
+              percentage: 0.72,
+            ),
+            SizedBox(height: 10.h),
+            const MyProfileSubjectPercentage(
+              subject: 'US History',
+              percentage: 0.47,
+            ),
+            SizedBox(height: 10.h),
+            const MyProfileSubjectPercentage(
+              subject: 'Programming',
+              percentage: 0.95,
             ),
             SizedBox(height: 10.h),
           ],

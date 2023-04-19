@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:eduninjav2/presention/my_profile/view/my_profile_star.dart';
 import 'package:eduninjav2/presention/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
@@ -107,9 +108,36 @@ class _AllSubjectsState extends State<AllSubjects> {
                     top: 5.w,
                     child: Row(
                       children: [
+                        //TODO PRETTY CLOSE
+                        // AudioWidget.assets(
+                        //   path: "assets/audios/country.mp3",
+                        //   play: music,
+                        //   child: ElevatedButton(
+                        //       child: Text(
+                        //         music ? "pause" : "play",
+                        //       ),
+                        //       onPressed: () {
+                        //         setState(() {
+                        //           music = !music;
+                        //         });
+                        //       }),
+                        //   onReadyToPlay: (duration) {
+                        //     //onReadyToPlay
+                        //   },
+                        //   onPositionChanged: (current, duration) {
+                        //     //onPositionChanged
+                        //   },
+                        // ),
                         TopRightFunctions(
                           icon: music ? Icons.mic : Icons.mic_off,
                           onTap: () {
+                            //create a new player
+                            // final assetsAudioPlayer = AssetsAudioPlayer();
+
+                            // assetsAudioPlayer.open(
+                            //   Audio.file('audios/Mozart.mp3'),
+                            // );
+
                             //TODO add music player
                             setState(() {
                               music = !music;
@@ -150,7 +178,6 @@ class _AllSubjectsState extends State<AllSubjects> {
                     left: 42,
                     child: InkWell(
                       onTap: () {
-                        print('object');
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {

@@ -13,11 +13,19 @@ Future<void> _launchUrl() async {
   }
 }
 
-class SettingsBody extends StatelessWidget {
+bool on = true;
+bool off = false;
+
+class SettingsBody extends StatefulWidget {
   const SettingsBody({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<SettingsBody> createState() => _SettingsBodyState();
+}
+
+class _SettingsBodyState extends State<SettingsBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,26 +47,35 @@ class SettingsBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       SubjectsSettingsItems(
-                        text: 'ON',
+                        // music ? Icons.mic : Icons.mic_off,
+                        text: on ? 'ON' : 'OFF',
                         actionName: 'Sound',
-                        onTap: (() {}),
+                        onTap: () {
+                          setState(() {
+                            on = !on;
+                          });
+                        },
                       ),
                       SubjectsSettingsItems(
-                        text: 'OFF',
+                        text: off ? 'ON' : 'OFF',
                         actionName: 'Music',
-                        onTap: (() {}),
+                        onTap: () {
+                          setState(() {
+                            off = !off;
+                          });
+                        },
                       ),
                       SubjectsSettingsItems(
                         text: 'Level 1',
                         actionName: 'Skins',
-                        onTap: (() {
+                        onTap: () {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return const SkinsPage();
                             },
                           );
-                        }),
+                        },
                       ),
                     ],
                   ),
