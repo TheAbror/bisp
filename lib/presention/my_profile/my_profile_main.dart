@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:eduninjav2/presention/my_profile/my_class.dart';
+import 'package:eduninjav2/presention/my_profile/my_class_achievement.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
@@ -140,35 +140,6 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
               percentage: 0.15,
             ),
             SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Chemistry',
-              percentage: 0.25,
-            ),
-            SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Civil War',
-              percentage: 0.35,
-            ),
-            SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Math',
-              percentage: 0.7,
-            ),
-            SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Geography',
-              percentage: 0.95,
-            ),
-            SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Us History',
-              percentage: 0.59,
-            ),
-            SizedBox(height: 10.h),
-            const MyProfileSubjectPercentage(
-              subject: 'Chemistry',
-              percentage: 0.88,
-            ),
           ],
         ),
       ],

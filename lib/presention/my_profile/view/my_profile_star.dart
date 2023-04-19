@@ -1,5 +1,5 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
-import 'package:eduninjav2/presention/my_profile/my_class.dart';
+import 'package:eduninjav2/presention/my_profile/my_class_achievement.dart';
 import 'package:eduninjav2/presention/my_profile/view/my_profile_edit.dart';
 import 'package:eduninjav2/presention/my_profile/my_profile_social.dart';
 import 'package:flutter/material.dart';
