@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dialogs/flutter_dialogs.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyProfileSocial extends StatefulWidget {
@@ -35,22 +36,49 @@ class _MyProfileSocialState extends State<MyProfileSocial> {
           scrollDirection: Axis.vertical,
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: 9,
+          itemCount: 1,
           itemBuilder: (context, i) {
-            return Card(
-              child: ListTile(
-                leading: FutureBuilder(
-                  future: Future.delayed(const Duration(seconds: 1)),
-                  builder: (c, s) => s.connectionState == ConnectionState.done
-                      ? const CircleAvatar(
-                          radius: 25,
-                          foregroundImage: NetworkImage(
-                              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqGH-vLqWoKxeUdO_-j3FfRt_ickuQEG-QCUroW7k&s'))
-                      : const CircularProgressIndicator(),
+            return GestureDetector(
+              onTap: () {
+                showPlatformDialog(
+                  context: context,
+                  builder: (context) => BasicDialogAlert(
+                    title: const Text("Follow Request"),
+                    content: const Text("Do you want this user to follow you"),
+                    actions: <Widget>[
+                      BasicDialogAction(
+                        title: const Text(
+                          "Confirm",
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      BasicDialogAction(
+                        title: const Text("Refuse"),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+              child: Card(
+                child: ListTile(
+                  leading: FutureBuilder(
+                    future: Future.delayed(const Duration(seconds: 1)),
+                    builder: (c, s) => s.connectionState == ConnectionState.done
+                        ? const CircleAvatar(
+                            radius: 25,
+                            foregroundImage: NetworkImage(
+                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqGH-vLqWoKxeUdO_-j3FfRt_ickuQEG-QCUroW7k&s'))
+                        : const CircularProgressIndicator(),
+                  ),
+                  title: const Text('Rustam'),
+                  subtitle: const Text('Follow Request '),
+                  trailing: const Icon(Icons.more_vert),
                 ),
-                title: const Text('Rustam'),
-                subtitle: const Text('Here is a second line'),
-                trailing: const Icon(Icons.more_vert),
               ),
             );
           },

@@ -4,7 +4,7 @@ import 'package:eduninjav2/presention/my_profile/view/my_profile_edit.dart';
 import 'package:eduninjav2/presention/my_profile/my_profile_social.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../my_profile_class.dart';
+import 'my_profile_class.dart';
 import '../my_profile_main.dart';
 
 enum MyProfileItems { profile, classs, edit, social }
@@ -43,7 +43,7 @@ class _MyProfileState extends State<MyProfile> {
                     child: Row(
                       children: [
                         MyProfileClass(
-                          icon: Icons.account_box,
+                          icon: Icons.person_outline_rounded,
                           text: 'My Profile',
                           onTap: () {
                             setState(() {
@@ -52,7 +52,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                         MyProfileClass(
-                          icon: Icons.groups,
+                          icon: Icons.groups_outlined,
                           text: 'My Class',
                           onTap: () {
                             setState(() {
@@ -61,7 +61,7 @@ class _MyProfileState extends State<MyProfile> {
                           },
                         ),
                         MyProfileClass(
-                          icon: Icons.groups,
+                          icon: Icons.person_add_alt,
                           text: 'Social',
                           onTap: () {
                             setState(() {

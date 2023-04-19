@@ -130,7 +130,7 @@ class _AllSubjectsState extends State<AllSubjects> {
                         ),
                         SizedBox(width: 20.h),
                         TopRightFunctions(
-                          icon: Icons.person_add_alt_rounded,
+                          icon: Icons.groups,
                           onTap: () {
                             showDialog(
                               context: context,
