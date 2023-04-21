@@ -28,12 +28,18 @@ class Lesson {
   final String body;
   @JsonKey(defaultValue: '')
   final String image;
+  @JsonKey(defaultValue: '')
+  final String question;
+  @JsonKey(defaultValue: '')
+  final String answer;
 
   Lesson({
     required this.title,
     required this.subtitle,
     required this.body,
     required this.image,
+    required this.question,
+    required this.answer,
   });
 
   factory Lesson.fromJson(Map<String, dynamic> json) => _$LessonFromJson(json);

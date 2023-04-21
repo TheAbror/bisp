@@ -273,7 +273,7 @@ class _LessonsList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: lessonsList.length,
         itemBuilder: (context, index) {
-          return AllSubjectSpecificSubject(moduleName: moduleName, lesson: lessonsList[index]);
+          return AllSubjectSpecificSubject(lesson: lessonsList[index]);
         },
       );
     }

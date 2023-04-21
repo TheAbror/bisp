@@ -25,6 +25,8 @@ Lesson _$LessonFromJson(Map<String, dynamic> json) => Lesson(
       subtitle: json['subtitle'] as String? ?? '',
       body: json['body'] as String? ?? '',
       image: json['image'] as String? ?? '',
+      question: json['question'] as String? ?? '',
+      answer: json['answer'] as String? ?? '',
     );
 
 Map<String, dynamic> _$LessonToJson(Lesson instance) => <String, dynamic>{
@@ -32,4 +34,6 @@ Map<String, dynamic> _$LessonToJson(Lesson instance) => <String, dynamic>{
       'subtitle': instance.subtitle,
       'body': instance.body,
       'image': instance.image,
+      'question': instance.question,
+      'answer': instance.answer,
     };
