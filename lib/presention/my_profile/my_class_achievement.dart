@@ -63,7 +63,6 @@ class _MyClassState extends State<MyClass> {
   }
 }
 
-//TODO do this later
 class MyProfileSubjectPercentage extends StatelessWidget {
   const MyProfileSubjectPercentage({
     Key? key,

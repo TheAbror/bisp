@@ -3,8 +3,6 @@ import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/ads/google_ads.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/cms/model/cms.dart';
-import 'package:eduninjav2/presention/subjects/all_subjects_main.dart';
-import 'package:eduninjav2/presention/subjects/quzzes/solve_quizzes.dart';
 import 'package:eduninjav2/presention/subjects/widgets/study_topic_button.dart';
 import 'package:eduninjav2/presention/user_level/bloc/user_level_bloc.dart';
 import 'package:flutter/material.dart';

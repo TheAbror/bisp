@@ -1,18 +1,17 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:eduninjav2/presention/my_profile/view/my_profile_star.dart';
-import 'package:eduninjav2/presention/settings/settings_main.dart';
-import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
-import 'package:eduninjav2/presention/user_level/user_level.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:eduninjav2/core/constants/bloc_progress.dart';
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/core/constants/values/custom_dropdownbutton.dart';
 import 'package:eduninjav2/core/constants/values/topRight_functions.dart';
 import 'package:eduninjav2/presention/cms/bloc/cms_bloc.dart';
 import 'package:eduninjav2/presention/cms/model/cms.dart';
+import 'package:eduninjav2/presention/my_profile/view/my_profile_star.dart';
+import 'package:eduninjav2/presention/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/subject_inner.dart';
+import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
+import 'package:eduninjav2/presention/user_level/user_level.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AllSubjects extends StatefulWidget {
@@ -108,37 +107,9 @@ class _AllSubjectsState extends State<AllSubjects> {
                     top: 5.w,
                     child: Row(
                       children: [
-                        //TODO PRETTY CLOSE
-                        // AudioWidget.assets(
-                        //   path: "assets/audios/country.mp3",
-                        //   play: music,
-                        //   child: ElevatedButton(
-                        //       child: Text(
-                        //         music ? "pause" : "play",
-                        //       ),
-                        //       onPressed: () {
-                        //         setState(() {
-                        //           music = !music;
-                        //         });
-                        //       }),
-                        //   onReadyToPlay: (duration) {
-                        //     //onReadyToPlay
-                        //   },
-                        //   onPositionChanged: (current, duration) {
-                        //     //onPositionChanged
-                        //   },
-                        // ),
                         TopRightFunctions(
                           icon: music ? Icons.mic : Icons.mic_off,
                           onTap: () {
-                            //create a new player
-                            // final assetsAudioPlayer = AssetsAudioPlayer();
-
-                            // assetsAudioPlayer.open(
-                            //   Audio.file('audios/Mozart.mp3'),
-                            // );
-
-                            //TODO add music player
                             setState(() {
                               music = !music;
                             });
