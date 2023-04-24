@@ -8,14 +8,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final Uri _url = Uri.parse('https://t.me/+dixVuR-vLUoyMmQy');
+
 Future<void> _launchUrl() async {
   if (!await launchUrl(_url)) {
     throw 'Could not launch $_url';
   }
 }
 
-bool on = true;
-bool off = false;
+bool isSoundPlaying = true;
+bool isMusicPlaying = false;
 
 class SettingsBody extends StatefulWidget {
   const SettingsBody({
@@ -49,21 +50,24 @@ class _SettingsBodyState extends State<SettingsBody> {
                     children: [
                       SubjectsSettingsItems(
                         // music ? Icons.mic : Icons.mic_off,
-                        text: on ? 'ON' : 'OFF',
+                        text: isSoundPlaying ? 'ON' : 'OFF',
                         actionName: 'Sound',
                         onTap: () {
-                          FlameAudio.bgm.pause();
+                          if (isSoundPlaying == false) FlameAudio.bgm.play('mona.mp3');
+                          if (isSoundPlaying == true) FlameAudio.bgm.pause();
                           setState(() {
-                            on = !on;
+                            isSoundPlaying = !isSoundPlaying;
                           });
                         },
                       ),
                       SubjectsSettingsItems(
-                        text: off ? 'ON' : 'OFF',
+                        text: isMusicPlaying ? 'ON' : 'OFF',
                         actionName: 'Music',
                         onTap: () {
+                          if (isMusicPlaying == false) FlameAudio.bgm.play('Mozart.mp3');
+                          if (isMusicPlaying == true) FlameAudio.bgm.pause();
                           setState(() {
-                            off = !off;
+                            isMusicPlaying = !isMusicPlaying;
                           });
                         },
                       ),

@@ -9,10 +9,10 @@ bool loading = true;
 String statusServer = "CONNECTING";
 
 final List<Tasks> task = <Tasks>[
-  Tasks(task: 'Find History teacher MRs.Green and ash her about The home task', taskDone: false),
-  Tasks(task: 'Complete History tests', taskDone: false),
+  Tasks(task: 'Learn about Biology concepts', taskDone: true),
+  Tasks(task: 'Learn about Biology History', taskDone: false),
   Tasks(task: 'Study about Civil War', taskDone: false),
-  Tasks(task: 'Go to basketball field', taskDone: false),
+  Tasks(task: 'Study about Chemical basis', taskDone: false),
 ];
 
 class LeftMenuItems extends StatefulWidget {
