@@ -111,8 +111,8 @@ class _AllSubjectsState extends State<AllSubjects> {
                         TopRightFunctions(
                           icon: isPlaying ? Icons.music_note_outlined : Icons.music_off_outlined,
                           onTap: () {
-                            if (isPlaying == true) FlameAudio.bgm.play('Mozart.mp3');
-                            if (isPlaying == false) FlameAudio.bgm.pause();
+                            if (isPlaying == false) FlameAudio.bgm.play('Mozart.mp3');
+                            if (isPlaying == true) FlameAudio.bgm.pause();
                             setState(() {
                               isPlaying = !isPlaying;
                             });
