@@ -9,6 +9,7 @@ import 'package:eduninjav2/presention/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/subject_inner.dart';
 import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
 import 'package:eduninjav2/presention/user_level/user_level.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +28,7 @@ int level = 1;
 class _AllSubjectsState extends State<AllSubjects> {
   String? selectedGrade;
   List<String> grades = ['Grade 7'];
-  bool music = true;
+  bool isPlaying = false;
 
   @override
   void initState() {
@@ -108,10 +109,12 @@ class _AllSubjectsState extends State<AllSubjects> {
                     child: Row(
                       children: [
                         TopRightFunctions(
-                          icon: music ? Icons.mic : Icons.mic_off,
+                          icon: isPlaying ? Icons.music_note_outlined : Icons.music_off_outlined,
                           onTap: () {
+                            if (isPlaying == true) FlameAudio.bgm.play('Mozart.mp3');
+                            if (isPlaying == false) FlameAudio.bgm.pause();
                             setState(() {
-                              music = !music;
+                              isPlaying = !isPlaying;
                             });
                           },
                         ),
