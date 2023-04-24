@@ -49,7 +49,7 @@ class _RightMenuItemsState extends State<RightMenuItems> {
           ),
           SizedBox(width: 6.w),
           TopRightFunctions(
-            icon: Icons.list,
+            icon: Icons.manage_search_rounded,
             onTap: () {
               ApiProvider.create();
               Navigator.push(

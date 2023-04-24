@@ -20,7 +20,6 @@ class _ChatWidgetState extends State<ChatWidget> {
       bottom: 0,
       child: Row(
         children: [
-          //TODO connect firebase
           //open-closing arrows
           GestureDetector(
             onTap: () {

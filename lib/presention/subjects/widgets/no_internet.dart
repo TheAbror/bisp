@@ -1,6 +1,4 @@
-import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 
 class NoInternet extends StatelessWidget {
