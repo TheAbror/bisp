@@ -325,109 +325,111 @@ class _AllSubjectSpecificSubjectState extends State<AllSubjectSpecificSubject> {
                             if (state.blocProgress == BlocProgress.FAILED) {
                               return const Center(child: CircularProgressIndicator(color: Colors.white));
                             }
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Fill in the gaps',
-                                  style: TextStyle(
-                                    fontSize: 28.sp,
-                                    fontWeight: FontWeight.bold,
-                                    // color: AppColors.primaryColor,
-                                    decoration: TextDecoration.underline,
+                            return SingleChildScrollView(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Fill in the gaps',
+                                    style: TextStyle(
+                                      fontSize: 28.sp,
+                                      fontWeight: FontWeight.bold,
+                                      // color: AppColors.primaryColor,
+                                      decoration: TextDecoration.underline,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: 40.h),
-                                Text(
-                                  widget.lesson.question,
-                                  style: TextStyle(fontSize: 28.sp),
-                                ),
-                                SizedBox(height: 20.h),
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 10.w),
-                                  child: TextFormField(
-                                    onSaved: (String? value) {
-                                      _enteredValue = value ?? '';
-                                    },
-                                    decoration: const InputDecoration(hintText: 'Enter the Value'),
-                                    validator: (text) {
-                                      if (text?.isNotEmpty != true) {
-                                        return 'Value can not be empty';
+                                  SizedBox(height: 40.h),
+                                  Text(
+                                    widget.lesson.question,
+                                    style: TextStyle(fontSize: 28.sp),
+                                  ),
+                                  SizedBox(height: 20.h),
+                                  Container(
+                                    margin: EdgeInsets.symmetric(horizontal: 10.w),
+                                    child: TextFormField(
+                                      onSaved: (String? value) {
+                                        _enteredValue = value ?? '';
+                                      },
+                                      decoration: const InputDecoration(hintText: 'Enter the Value'),
+                                      validator: (text) {
+                                        if (text?.isNotEmpty != true) {
+                                          return 'Value can not be empty';
+                                        }
+                                        return null;
+                                      },
+                                    ),
+                                  ),
+                                  SizedBox(height: 20.h),
+                                  ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        minimumSize: Size(300, 50.h), backgroundColor: Colors.red.shade900),
+                                    child: const Text('Check Results'),
+                                    onPressed: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        _formKey.currentState?.save();
+                                        print('Entered Value: $_enteredValue');
+                                        _enteredValue == widget.lesson.answer ? print('correct') : print('incorrect');
+                                        _enteredValue == widget.lesson.answer
+                                            ? () {
+                                                context.read<UserLevelBloc>().updateUserLevel();
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (context) => AlertDialog(
+                                                    title: const Text(
+                                                      'Correct!',
+                                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                                    ),
+                                                    content: const Text('You have earned 1 extra point)'),
+                                                    actions: <Widget>[
+                                                      ElevatedButton(
+                                                        style: ElevatedButton.styleFrom(
+                                                            minimumSize: Size(double.infinity, 50.h),
+                                                            backgroundColor: Colors.red.shade900),
+                                                        child: const Text('OK'),
+                                                        onPressed: () {
+                                                          Navigator.of(context).pop();
+                                                          Navigator.of(context).pop();
+                                                          Navigator.of(context).pop();
+                                                          showDialog(
+                                                            context: context,
+                                                            builder: (BuildContext context) {
+                                                              return const GoogleAds();
+                                                            },
+                                                          );
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              }
+                                            : () {
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (context) => AlertDialog(
+                                                    title: const Text(
+                                                      'Incorrect!',
+                                                      style: TextStyle(fontWeight: FontWeight.bold),
+                                                    ),
+                                                    content: const Text('Please try again'),
+                                                    actions: <Widget>[
+                                                      ElevatedButton(
+                                                        style: ElevatedButton.styleFrom(
+                                                            minimumSize: Size(double.infinity, 50.h),
+                                                            backgroundColor: Colors.red.shade900),
+                                                        child: const Text('OK'),
+                                                        onPressed: () {
+                                                          Navigator.of(context).pop();
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              };
                                       }
-                                      return null;
                                     },
                                   ),
-                                ),
-                                SizedBox(height: 20.h),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      minimumSize: Size(300, 50.h), backgroundColor: Colors.red.shade900),
-                                  child: const Text('Check Results'),
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      _formKey.currentState?.save();
-                                      print('Entered Value: $_enteredValue');
-                                      _enteredValue == widget.lesson.answer ? print('object1') : print('object2');
-                                      _enteredValue == widget.lesson.answer
-                                          ? () {
-                                              context.read<UserLevelBloc>().updateUserLevel();
-                                              showDialog(
-                                                context: context,
-                                                builder: (context) => AlertDialog(
-                                                  title: const Text(
-                                                    'Correct!',
-                                                    style: TextStyle(fontWeight: FontWeight.bold),
-                                                  ),
-                                                  content: const Text('You have earned 1 extra point)'),
-                                                  actions: <Widget>[
-                                                    ElevatedButton(
-                                                      style: ElevatedButton.styleFrom(
-                                                          minimumSize: Size(double.infinity, 50.h),
-                                                          backgroundColor: Colors.red.shade900),
-                                                      child: const Text('OK'),
-                                                      onPressed: () {
-                                                        Navigator.of(context).pop();
-                                                        Navigator.of(context).pop();
-                                                        Navigator.of(context).pop();
-                                                        showDialog(
-                                                          context: context,
-                                                          builder: (BuildContext context) {
-                                                            return const GoogleAds();
-                                                          },
-                                                        );
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            }
-                                          : () {
-                                              showDialog(
-                                                context: context,
-                                                builder: (context) => AlertDialog(
-                                                  title: const Text(
-                                                    'Incorrect!',
-                                                    style: TextStyle(fontWeight: FontWeight.bold),
-                                                  ),
-                                                  content: const Text('Please try again'),
-                                                  actions: <Widget>[
-                                                    ElevatedButton(
-                                                      style: ElevatedButton.styleFrom(
-                                                          minimumSize: Size(double.infinity, 50.h),
-                                                          backgroundColor: Colors.red.shade900),
-                                                      child: const Text('OK'),
-                                                      onPressed: () {
-                                                        Navigator.of(context).pop();
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            };
-                                    }
-                                  },
-                                ),
-                              ],
+                                ],
+                              ),
                             );
                           },
                         ),

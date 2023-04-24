@@ -13,20 +13,9 @@ class NoInternet extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 250.h,
-            width: 250.w,
-            child: const RiveAnimation.asset('assets/gifs/no-internet.riv'),
-          ),
-          Text(
-            'No Internet Connection',
-            style: TextStyle(
-              color: AppColors.primaryColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 24.sp,
-            ),
-            textAlign: TextAlign.center,
+        children: const [
+          Expanded(
+            child: RiveAnimation.asset('assets/gifs/server-error.riv'),
           ),
         ],
       ),

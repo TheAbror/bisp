@@ -2,6 +2,7 @@ import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/presention/settings/settings_main.dart';
 import 'package:eduninjav2/presention/skins/skins.dart';
 import 'package:eduninjav2/presention/subjects/language/language_select.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -51,6 +52,7 @@ class _SettingsBodyState extends State<SettingsBody> {
                         text: on ? 'ON' : 'OFF',
                         actionName: 'Sound',
                         onTap: () {
+                          FlameAudio.bgm.pause();
                           setState(() {
                             on = !on;
                           });
