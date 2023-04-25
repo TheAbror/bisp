@@ -2,7 +2,6 @@ import 'package:bonfire/util/game_controller.dart';
 import 'package:eduninjav2/interface/interface_chat.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/interface_talk.dart';
 import 'views/interface_top_functions.dart';
 
 class InterfaceOverlay extends StatefulWidget {
@@ -23,7 +22,7 @@ class _InterfaceOverlayState extends State<InterfaceOverlay> {
         children: [
           Container(height: double.infinity),
           const InterfaceTopFunctions(),
-          const TalkWidget(),
+          // const TalkWidget(),
           const ChatWidget(),
         ],
       ),

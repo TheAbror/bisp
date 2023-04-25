@@ -13,9 +13,10 @@ class WatchPage extends StatefulWidget {
   State<WatchPage> createState() => _WatchPageState();
 }
 
+// https://www.youtube.com/watch?v=URUJD5NEXC8&t=2s
 class _WatchPageState extends State<WatchPage> {
   final _controller = YoutubePlayerController.fromVideoId(
-    videoId: 'oUjaljMMy2M',
+    videoId: 'URUJD5NEXC8',
     autoPlay: false,
     params: const YoutubePlayerParams(
       showFullscreenButton: true,
@@ -151,55 +152,268 @@ class _WatchPageState extends State<WatchPage> {
                                 ),
                               ),
                               SizedBox(width: chatOpenWatch ? 20 : 0),
-                              const Text('Online 12/32'),
+                              const Text('Online 5/15'),
                             ],
                           ),
                         ),
                       ),
                       Expanded(
                         flex: 20,
-                        child: ListView.separated(
-                            itemCount: 20,
-                            separatorBuilder: (BuildContext context, int index) => const Divider(height: 1),
-                            itemBuilder: (BuildContext context, int index) {
-                              return SizedBox(
-                                height: 66.h,
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    const Spacer(),
-                                    const Icon(Icons.account_circle, color: Colors.white),
-                                    const Spacer(),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Text('User $index '),
-                                        SizedBox(
-                                          width: 90.w,
-                                          child: Text(
-                                            'Message $index goes right vbn vbn cvb  vbn ',
-                                            maxLines: 3,
-                                            softWrap: false,
-                                            // overflow: TextOverflow.fade,
-                                          ),
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const Icon(Icons.account_circle, color: Colors.white),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Mia',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
                                         ),
-                                      ],
-                                    ),
-                                    const Spacer(flex: 1),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          '5:1$index',
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'Hi there, what was the task?',
+                                          maxLines: 3,
+                                          softWrap: false,
+                                          overflow: TextOverflow.fade,
                                         ),
-                                      ],
-                                    ),
-                                    const Spacer(flex: 5),
-                                  ],
-                                ),
-                              );
-                            }),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const Icon(Icons.account_circle, color: Colors.white),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Keanu',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'To study about Chemical basis',
+                                          maxLines: 3,
+                                          softWrap: false,
+                                          overflow: TextOverflow.fade,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const FlutterLogo(),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Admin',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'Kids prepare for exams well',
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          // overflow: TextOverflow.fade,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const Icon(Icons.account_circle, color: Colors.white),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Art',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'Sure',
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          // overflow: TextOverflow.fade,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const Icon(Icons.account_circle, color: Colors.white),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Mike',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'Thank you for reminding',
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          // overflow: TextOverflow.fade,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const Icon(Icons.account_circle, color: Colors.white),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Scott',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'Thanks',
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          // overflow: TextOverflow.fade,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const Icon(Icons.account_circle, color: Colors.white),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Jennifer',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'We will do our best',
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          // overflow: TextOverflow.fade,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Spacer(),
+                                  const FlutterLogo(),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      const Text(
+                                        'Admin',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 90.w,
+                                        child: const Text(
+                                          'No problem',
+                                          maxLines: 2,
+                                          softWrap: false,
+                                          // overflow: TextOverflow.fade,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(flex: 5),
+                                ],
+                              ),
+                              const Divider(),
+                            ],
+                          ),
+                        ),
                       ),
                       Expanded(
                         flex: 2,

@@ -2,6 +2,15 @@ import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+final Uri _url = Uri.parse('https://flutter.dev/monetization');
+
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_url)) {
+    throw 'Could not launch $_url';
+  }
+}
 
 class GoogleAds extends StatefulWidget {
   const GoogleAds({super.key});
@@ -18,7 +27,7 @@ class _GoogleAdsState extends State<GoogleAds> {
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
         child: Container(
-          height: 470.h,
+          height: 504.h,
           width: 240.w,
           decoration: BoxDecoration(
             border: Border.all(
@@ -35,11 +44,9 @@ class _GoogleAdsState extends State<GoogleAds> {
                   children: [
                     SizedBox(height: 10.h),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
+                      onTap: _launchUrl,
                       child: SizedBox(
-                        height: 400.h,
+                        height: 390.h,
                         width: 300.w,
                         child: const RiveAnimation.asset('assets/gifs/bear_ad.riv'),
                       ),
@@ -48,13 +55,15 @@ class _GoogleAdsState extends State<GoogleAds> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Great Job!',
+                          'Great Job! \nPlease, learn about Google ads',
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 30.sp,
                             color: AppColors.primaryColor,
                           ),
                         ),
+                        SizedBox(width: 5.w),
                         Image.asset(
                           'assets/images/google_ads_logo_icon_171064.png',
                           width: 50.r,
