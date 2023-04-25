@@ -114,7 +114,9 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
                   children: [
                     Text('Current Level ${state.level.toStringAsFixed(2)}'),
                     SizedBox(height: 5.h),
-                    LinearProgressBarChild(percentage: state.level - 1)
+                    if (state.level <= 2.0) LinearProgressBarChild(percentage: state.level - 1),
+                    if (state.level >= 2.0) LinearProgressBarChild(percentage: state.level - 2),
+                    if (state.level >= 3.0) LinearProgressBarChild(percentage: state.level - 3),
                   ],
                 ),
               ],

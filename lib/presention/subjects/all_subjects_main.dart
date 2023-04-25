@@ -8,6 +8,7 @@ import 'package:eduninjav2/presention/my_profile/view/my_profile_star.dart';
 import 'package:eduninjav2/presention/settings/settings_main.dart';
 import 'package:eduninjav2/presention/subjects/subject_inner.dart';
 import 'package:eduninjav2/presention/subjects/widgets/no_internet.dart';
+import 'package:eduninjav2/presention/user_level/bloc/user_level_bloc.dart';
 import 'package:eduninjav2/presention/user_level/user_level.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
@@ -159,26 +160,32 @@ class _AllSubjectsState extends State<AllSubjects> {
                           },
                         );
                       },
-                      child: Container(
-                        width: 180.h,
-                        decoration: decorationDropdowns(),
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.white,
-                                child: Text(username[0].toUpperCase()),
-                              ),
-                            ),
-                            Column(
+                      child: BlocBuilder<UserLevelBloc, UserLevelState>(
+                        builder: (context, state) {
+                          return Container(
+                            width: 180.h,
+                            decoration: decorationDropdowns(),
+                            child: Row(
                               children: [
-                                Text(username),
-                                Text(' Level $level'),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 2.w, horizontal: 8.h),
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    child: Text(username[0].toUpperCase()),
+                                  ),
+                                ),
+                                Column(
+                                  children: [
+                                    Text(username),
+                                    Text(
+                                      'Level: ${state.level.toStringAsFixed(2)}',
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ),
