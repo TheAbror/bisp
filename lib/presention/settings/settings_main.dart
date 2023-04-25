@@ -89,9 +89,12 @@ class SettingsTerms extends StatelessWidget {
           context: context,
           builder: (BuildContext context) {
             return Center(
-              child: Text(
-                text,
-                style: const TextStyle(color: Colors.white),
+              child: SizedBox(
+                width: 200.w,
+                child: Text(
+                  text,
+                  style: const TextStyle(color: Colors.white),
+                ),
               ),
             );
           },
