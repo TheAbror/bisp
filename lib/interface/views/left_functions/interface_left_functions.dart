@@ -1,7 +1,9 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
 import 'package:eduninjav2/interface/widgets/interface_linear_bar.dart';
 import 'package:eduninjav2/interface/widgets/interface_tasks_class.dart';
+import 'package:eduninjav2/presention/user_level/bloc/user_level_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 bool open = false;
@@ -30,27 +32,32 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              const LinearProgressBar(percentage: 0.0),
-              SizedBox(width: 5.w),
-              GestureDetector(
-                onTap: () {
-                  open = !open;
-                  setState(() {});
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFEAE2DC),
-                      border: Border.all(color: AppColors.primaryColor, width: 2.w),
-                      borderRadius: BorderRadius.circular(10),
+          BlocBuilder<UserLevelBloc, UserLevelState>(
+            builder: (context, state) {
+              return Row(
+                children: [
+                  LinearProgressBar(percentage: state.level - 1),
+                  SizedBox(width: 5.w),
+                  GestureDetector(
+                    onTap: () {
+                      open = !open;
+                      setState(() {});
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFEAE2DC),
+                        border: Border.all(color: AppColors.primaryColor, width: 2.w),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 12.h),
+                        child: const Icon(Icons.expand_more),
+                      ),
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12.h),
-                      child: const Icon(Icons.expand_more),
-                    )),
-              ),
-            ],
+                  ),
+                ],
+              );
+            },
           ),
           SizedBox(height: 6.h),
           Opacity(
@@ -106,17 +113,6 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
             ),
           ),
           const Spacer(),
-          // if (loading)
-          //   Align(
-          //     alignment: Alignment.bottomLeft,
-          //     child: Padding(
-          //       padding: const EdgeInsets.all(8.0),
-          //       child: Text(
-          //         statusServer,
-          //         style: const TextStyle(fontSize: 12, color: Colors.white),
-          //       ),
-          //     ),
-          //   ),
         ],
       ),
     );

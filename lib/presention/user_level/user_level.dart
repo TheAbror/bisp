@@ -1,4 +1,5 @@
 import 'package:eduninjav2/core/constants/values/app_colors.dart';
+import 'package:eduninjav2/core/shared_preferences/preferences_services.dart';
 import 'package:eduninjav2/presention/user_level/bloc/user_level_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';
 
 class UserLevel extends StatelessWidget {
-  const UserLevel({super.key});
+  UserLevel({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +68,7 @@ class UserLevel extends StatelessWidget {
                         GestureDetector(
                           onTap: () {
                             context.read<UserLevelBloc>().updateUserLevel();
+                            _saveData();
                           },
                           child: SizedBox(
                             height: 220.h,
@@ -84,5 +86,15 @@ class UserLevel extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  final _preferencesService = PreferencesServices();
+
+  void _saveData() {
+    final userData = UserDetails(
+      userLevel: 1.00,
+    );
+
+    _preferencesService.saveUserData(userData);
   }
 }

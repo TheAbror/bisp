@@ -24,3 +24,8 @@ class UserLevelState extends Equatable {
   @override
   List<Object?> get props => [level];
 }
+
+void asd() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  level = (prefs.getDouble('level') ?? 1);
+}

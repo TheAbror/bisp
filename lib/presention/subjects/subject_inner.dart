@@ -384,7 +384,7 @@ class _AllSubjectSpecificSubjectState extends State<AllSubjectSpecificSubject> {
                                                   'Correct!',
                                                   style: TextStyle(fontWeight: FontWeight.bold),
                                                 ),
-                                                content: const Text('You have earned 1 extra point)'),
+                                                content: const Text('You have earned 5 extra point)'),
                                                 actions: <Widget>[
                                                   ElevatedButton(
                                                     style: ElevatedButton.styleFrom(

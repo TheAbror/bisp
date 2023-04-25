@@ -46,13 +46,14 @@ class _SelectHeroState extends State<SelectHero> {
   void _populateFields() async {
     final userDetails = await _preferencesService.getUserData();
     setState(() {
-      _usernameController.text = userDetails.username;
+      _usernameController.text = userDetails.username ?? '';
     });
   }
 
   void _saveData() {
     final userData = UserDetails(
       username: _usernameController.text,
+      userLevel: 1.11,
     );
 
     _preferencesService.saveUserData(userData);
@@ -140,6 +141,7 @@ class _SelectHeroState extends State<SelectHero> {
                                 ),
                                 onPressed: (() async {
                                   _saveData();
+                                  // context.read<UserLevelBloc>().updateUserLevel();
                                   if (_form.currentState!.validate()) {
                                     ApiProvider.create();
 

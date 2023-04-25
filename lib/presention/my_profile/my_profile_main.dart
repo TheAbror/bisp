@@ -1,6 +1,9 @@
 import 'dart:io';
+import 'package:eduninjav2/interface/widgets/interface_linear_bar.dart';
 import 'package:eduninjav2/presention/my_profile/my_class_achievement.dart';
+import 'package:eduninjav2/presention/user_level/bloc/user_level_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -44,93 +47,79 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
+        BlocBuilder<UserLevelBloc, UserLevelState>(
+          builder: (context, state) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                file == null
-                    ? const CircleAvatar(
-                        radius: 50,
-                        backgroundColor: AppColors.settingsTopColor,
-                        child: Icon(
-                          Icons.image,
-                          color: Colors.white,
-                        ))
-                    : Container(
-                        height: 110.h,
-                        width: 110.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.file(file!, fit: BoxFit.fill),
+                Column(
+                  children: [
+                    file == null
+                        ? const CircleAvatar(
+                            radius: 50,
+                            backgroundColor: AppColors.settingsTopColor,
+                            child: Icon(
+                              Icons.image,
+                              color: Colors.white,
+                            ))
+                        : Container(
+                            height: 110.h,
+                            width: 110.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.file(file!, fit: BoxFit.fill),
+                            ),
+                          ),
+                    GestureDetector(
+                      onTap: (() => getgall()),
+                      child: const Text(
+                        'Set Avatar',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
                         ),
                       ),
-                GestureDetector(
-                  onTap: (() => getgall()),
-                  child: const Text(
-                    'Set Avatar',
-                    style: TextStyle(
-                      decoration: TextDecoration.underline,
                     ),
-                  ),
+                  ],
+                ),
+                SizedBox(width: 10.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text('First Name:'),
+                    Text('Last Name:'),
+                    Text('Student ID:'),
+                    Text('Date of Birth:'),
+                    Text('Group:'),
+                    Text('Email:'),
+                  ],
+                ),
+                SizedBox(width: 10.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(username),
+                    const Text('Shamuradov'),
+                    const Text('00009647'),
+                    const Text('25.10.2001'),
+                    const Text('Black Dragons'),
+                    const Text('oyjddkvj@gmail.com'),
+                  ],
+                ),
+                //overall performance
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('Current Level ${state.level.toStringAsFixed(2)}'),
+                    SizedBox(height: 5.h),
+                    LinearProgressBarChild(percentage: state.level - 1)
+                  ],
                 ),
               ],
-            ),
-            SizedBox(width: 10.w),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('First Name:'),
-                Text('Last Name:'),
-                Text('Student ID:'),
-                Text('Date of Birth:'),
-                Text('Group:'),
-                Text('Email:'),
-              ],
-            ),
-            SizedBox(width: 10.w),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(username),
-                const Text('Shamuradov'),
-                const Text('00009647'),
-                const Text('25.10.2001'),
-                const Text('Black Dragons'),
-                const Text('oyjddkvj@gmail.com'),
-              ],
-            ),
-            //overall performance
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('Current Level ${level + 1}'),
-                SizedBox(height: 5.h),
-                LinearPercentIndicator(
-                  width: 84.w,
-                  lineHeight: 30.h,
-                  percent: level / 100,
-                  backgroundColor: AppColors.taskbarBackground,
-                  progressColor: AppColors.taskDoneColor,
-                  barRadius: const Radius.circular(32),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 5,
-                    vertical: 1,
-                  ),
-                  center: Text(
-                    "${(level / 100).round()}%",
-                    style: const TextStyle(
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+            );
+          },
         ),
         SizedBox(height: 10.h),
         const Divider(

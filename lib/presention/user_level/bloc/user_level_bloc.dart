@@ -9,13 +9,13 @@ double level = 1.0;
 class UserLevelBloc extends Cubit<UserLevelState> {
   void asd() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    level = (prefs.getDouble('level') ?? 0);
+    level = (prefs.getDouble('level') ?? 1);
   }
 
   UserLevelBloc() : super(UserLevelState.initial());
 
   void updateUserLevel() {
-    double newValue = state.level + 0.01;
+    double newValue = state.level + 0.05;
     emit(state.copyWith(level: newValue));
   }
 }

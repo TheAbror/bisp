@@ -4,8 +4,8 @@ class PreferencesServices {
   Future saveUserData(UserDetails userDetails) async {
     final preferences = await SharedPreferences.getInstance();
 
-    await preferences.setString('username', userDetails.username);
-    await preferences.setDouble('level', userDetails.userLevel ?? 0);
+    await preferences.setString('username', userDetails.username ?? 'Abror');
+    await preferences.setDouble('level', userDetails.userLevel ?? 1.0);
   }
 
   Future<UserDetails> getUserData() async {
@@ -20,8 +20,8 @@ class PreferencesServices {
 
 //models
 class UserDetails {
-  final String username;
+  final String? username;
   final double? userLevel;
 
-  UserDetails({required this.username, this.userLevel});
+  UserDetails({this.username, this.userLevel});
 }
