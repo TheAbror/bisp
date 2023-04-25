@@ -37,8 +37,10 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
               return Row(
                 children: [
                   if (state.level <= 2.0) LinearProgressBar(percentage: state.level - 1),
-                  if (state.level >= 2.0) LinearProgressBar(percentage: state.level - 2),
-                  if (state.level >= 3.0) LinearProgressBar(percentage: state.level - 3),
+                  if (state.level >= 2.0 && state.level <= 3.0) LinearProgressBar(percentage: state.level - 2),
+                  if (state.level >= 3.0 && state.level <= 4.0) LinearProgressBar(percentage: state.level - 3),
+                  if (state.level >= 4.0 && state.level <= 5.0) LinearProgressBar(percentage: state.level - 4),
+                  if (state.level >= 5.0 && state.level <= 6.0) LinearProgressBar(percentage: state.level - 5),
                   SizedBox(width: 5.w),
                   GestureDetector(
                     onTap: () {
