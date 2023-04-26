@@ -23,8 +23,7 @@ class GlobalConstants {
       'has_next': true,
     },
     {
-      'text':
-          'Today you will learn about The Civil War — a war in which Americans fought other Americans—transformed the United States.',
+      'text': 'Today you will learn about Biology Concepts — it is a scientific study of life.',
       'has_next': true,
     },
     {
@@ -41,6 +40,10 @@ class GlobalConstants {
       'text':
           'Also, you can make this tutorials together with your friends or other students, who are online. Make connections and try to colloborate with your new friends and you will get additional points of experience for communication.',
       'has_next': true,
+    },
+    {
+      'text': 'First task: go to whiteboard in Room 101',
+      'has_next': false,
     },
     {
       'text': 'Good luck and have fun!',
@@ -179,22 +182,4 @@ class GlobalConstants {
       ]
     },
   ];
-
-  // static final List<Map<String, dynamic>> demoTasks = [
-  //   {
-  //     'id': 1,
-  //     'title': 'Find History teacher - Mrs. Green',
-  //     'done': false,
-  //   },
-  //   {
-  //     'id': 2,
-  //     'title': 'Talk to Nancy and ask to help with h/w',
-  //     'done': false,
-  //   },
-  //   {
-  //     'id': 3,
-  //     'title': 'Go to Library and read the passage in shelf #17',
-  //     'done': false,
-  //   },
-  // ];
 }

@@ -10,13 +10,6 @@ bool open = false;
 bool loading = true;
 String statusServer = "CONNECTING";
 
-final List<Tasks> task = <Tasks>[
-  Tasks(task: 'Learn about Biology concepts', taskDone: true),
-  Tasks(task: 'Learn about Biology History', taskDone: false),
-  Tasks(task: 'Study about Civil War', taskDone: false),
-  Tasks(task: 'Study about Chemical basis', taskDone: false),
-];
-
 class LeftMenuItems extends StatefulWidget {
   const LeftMenuItems({super.key});
 
@@ -66,54 +59,83 @@ class _LeftMenuItemsState extends State<LeftMenuItems> {
           SizedBox(height: 6.h),
           Opacity(
             opacity: open ? 1.0 : 0,
-            child: Container(
-              height: 200.h,
-              width: 110.w,
-              decoration: BoxDecoration(
-                  color: const Color(0xFFEAE2DC),
-                  border: Border.all(color: AppColors.primaryColor, width: 1.w),
-                  borderRadius: BorderRadius.circular(10)),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(4.h),
-                    child: Text('Tasks', style: TextStyle(fontSize: 22.sp, color: AppColors.primaryColor)),
-                  ),
-                  SizedBox(
-                    height: 155.h,
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 4.h),
-                              child: Icon(
-                                task[index].taskDone == false ? Icons.check_box_outline_blank : Icons.check_box,
-                                color: AppColors.taskDoneColor,
+            child: BlocBuilder<UserLevelBloc, UserLevelState>(
+              builder: (context, stateChild) {
+                return Container(
+                  height: 200.h,
+                  width: 110.w,
+                  decoration: BoxDecoration(
+                      color: const Color(0xFFEAE2DC),
+                      border: Border.all(color: AppColors.primaryColor, width: 1.w),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(4.h),
+                        child: Text('Tasks', style: TextStyle(fontSize: 22.sp, color: AppColors.primaryColor)),
+                      ),
+                      SizedBox(
+                        height: 155.h,
+                        child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: 7,
+                          itemBuilder: (context, index) {
+                            final List<Tasks> task = <Tasks>[
+                              Tasks(task: 'Go to whiteboard in Room 101 ', taskDone: true),
+                              Tasks(
+                                  task: 'Learn about Biology concepts',
+                                  taskDone: stateChild.level > 1.001 ? true : false),
+                              Tasks(
+                                  task: 'Learn about Biology History',
+                                  taskDone: stateChild.level > 1.05 && stateChild.level < 1.16 ? true : false),
+                              Tasks(
+                                task: 'Study about Chemical basis',
+                                taskDone: stateChild.level > 1.11 && stateChild.level < 1.16 ? true : false,
                               ),
-                            ),
-                            SizedBox(
-                              width: 90.w,
-                              child: Text(
-                                task[index].task,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 3,
-                                textAlign: TextAlign.start,
-                                softWrap: true,
-                                style: const TextStyle(color: AppColors.primaryColor),
+                              Tasks(
+                                task: 'Study about Macromelecules',
+                                taskDone: false,
                               ),
-                            ),
-                            SizedBox(height: 5.h)
-                          ],
-                        );
-                      },
-                      itemCount: task.length,
-                    ),
+                              Tasks(
+                                task: 'Study about Cells',
+                                taskDone: false,
+                              ),
+                              Tasks(
+                                task: 'Study about Metabolism',
+                                taskDone: false,
+                              ),
+                            ];
+                            return Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 4.h),
+                                  child: Icon(
+                                    task[index].taskDone == false ? Icons.check_box_outline_blank : Icons.check_box,
+                                    color: AppColors.taskDoneColor,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 90.w,
+                                  child: Text(
+                                    task[index].task,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines: 3,
+                                    textAlign: TextAlign.start,
+                                    softWrap: true,
+                                    style: const TextStyle(color: AppColors.primaryColor),
+                                  ),
+                                ),
+                                SizedBox(height: 5.h)
+                              ],
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ),
           const Spacer(),

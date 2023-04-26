@@ -61,10 +61,11 @@ class _MyProfileSubjectMainState extends State<MyProfileSubjectMain> {
                             child: Icon(
                               Icons.image,
                               color: Colors.white,
-                            ))
+                            ),
+                          )
                         : Container(
-                            height: 110.h,
-                            width: 110.h,
+                            height: 120.h,
+                            width: 120.h,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                             ),
