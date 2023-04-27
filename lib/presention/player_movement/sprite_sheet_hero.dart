@@ -32,24 +32,6 @@ class SpriteSheetHero {
     );
   }
 
-  static Future<SpriteAnimation> get smokeExplosion => SpriteAnimation.load(
-        "smoke_explosin.png",
-        SpriteAnimationData.sequenced(
-          amount: 6,
-          textureSize: Vector2(16, 16),
-          stepTime: 0.1,
-        ),
-      );
-
-  static Future<SpriteAnimation> get attackAxe => SpriteAnimation.load(
-        "axe_spin_atack.png",
-        SpriteAnimationData.sequenced(
-          amount: 8,
-          textureSize: Vector2(148, 148),
-          stepTime: 0.05,
-        ),
-      );
-
   static SimpleDirectionAnimation animationBySpriteSheet(SpriteSheet spriteSheet) {
     return SimpleDirectionAnimation(
       idleUp: Future.value(
@@ -78,4 +60,22 @@ class SpriteSheetHero {
       ),
     );
   }
+
+  static Future<SpriteAnimation> get smokeExplosion => SpriteAnimation.load(
+        "smoke_explosin.png",
+        SpriteAnimationData.sequenced(
+          amount: 6,
+          textureSize: Vector2(16, 16),
+          stepTime: 0.1,
+        ),
+      );
+
+  static Future<SpriteAnimation> get attackAxe => SpriteAnimation.load(
+        "axe_spin_atack.png",
+        SpriteAnimationData.sequenced(
+          amount: 8,
+          textureSize: Vector2(148, 148),
+          stepTime: 0.05,
+        ),
+      );
 }

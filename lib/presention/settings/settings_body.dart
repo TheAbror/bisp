@@ -53,7 +53,7 @@ class _SettingsBodyState extends State<SettingsBody> {
                       SubjectsSettingsItems(
                         // music ? Icons.mic : Icons.mic_off,
                         text: isSoundPlaying ? 'ON' : 'OFF',
-                        actionName: 'Sound',
+                        actionName: 'Song',
                         onTap: () {
                           if (isSoundPlaying == false) FlameAudio.bgm.play('mona.mp3');
                           if (isSoundPlaying == true) FlameAudio.bgm.pause();

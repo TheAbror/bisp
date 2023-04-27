@@ -28,7 +28,7 @@ int level = 1;
 
 class _AllSubjectsState extends State<AllSubjects> {
   String? selectedGrade;
-  List<String> grades = ['Grade 7'];
+  List<String> grades = ['Grade 5'];
   bool isPlaying = false;
 
   @override

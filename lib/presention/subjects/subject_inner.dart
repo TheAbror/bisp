@@ -371,7 +371,7 @@ class _AllSubjectSpecificSubjectState extends State<AllSubjectSpecificSubject> {
                                         if (_formKey.currentState!.validate()) {
                                           _formKey.currentState?.save();
                                           print('Entered Value: $_enteredValue');
-                                          _enteredValue.toLowerCase() == widget.lesson.answer.toLowerCase()
+                                          _enteredValue.trim().toLowerCase() == widget.lesson.answer.toLowerCase()
                                               ? print('correct')
                                               : print('incorrect');
                                           if (_enteredValue.toLowerCase() == widget.lesson.answer.toLowerCase()) {
